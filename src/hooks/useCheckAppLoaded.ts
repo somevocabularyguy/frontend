@@ -21,7 +21,7 @@ const useCheckAppLoaded = () => {
   useEffect(() => {
     const storedCheckedLevels = storage.getItem('checkedLevels');
 
-    const checkedLevelsBoolean = storedCheckedLevels.length ?
+    const checkedLevelsBoolean = storedCheckedLevels?.length ?
       checkedLevels.length ? true : false
       : true;
     const arrayBoolean = words.length && levels.length; 

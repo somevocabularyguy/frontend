@@ -18,8 +18,23 @@ const setLanguageCookie = (languageArray: string[]) => {
   });
 };
 
+const getObjectSize = (object: any) => {
+  const objectString = JSON.stringify(object);
+  let bytes =  new TextEncoder().encode(objectString).length; // Size in bytes
+
+  const units = ['Bytes', 'KB', 'MB', 'GB'];
+  let unitIndex = 0;
+
+  while (bytes >= 1024 && unitIndex < units.length - 1) {
+    bytes /= 1024;
+    unitIndex++;
+  }
+
+  return `${bytes.toFixed(2)} ${units[unitIndex]}`;
+}
+
 const wait = (ms: number) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export { extractParts, setLanguageCookie, wait };
+export { extractParts, setLanguageCookie, wait, getObjectSize };

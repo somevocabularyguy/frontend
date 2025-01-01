@@ -2,17 +2,23 @@
 
 import styles from './SignInPopup.module.css';
 import { useState, useEffect, useRef } from 'react';
+import { UserData } from '@/types';
 
 import storage from '@/storage';
 import { Button, Text } from '@/components/atoms';
 
+import { updateWords } from '@/store/wordSlice';
+import { updateUserData } from '@/store/userDataSlice';
 import { updateIsSignedIn } from '@/store/userSettingsSlice';
 import { useAppSelector, useAppDispatch } from '@/store/store';
+import { addSingleWordResource, removeSingleWordResource } from '@/store/languageSlice';
 import { updateIsWaitingVerify, updateIsSignInPopupVisible } from '@/store/accountUiSlice';
+
+import { loadWordResourcesClient } from '@/utils/dataUtilsClient';
 
 import { EmailIcon } from '@/public/icons';
 import { useCustomTranslation } from '@/hooks';
-import { sendMagicLink, verifySignIn } from '@/lib/api';
+import { sendMagicLink, verifySignIn, syncUserData } from '@/lib/api';
 
 const SignInPopup: React.FC = () => {
   const t = useCustomTranslation("Popups.SignInPopup");
@@ -51,7 +57,6 @@ const SignInPopup: React.FC = () => {
       if (response.status === 200) {
         dispatch(updateIsWaitingVerify(true));
         storage.setItem('waitingVerify', true);
-        setEmail('');
       }
     } catch (error) {
       console.error(error);
@@ -64,19 +69,57 @@ const SignInPopup: React.FC = () => {
   const checkAndRefresh = async () => {
     const waitingVerify = storage.getItem('waitingVerify');
     if (waitingVerify) {
+
       const response = await verifySignIn();
       if (response === 'verified') {
+
+        setEmail('');
+        storage.removeItem('waitingVerify');
+        storage.removeItem('tempVerifyToken');
+
+        const storedUserData = storage.getItem('userData') as UserData;
+        const dataResponse = await syncUserData(storedUserData);
+        if (dataResponse) {
+          dispatch(updateUserData(dataResponse.serverUserData));
+          const oldLanguageArray = storedUserData.languageArray;
+          const newLanguageArray = dataResponse.serverUserData.languageArray;
+          oldLanguageArray.forEach(language => {
+            if (!newLanguageArray.includes(language)) {
+              dispatch(removeSingleWordResource(language))
+            }
+          })
+
+          const { requestedWords, requestedWordResources } = await loadWordResourcesClient(oldLanguageArray, newLanguageArray);
+
+          if (requestedWords) {
+            dispatch(updateWords(requestedWords))
+          }
+
+          if (requestedWordResources) {
+            Object.keys(requestedWordResources).forEach(language => {
+              dispatch(addSingleWordResource({ language: language, wordResource: requestedWordResources[language] }))
+            })
+          }
+        }
+
+        dispatch(updateIsSignedIn(true));
         dispatch(updateIsSignInPopupVisible(false));
         dispatch(updateIsWaitingVerify(false));
-        storage.removeItem('waitingVerify');
-        dispatch(updateIsSignedIn(true));
+
       } else if (response === 'not-verified') {
+
         console.log(response);
+
       } else if (response === 'expired') {
-        dispatch(updateIsWaitingVerify(false));
+
         storage.removeItem('waitingVerify');
+        dispatch(updateIsWaitingVerify(false));
       }
     }
+  }
+
+  const handleGoBack = () => {
+
   }
 
   useEffect(() => {
@@ -113,7 +156,11 @@ const SignInPopup: React.FC = () => {
               </div>
             </div>
             <Text className={styles.refreshText}>{t("refreshText")}</Text>
-            <Button text={t("refreshButton")} onClick={checkAndRefresh} className={styles.refreshButton} />
+            <div>
+              {/* <Button text="" onClick={handleGoBack} className={styles.goBackButton} /> */}
+              <Button text={t("refreshButton")} onClick={checkAndRefresh} className={styles.refreshButton} />
+              {/* <Button text={'aaa'} onClick={handleGoBack} className={styles.tryAgain} /> */}
+            </div>
           </section>
           :
           <section className={styles.inputContainer}>

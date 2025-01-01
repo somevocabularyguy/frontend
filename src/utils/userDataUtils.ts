@@ -21,7 +21,7 @@ const returnUserData = (storedUserData: UserData | null, serverUserData: UserDat
   } else {
     newUserData = { ...defaultUserData };
   }
-  newUserData.languageArray = languageArray;
+  newUserData = { ...newUserData, languageArray };
 
   return newUserData;
 }

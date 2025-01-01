@@ -1,4 +1,4 @@
-import { UserData, FeedbackData } from '@/types';
+import { UserData, FeedbackData, Word, WordResources } from '@/types';
 import { AuthConfig } from '@/apiTypes';
 import axios from 'axios';
 
@@ -10,8 +10,25 @@ const getUserData = async (authToken: string): Promise<UserData | null> => {
   }
 
   try {
-    const response = await axios.get(`http://localhost:3000/api/web/proxy/data/get-data`, config);
+    const response = await axios.get(`http://localhost:3000/api/web/proxy/data/get-user-data`, config);
     return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      if (error.code === 'ECONNREFUSED') {
+        console.log('Error: Could not connect to the server. Please check if the server is running.');
+      }
+    } else {
+      console.error(error)
+    }
+
+    return null;
+  }
+}
+
+const syncUserData = async (userDataToSync: UserData | null = null) => {
+  try {
+    const response = await axios.post(`http://localhost:3000/api/web/proxy/data/sync-user-data`, { userDataToSync }, { withCredentials: true });
+    return response.data as { serverUserData: UserData } | null;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.code === 'ECONNREFUSED') {
@@ -71,4 +88,22 @@ const deleteAccount = async () => {
   return response;
 }
 
-export { getUserData, sendMagicLink, sendFeedbackData, logout, deleteAccount, verifySignIn };
+const getLanguageResources = async (
+  wordsLanguage: string, 
+  languageArray: string[], 
+  newWordsLanguage: string | null
+) => {
+  const response = await axios.post('http://localhost:3000/api/web/get-language-resources', { wordsLanguage, languageArray, newWordsLanguage });
+
+  const { 
+    requestedWords, 
+    requestedWordResources 
+    } = response.data as { 
+    requestedWords: Word[] | null, 
+    requestedWordResources: WordResources | null 
+  };
+
+  return { requestedWords, requestedWordResources };
+}
+
+export { getUserData, sendMagicLink, sendFeedbackData, logout, deleteAccount, verifySignIn, syncUserData, getLanguageResources };
