@@ -15,7 +15,7 @@ const templateUserData: UserData = {
 }
 
 const finishWord: Word = {
-  id: '0',
+  id: '',
   word: '🎉🎉🎉Finish🎉🎉🎉',
   definition: '',
   example: '',
@@ -29,7 +29,7 @@ const finishWord: Word = {
 }
 
 const selectLevelWord: Word = {
-  id: '0',
+  id: '',
   word: 'Please Select Level',
   definition: '',
   example: '',

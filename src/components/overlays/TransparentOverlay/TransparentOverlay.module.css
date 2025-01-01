@@ -1,0 +1,13 @@
+.transparentOverlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: transparent;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.shadingVisible {
+  pointer-events: all;
+}

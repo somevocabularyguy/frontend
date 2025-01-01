@@ -5,7 +5,7 @@ import React from 'react';
 interface TextProps {
   text?: string;
   className?: string;
-  as?: 'span' | 'p' | 'h2' | 'label'; 
+  as?: 'span' | 'p' | 'label' | 'h2' | 'h3'; 
   onClick?: React.MouseEventHandler<HTMLElement>;
   onContextMenu?:  React.MouseEventHandler<HTMLElement>;
 }

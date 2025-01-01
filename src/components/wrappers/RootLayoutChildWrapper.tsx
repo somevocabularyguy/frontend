@@ -13,7 +13,8 @@ import { updateIsSignedIn } from '@/store/userSettingsSlice';
 import { returnUserData } from '@/utils/userDataUtils';
 import { useCreateLevels } from '@/hooks';
 
-import { Sidebar } from '@/components/overlays';
+import { Sidebar, Shading, TransparentOverlay } from '@/components/overlays';
+import { AccountPopups, SignInPopup } from '@/components/Popups';
 
 interface RootLayoutChildWrapperProps {
   children: React.ReactNode;
@@ -48,7 +49,7 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
   useEffect(() => {
     const levels = createLevels();
     dispatch(updateLevels(levels));
-  }, [userData.hiddenWordIds, userData.customWordIds, dispatch, createLevels])
+  }, [userData.hiddenWordIds, userData.customWordIds, dispatch])
 
   const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
   const isRandom = useAppSelector(state => state.word.isRandom);
@@ -58,11 +59,16 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
   }, [checkedLevels, isRandom, dispatch])
 
   const loading = useAppSelector(state => state.data.loading)
+
   if (loading) return <h1>loading...</h1>;
 
   return (
     <>
       <Sidebar />
+      <Shading />
+      <TransparentOverlay />
+      <AccountPopups />
+      <SignInPopup />
       {children}
     </>
   )

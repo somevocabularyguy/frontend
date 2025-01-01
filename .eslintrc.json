@@ -1,16 +1,52 @@
 {
-  "parser": "@typescript-eslint/parser", 
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "next/core-web-vitals",
-    "next/core-web-vitals",
-    "next/typescript"
+    "plugin:prettier/recommended"
   ],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020, // Support modern ECMAScript features
-    "sourceType": "module" // Use ES modules
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
   },
   "rules": {
+    "prettier/prettier": "warn", // Show Prettier issues as warnings
+    "@typescript-eslint/no-unused-vars": "warn", // Warn about unused variables
+    "@typescript-eslint/no-explicit-any": "error", // Error on 'any' usage
+    "@typescript-eslint/explicit-module-boundary-types": "warn", // Warn on missing types
+    "react/react-in-jsx-scope": "off", // Disable React in-scope (Next.js does this automatically)
+    "react/prop-types": "off", // Disable PropTypes for TypeScript
+    "react/jsx-sort-props": ["warn", { "ignoreCase": true }], // Sort props in JSX
+    "react-hooks/rules-of-hooks": "error", // Enforce hooks rules
+    "react-hooks/exhaustive-deps": "warn", // Warn for incorrect useEffect deps
+    "eqeqeq": "error", // Enforce strict equality
+    "no-console": "warn", // Warn on console.log usage
+    "no-debugger": "error", // Disallow debugger statements
+    "no-magic-numbers": ["warn", { "ignore": [0, 1] }], // Warn on magic numbers
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

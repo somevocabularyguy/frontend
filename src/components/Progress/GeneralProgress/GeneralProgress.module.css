@@ -1,0 +1,6 @@
+.container {
+  height: 100%;
+  width: 33rem;
+  border: 0.175rem solid #d09c00;
+  box-sizing: border-box;
+}

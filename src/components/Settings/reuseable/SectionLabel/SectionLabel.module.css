@@ -1,0 +1,33 @@
+.sectionLabelContainer {
+  position: relative;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sectionLabel {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.sectionToggleIcon {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  left: 12.5rem;
+  transform: rotate(-90deg);
+  transition: transform 0.3s ease;
+  top: 0.6rem;
+}
+.sectionLabelContainer:hover .sectionToggleIcon {
+  transform: rotate(0deg);
+} 
+.sectionToggleIconActive {
+  transform: rotate(0deg);
+}
+.sectionLabelContainer:hover .sectionToggleIconActive {
+  transform: rotate(-180deg);
+} 

@@ -7,6 +7,9 @@ import uiReducer from './uiSlice';
 import wordReducer from './wordSlice';
 import appStateReducer from './appStateSlice';
 import userSettingsSlice from './userSettingsSlice';
+import settingsUiSlice from './settingsUiSlice';
+import accountUiSlice from './accountUiSlice';
+import feedbackUiSlice from './feedbackUiSlice';
 
 const store = configureStore({
   reducer: {
@@ -15,7 +18,10 @@ const store = configureStore({
     ui: uiReducer,
     word: wordReducer,
     appState: appStateReducer,
-    userSettings: userSettingsSlice
+    userSettings: userSettingsSlice,
+    settingsUi: settingsUiSlice,
+    accountUi: accountUiSlice,
+    feedbackUi: feedbackUiSlice
   }
 })
 

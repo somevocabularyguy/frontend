@@ -3,10 +3,12 @@
   height: 2.25rem;
   display: flex;
   align-items: center;
+  /* line-height: 2.4rem;  */
   justify-content: center;
   user-select: none;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  font-family: Sans-Serif;
 }
 
 .checkbox {

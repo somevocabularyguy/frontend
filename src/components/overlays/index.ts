@@ -1,4 +1,5 @@
-import ContextMenu from './ContextMenu/ContextMenu';
-import Sidebar from './Sidebar/Sidebar';
+import Sidebar from './Sidebar';
+import Shading from './Shading';
+import TransparentOverlay from './TransparentOverlay';
 
-export { ContextMenu, Sidebar };
+export { Sidebar, Shading, TransparentOverlay };

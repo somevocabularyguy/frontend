@@ -1,0 +1,51 @@
+.radioTextContainer {
+  height: 20rem;
+  width: 33rem;
+  border: 0.175rem solid #d09c00;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, 3.5rem);
+  scroll-behavior: smooth;
+}
+
+.wordsDataSearch {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 0.175rem solid #d09c00;
+  border-bottom: none;
+  outline: none;
+  color: white;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.radioText {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  height: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.15rem;
+  border: 0.175rem solid #585858;
+  cursor: pointer;
+  user-select: none;
+}
+.radioText:hover {
+  background-color: #444444;
+}
+
+.radioTextSelected {
+  background-color: #585858;
+}
+.radioTextSelected:hover {
+  background-color: #585858;
+}
+
+.highlightedSubtext {
+  color: #2aaaff;
+}

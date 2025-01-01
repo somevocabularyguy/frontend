@@ -1,0 +1,16 @@
+.shading {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #000000;
+  z-index: 1001;
+  opacity: 0%;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+}
+
+.shadingVisible {
+  opacity: 40%;
+  pointer-events: all;
+}

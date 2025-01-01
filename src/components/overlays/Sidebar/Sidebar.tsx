@@ -7,11 +7,12 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
-import { toggleIsSidebarOpen } from '@/store/uiSlice';
+import { updateIsSidebarOpen } from '@/store/uiSlice';
+import { updateIsSignInPopupActive } from '@/store/accountUiSlice';
 
-import { Line, Text } from '@/components/atoms';
+import { Line, Text, Button } from '@/components/atoms';
 
-import { MainIcon, HomeIcon, FeedbackIcon, ProfileIcon, InfoIcon, SettingsIcon, GuideIcon } from '@/public/icons';
+import { MainIcon, HomeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon, AccountIcon } from '@/public/icons';
 
 const Sidebar: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -25,9 +26,9 @@ const Sidebar: React.FC = () => {
       const clientXInRem = event.clientX / rootFontSize;
 
       if (clientXInRem < thresholdInRem && !isSidebarOpen) {
-        dispatch(toggleIsSidebarOpen(true));
+        dispatch(updateIsSidebarOpen(true));
       } else if (clientXInRem >= thresholdInRem && isSidebarOpen) {
-        dispatch(toggleIsSidebarOpen(false));
+        dispatch(updateIsSidebarOpen(false));
       }
     };
 
@@ -50,6 +51,10 @@ const Sidebar: React.FC = () => {
 
   const sidebarClassName = `${styles.sidebarContainer} ${isSidebarOpen ? styles.sidebarOpen : ''}`
 
+  const openSignInPopup = () => {
+    dispatch(updateIsSignInPopupActive(true));
+  }
+
   return (
     <>
       <Link href="/" className={styles.mainLink}>
@@ -59,7 +64,7 @@ const Sidebar: React.FC = () => {
       <div className={sidebarClassName}>
         <div className={styles.blankDiv}></div>
 
-        <Line width="11.875rem" height="0.0625rem" className={styles.linkDividerLine}/>
+        <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
 
         <Link href="/" className={returnLinkClass('/')}>
           <HomeIcon width="2.25rem" height="2.25rem" />
@@ -70,16 +75,16 @@ const Sidebar: React.FC = () => {
           <Text text="Settings" className={styles.sidebarLinkText} as="span" />
         </Link>
         <Link href="/progress" className={returnLinkClass('/progress')}>
-          <ProfileIcon width="2.25rem" height="2.25rem" />
+          <ProgressIcon width="2.25rem" height="2.25rem" />
           <Text text="Progress" className={styles.sidebarLinkText} as="span" />
         </Link>
 
-        <Line width="11.875rem" height="0.0625rem" className={styles.linkDividerLine}/>
+        <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
 
-        <Link href="/user-guide" className={returnLinkClass('/user-guide')}>
+        {/* <Link href="/user-guide" className={returnLinkClass('/user-guide')}>
           <GuideIcon height="2rem" width="2.25rem" />
           <Text text="How To Use" className={styles.sidebarLinkText} as="span" />
-        </Link>
+        </Link> */}
         <Link href="/feedback" className={returnLinkClass('/feedback')}>
           <FeedbackIcon height="2.25rem" width="2.25rem" />
           <Text text="Feedback" className={styles.sidebarLinkText} as="span" />
@@ -89,16 +94,15 @@ const Sidebar: React.FC = () => {
           <Text text="About" className={styles.sidebarLinkText} as="span" />
         </Link>
 
-        <Line width="11.875rem" height="0.0625rem" className={styles.linkDividerLine}/>
+        <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
 
         {isSignedIn ? 
-          <Link href="/account" className={styles.accountButton}>
-            <Text text="Account" as="span" />
-          </Link> 
-          :
-          <Link href="/sign-in" className={styles.signInButton}>
-            <Text text="Sign In" as="span" />
+          <Link href="/account" className={returnLinkClass('/about')}>
+            <AccountIcon width="2.25rem" height="2.25rem" />
+            <Text text="Account" className={styles.sidebarLinkText} as="span" />
           </Link>
+          :
+          <Button text="Sign In" className={styles.signInButton} onClick={openSignInPopup} />
         }
 
       </div>

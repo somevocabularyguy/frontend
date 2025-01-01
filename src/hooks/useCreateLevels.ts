@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '@/store/store';
 import { updateWords } from '@/store/dataSlice';
 
 import { returnColorValue } from '@/utils/levelSectionUtils';
-import { groupWordsByLevel, updateReturnWordStatus } from '@/utils/wordUtils';
+import { groupWordsByLevel } from '@/utils/wordUtils';
 
 
 const useCreateLevels = (): () => LevelObject[] => {
@@ -16,8 +16,7 @@ const useCreateLevels = (): () => LevelObject[] => {
   
   const createLevels = (): LevelObject[] => {
 
-    const updatedWords = updateReturnWordStatus(words, userData.hiddenWordIds, userData.customWordIds)
-    const groupedWords = groupWordsByLevel(updatedWords);
+    const groupedWords = groupWordsByLevel(words, userData.hiddenWordIds, userData.customWordIds);
     dispatch(updateWords(groupedWords));
 
     const levelMap = new Map<string, { totalLearningScore: number; count: number, wordIds: string[] }>();
