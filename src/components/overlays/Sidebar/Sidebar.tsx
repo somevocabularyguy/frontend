@@ -13,9 +13,12 @@ import { updateIsSignInPopupActive } from '@/store/accountUiSlice';
 import { Line, Text, Button } from '@/components/atoms';
 
 import { MainIcon, HomeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon, AccountIcon } from '@/public/icons';
+import { useCustomTranslation } from '@/hooks';
 
 const Sidebar: React.FC = () => {
   const dispatch = useAppDispatch();
+  const t = useCustomTranslation("Sidebar");
+
   const isSidebarOpen = useAppSelector(state => state.ui.isSidebarOpen);
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn)
 
@@ -68,15 +71,15 @@ const Sidebar: React.FC = () => {
 
         <Link href="/" className={returnLinkClass('/')}>
           <HomeIcon width="2.25rem" height="2.25rem" />
-          <Text text="Home" className={styles.sidebarLinkText} as="span" />
+          <Text text={t("home")} className={styles.sidebarLinkText} as="span" />
         </Link>
         <Link href="/settings" className={returnLinkClass('/settings')}>
           <SettingsIcon width="2.25rem" height="2.25rem" />
-          <Text text="Settings" className={styles.sidebarLinkText} as="span" />
+          <Text text={t("settings")} className={styles.sidebarLinkText} as="span" />
         </Link>
         <Link href="/progress" className={returnLinkClass('/progress')}>
           <ProgressIcon width="2.25rem" height="2.25rem" />
-          <Text text="Progress" className={styles.sidebarLinkText} as="span" />
+          <Text text={t("progress")} className={styles.sidebarLinkText} as="span" />
         </Link>
 
         <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
@@ -87,7 +90,7 @@ const Sidebar: React.FC = () => {
         </Link> */}
         <Link href="/feedback" className={returnLinkClass('/feedback')}>
           <FeedbackIcon height="2.25rem" width="2.25rem" />
-          <Text text="Feedback" className={styles.sidebarLinkText} as="span" />
+          <Text text={t("feedback")} className={styles.sidebarLinkText} as="span" />
         </Link>
         <Link href="/about" className={returnLinkClass('/about')}>
           <InfoIcon width="2.25rem" height="2.25rem" />
@@ -99,10 +102,10 @@ const Sidebar: React.FC = () => {
         {isSignedIn ? 
           <Link href="/account" className={returnLinkClass('/about')}>
             <AccountIcon width="2.25rem" height="2.25rem" />
-            <Text text="Account" className={styles.sidebarLinkText} as="span" />
+            <Text text={t("account")} className={styles.sidebarLinkText} as="span" />
           </Link>
           :
-          <Button text="Sign In" className={styles.signInButton} onClick={openSignInPopup} />
+          <Button text={t("signIn")} className={styles.signInButton} onClick={openSignInPopup} />
         }
 
       </div>

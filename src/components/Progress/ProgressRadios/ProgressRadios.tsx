@@ -2,6 +2,7 @@ import styles from './ProgressRadios.module.css';
 import { useState } from 'react';
 
 import { Word } from '@/types';
+import { useCustomTranslation } from '@/hooks';
 
 import { Text } from '@/components/atoms'; 
 
@@ -13,7 +14,10 @@ interface ProgressRadiosProps {
   setSelectedWordId: React.Dispatch<React.SetStateAction<string>>;
 }
 
+
 const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordId, setSelectedWordId }) => {
+
+  const t = useCustomTranslation("Progress.ProgressRadios");
 
   const [wordsDataSearchValue, setWordsDataSearchValue] = useState('');
 
@@ -48,7 +52,7 @@ const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordI
     <section className={styles.radioContainer}>
       <input 
         className={styles.wordsDataSearch}
-        placeholder="Search Word..."
+        placeholder={t("searchPlaceholder")}
         value={wordsDataSearchValue}
         onChange={(event) => setWordsDataSearchValue(event.target.value)}
       />
@@ -68,7 +72,7 @@ const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordI
               onClick={() => setSelectedWordId(wordObject.id)} 
             >{wordName}</span>
           )
-        }) : <h3 className={styles.notFound}>No Progress Data Found!</h3>} 
+        }) : <h3 className={styles.notFound}>{t("noProgress")}</h3>} 
       </div>
     </section>
   )

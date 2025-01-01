@@ -8,8 +8,10 @@ import { updateIsHiddenCustomSettingsVisible } from '@/store/settingsUiSlice';
 import { Text } from '@/components/atoms';
 import { DeleteIcon } from '@/public/icons';
 import { SectionLabel } from '../reuseable';
+import { useCustomTranslation } from '@/hooks';
 
 const HiddenCustomSettings: React.FC = () => {
+  const t = useCustomTranslation("Settings.HiddenCustomSettings");
   const dispatch = useAppDispatch();
 
   const words = useAppSelector(state => state.data.words);
@@ -67,17 +69,17 @@ const HiddenCustomSettings: React.FC = () => {
     <>
       <SectionLabel 
         handleToggleSection={handleToggleSection} 
-        labelText="Hidden And Custom Words" 
+        labelText={t("labelText")}
         isVisible={isHiddenCustomSettingsVisible} 
       />
       
       <section className={hiddenCustomSectionClassName}>
 
         <div className={styles.hiddenCustomContainer}>
-          <Text className={styles.hiddenCustomLabel} text="Remove From Hidden" as="h3"/>
+          <Text className={styles.hiddenCustomLabel} text={t("removeHiddenLabel")} as="h3"/>
           <input 
             className={styles.hiddenCustomSearch}
-            placeholder="Search Word..."
+            placeholder={t("placeholder")}
             value={hiddenSearchValue}
             onChange={(event) => setHiddenSearchValue(event.target.value)}
           />
@@ -94,17 +96,17 @@ const HiddenCustomSettings: React.FC = () => {
                   )
                 })
               : hiddenWords.length ?
-                  <Text text="No Words Found With Your Search" className={styles.notFoundText} /> 
-                  : <Text text="No Hidden Words" className={styles.notFoundText} />
+                  <Text text={t("noWordsText")} className={styles.notFoundText} /> 
+                  : <Text text={t("noHiddenWordsText")} className={styles.notFoundText} />
             }
           </div>
         </div>
 
         <div className={styles.hiddenCustomContainer}>
-          <Text className={styles.hiddenCustomLabel} text="Remove From Custom" as="h3"/>
+          <Text className={styles.hiddenCustomLabel} text={t("removeCustomLabel")} as="h3"/>
           <input 
             className={styles.hiddenCustomSearch}
-            placeholder="Search Word..."
+            placeholder={t("placeholder")}
             value={customSearchValue}
             onChange={(event) => setCustomSearchValue(event.target.value)}
           />
@@ -121,8 +123,8 @@ const HiddenCustomSettings: React.FC = () => {
                   )
                 })
               : hiddenWords.length ?
-                  <Text text="No Words Found With Your Search" className={styles.notFoundText} /> 
-                  : <Text text="No Custom Words" className={styles.notFoundText} />
+                  <Text text={t("noWordsText")} className={styles.notFoundText} /> 
+                  : <Text text={t("noCustomWordsText")} className={styles.notFoundText} />
             }
           </div>
         </div>

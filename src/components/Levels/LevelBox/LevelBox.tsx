@@ -1,12 +1,14 @@
-
 import React from 'react';
+import styles from './LevelBox.module.css';
+
 import { Text, Line } from '@/components/atoms';
 import { ScrollRail } from '@/components/ui';
 import { LevelArray } from '@/components/molecules';
-import styles from './LevelBox.module.css';
 
+import { useCustomTranslation } from '@/hooks';
+ 
 const LevelBox: React.FC = () => {
-
+  const t = useCustomTranslation("Levels.LevelBox");
 
   const levelKeys: string[] = ['easy', 'medium', 'hard', 'expert', 'custom']; 
 
@@ -16,7 +18,7 @@ const LevelBox: React.FC = () => {
         {levelKeys.map((levelKey, index) => (
           <section className={styles.section} key={levelKey}>
             {<Text 
-              text={levelKey} 
+              text={t(levelKey)} 
               className={`${styles.categoryLabel} ${index === 0 ? styles.firstCategoryLabel : '' }`} 
               as='h2' 
             />}

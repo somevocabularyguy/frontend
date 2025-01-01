@@ -7,9 +7,11 @@ import { useAppDispatch, useAppSelector } from '@/store/store';
 import { updateIsLevelsVisible } from '@/store/uiSlice';
 import { updateIsRandom } from '@/store/wordSlice';
 
+import { useCustomTranslation } from '@/hooks';
 
 const BottomStrip: React.FC = () => {
   const dispatch = useAppDispatch();
+  const t = useCustomTranslation('Levels.BottomStrip');
 
   const isLevelsVisible = useAppSelector(state => state.ui.isLevelsVisible);
   const isRandom = useAppSelector(state => state.word.isRandom);
@@ -26,17 +28,17 @@ const BottomStrip: React.FC = () => {
   return (
     <section className={styles.bottomStrip}>
       <Button 
-        text="Practice" 
+        text={t("practiceButtonText")} 
         onClick={() => dispatch(updateIsRandom(false))} 
         className={classNameForPracticeButton} 
       />
       <Button 
-        text="Random" 
+        text={t("randomButtonText")} 
         onClick={() => dispatch(updateIsRandom(true))} 
         className={classNameForRandomButton} 
       />
       <div className={styles.levelsToggleContainer} onClick={toggleLevels}>
-        <Text text="Select Levels" className={styles.selectLevelsLabel} as="h2" />
+        <Text text={t("selectLevelsText")} className={styles.selectLevelsLabel} as="h2" />
         <ArrowIcon className={classNameForLevelsToggleIcon} />
       </div>
     </section>

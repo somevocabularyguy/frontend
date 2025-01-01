@@ -5,17 +5,18 @@ import Link from 'next/link';
 
 import { logout, deleteAccount } from '@/lib/api';
 import { Text, Button } from '@/components/atoms';
+import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateLoadingState } from '@/store/dataSlice';
 import { updateIsSignOutPopupActive, updateIsDeletePopupActive } from '@/store/accountUiSlice';
 
 const AccountPopup: React.FC = () => {
+  const t = useCustomTranslation("Popups.AccountPopups");
+  const dispatch = useAppDispatch();
+
   const isSignOutPopupActive = useAppSelector(state => state.accountUi.isSignOutPopupActive);
   const isDeletePopupActive = useAppSelector(state => state.accountUi.isDeletePopupActive);
-
-
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     return () => {
@@ -40,12 +41,13 @@ const AccountPopup: React.FC = () => {
     try {
     const response = await deleteAccount();
       if (response.status === 202) {
+        window.alert(t("deletedAlert"));
         window.location.href = 'http://localhost:3000/settings';
         dispatch(updateLoadingState(false));
       }
     } catch (error) {
       dispatch(updateLoadingState(false));
-      window.alert('Error Deleting Account!')
+      window.alert(t("deleteAlert"));
     }
   }
 
@@ -65,31 +67,31 @@ const AccountPopup: React.FC = () => {
     <>
       <section className={signOutPopupClassName}>
         <span className={styles.popupText}>
-          You can delete your local progress data later at the
+          {t("SignOut.text")}
           <Link className={styles.progressLink} href="/progress">
-            <Text text="Progress Page" className={styles.progressLinkText} as="span" />
+            <Text text={t("SignOut.link")} className={styles.progressLinkText} as="span" />
           </Link>
         </span>
         <div className={styles.buttonsContainer}>
-          <Button text="Go Back" className={styles.blankButton} onClick={closePopup} />
-          <Button text="Sign Out" className={`${styles.blankButton} ${styles.signOutButton}`} onClick={handleLogout} />
+          <Button text={t("SignOut.backButton")} className={styles.blankButton} onClick={closePopup} />
+          <Button text={t("SignOut.signOutButton")} className={`${styles.blankButton} ${styles.signOutButton}`} onClick={handleLogout} />
         </div>
       </section>
 
       <section className={deletePopupClassName}>
         <Text 
-          text="Your data on our servers will be permanently deleted after 15 days." 
+          text={t("Delete.text1")} 
           className={styles.popupText}
           as="span"
         />
         <Text 
-          text="You can cancel deletion by signing in until that time." 
+          text={t("Delete.text2")}
           className={styles.popupText}
           as="span"
         />
         <div className={styles.buttonsContainer}>
-          <Button text="Go Back" className={styles.blankButton} onClick={closePopup} />
-          <Button text="Delete Account" className={`${styles.blankButton} ${styles.deleteButton}`} onClick={handleDeleteAccount} />
+          <Button text={t("Delete.backButton")} className={styles.blankButton} onClick={closePopup} />
+          <Button text={t("Delete.deleteButton")} className={`${styles.blankButton} ${styles.deleteButton}`} onClick={handleDeleteAccount} />
         </div>
       </section>
     </>

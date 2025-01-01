@@ -1,12 +1,15 @@
 "use client"
+import styles from './CurrentWords.module.css';
 import React, { useState, useRef } from 'react';
+
 import { Text, Line, Button } from '@/components/atoms';
 import { ScrollRail } from '@/components/ui';
-import styles from './CurrentWords.module.css';
 
 import { useAppSelector } from '@/store/store';
+import { useCustomTranslation } from '@/hooks';
 
 const CurrentWords: React.FC = () => {
+  const t = useCustomTranslation('Levels.CurrentWords');
 
   const batch = useAppSelector(state => state.appState.batch);
   const [isCopied, setIsCopied] = useState(false);
@@ -30,7 +33,7 @@ const CurrentWords: React.FC = () => {
 
     <div className={styles.mainDiv}>
       <section className={styles.labelGrid}>
-        <Text text="Current Words" as="h2" className={styles.label}/>
+        <Text text={t('label')} as="h2" className={styles.label}/>
         <div className={styles.amount}>{batch.length}</div>
       </section>
       <Line width="10.5rem"/>
@@ -39,8 +42,8 @@ const CurrentWords: React.FC = () => {
         <ScrollRail height="14.6875rem" className={styles.scrollRail} lineSize="0.125rem"/>
       </article>
       <section className={styles.copySection}>
-        <article className={`${styles.messageBox} ${isCopied ? styles.visible : styles.hidden}`}>Copied To Clipboard!</article>
-        <Button text="Copy" className={styles.copyButton} onClick={copyToClipboard} />
+        <article className={`${styles.messageBox} ${isCopied ? styles.visible : styles.hidden}`}>{t("copiedAlert")}</article>
+        <Button text={t('copyButtonText')} className={styles.copyButton} onClick={copyToClipboard} />
       </section>
     </div>
   )

@@ -9,14 +9,16 @@ import { useAppSelector } from '@/store/store';
 
 import { EmailIcon } from '@/public/icons';
 import { sendMagicLink } from '@/lib/api';
+import { useCustomTranslation } from '@/hooks';
 
 const SignInPopup: React.FC = () => {
+  const t = useCustomTranslation("Popups.SignInPopup");
 
   const [email, setEmail] = useState('');
   const [isWarned, setIsWarned] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
-  const [animationState, setAnimationState] = useState('Send Magic Link');
+  const [animationState, setAnimationState] = useState(t("sending0"));
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -57,7 +59,7 @@ const SignInPopup: React.FC = () => {
 
   useEffect(() => {
     let iteration = 0;
-    const sendingArray = ['Sending.', 'Sending..', 'Sending...'];
+    const sendingArray = [t("sending1"), t("sending2"), t("sending3")];
     let intervalId: NodeJS.Timeout;
 
     if (isSending) {
@@ -67,7 +69,7 @@ const SignInPopup: React.FC = () => {
         setAnimationState(sendingArray[iteration]);
       }, 400);
     } else {
-      setAnimationState('Send Magic Link');
+      setAnimationState(t("sending0"));
     }
 
     return () => clearInterval(intervalId);
@@ -84,22 +86,22 @@ const SignInPopup: React.FC = () => {
             <div className={styles.waitingUpperContainer}>
               <EmailIcon className={styles.emailIcon} />
               <div className={styles.waitingTextContainer}>
-                <Text text="Check Your Email For Special Login Link" as="span" className={styles.waitingText} />
-                <Text text="Be sure to check your spam..." as="span" className={styles.waitingSmallText}/>
+                <Text text={t("waitingText")} as="span" className={styles.waitingText} />
+                <Text text={t("waitingSmallText")} as="span" className={styles.waitingSmallText}/>
               </div>
             </div>
-            <Text className={styles.refreshText} text="Refresh the website after you clicked the link" as="span" />
-            <Button text="Refresh" onClick={checkAndRefresh} className={styles.refreshButton} />
+            <Text className={styles.refreshText} text={t("refreshText")} as="span" />
+            <Button text={t("refreshButton")} onClick={checkAndRefresh} className={styles.refreshButton} />
           </section>
           :
           <section className={styles.inputContainer}>
             {isWarned &&
-              <Text className={styles.warningText} text="Please Enter A Valid Email" as="span" />
+              <Text className={styles.warningText} text={t("warningText")} as="span" />
             }
-            <Text text="Email" as="span" className={styles.emailLabel} />
+            <Text text={t("emailLabel")} as="span" className={styles.emailLabel} />
             <input 
               className={styles.emailInput}
-              placeholder="dontstoplearning@email.com"
+              placeholder={t("placeHolder")}
               value={email}
               onChange={handleInputChange}
             />

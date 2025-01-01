@@ -6,6 +6,7 @@ import { FeedbackData } from '@/types';
 import { AuthConfig, FeedbackBody } from '@/apiTypes';
  
 export async function POST(req: Request) {
+  console.log('aaa')
   const { feedbackData } = await req.json() as { feedbackData: FeedbackData }
 
   const body: FeedbackBody = {
@@ -31,5 +32,6 @@ export async function POST(req: Request) {
     return NextResponse.json(response.data, { status: 201 });
   } catch (error) {
     console.error(error)
+    return NextResponse.json({ status: 500 });
   }
 }

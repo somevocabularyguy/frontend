@@ -14,6 +14,7 @@ import { returnUserData } from '@/utils/userDataUtils';
 import { useCreateLevels } from '@/hooks';
 
 import { Sidebar, Shading, TransparentOverlay } from '@/components/overlays';
+import { LanguageDropdown } from '@/components/Language';
 import { AccountPopups, SignInPopup } from '@/components/Popups';
 
 interface RootLayoutChildWrapperProps {
@@ -66,9 +67,10 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
     <>
       <Sidebar />
       <Shading />
-      <TransparentOverlay />
+      {/* <TransparentOverlay /> */}
       <AccountPopups />
       <SignInPopup />
+      <LanguageDropdown />
       {children}
     </>
   )

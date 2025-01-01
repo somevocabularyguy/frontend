@@ -1,0 +1,136 @@
+{
+  "Levels": {
+    "BottomStrip": {
+      "practiceButtonText": "Practice",
+      "randomButtonText": "Random",
+      "selectLevelsText": "Select Levels"
+    },
+    "CurrentWords": {
+      "label": "Current Words",
+      "copyButtonText": "Copy",
+      "copiedAlert": "Copied To Clipboard"
+    },
+    "LevelBox": {
+      "easy": "easy",
+      "medium": "medium",
+      "hard": "hard",
+      "expert": "expert",
+      "custom": "custom"
+    },
+    "LevelWords": {
+      "easy": "easy",
+      "medium": "medium",
+      "hard": "hard",
+      "expert": "expert",
+      "custom": "custom"
+    }
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "Next Word",
+      "showButton": "Show Details",
+      "removeButton": "Remove Word",
+      "addCustom": "Add Word To Custom",
+      "removeCustom": "Remove Word From Custom"
+    },
+    "MainLabels": {
+      "practiceText": "Practice",
+      "randomText": "Random",
+      "definitionText": "Definition:",
+      "exampleText": "Example:",
+      "synonymsText": "Synonyms:",
+      "antonymsText": "Antonyms:"
+    }
+  },
+  "Popups": {
+    "AccountPopups": {
+      "deleteAlert": "Error Deleting Account!",
+      "SignOut": {
+        "text": "You can delete your local progress data later at the",
+        "link": "Progress Page",
+        "backButton": "Go Back",
+        "signOutButton": "Sign Out"
+      },
+      "Delete": {
+        "text1": "Your data on our servers will be permanently deleted after 15 days.",
+        "text2": "You can cancel deletion by signing in until that time.",
+        "backButton": "Go Back",
+        "deleteButton": "Delete Account"
+      }
+    },
+    "SignInPopup": {
+      "sending0": "Send Magic Link",
+      "sending1": "Sending.",
+      "sending2": "Sending..",
+      "sending3": "Sending...",
+      "warningText": "Please Enter Valid Email",
+      "emailLabel": "Email",
+      "placeHolder": "dontstoplearning@email.com",
+      "waitingText": "Check Your Email For Special Login Link",
+      "waitingSmallText": "Be sure to check your spam folder...",
+      "refreshText": "Refresh the website after you clicked the link",
+      "refreshButton": "Refresh"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "Search Word...",
+      "noProgress": "No Progress Data Found!"
+    },
+    "WordProgressDisplay": {
+
+    }
+  },
+ "Settings": {
+    "AccountSettings": {
+      "labelText": "Account",
+      "signInButton": "Sign In",
+      "signOutButton": "Sign Out",
+      "deleteButton": "Delete Account"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "Hidden And Custom Words",
+      "removeHiddenLabel": "Remove From Hidden",
+      "removeCustomLabel": "Remove From Custom",
+      "placeholder": "Search Word...",
+      "noWordsText": "No Words Found With Your Search",
+      "noCustomWordsText": "No Custom Words",
+      "noHiddenWordsText": "No Hidden Words"
+    }
+  },
+  "Feedback": {
+    "thankingText": "Thank you for your feedback!",
+    "submitButton": "Submit Feedback",
+    "FeedbackDropdown": {
+      "label": "Select Feedback Type:",
+      "Options": {
+        "select": "-- Select Feedback Type --",
+        "bug": "Bug Report",
+        "feature": "Feature Request",
+        "usability": "Usability Feedback",
+        "performance": "Performance Issue",
+        "general": "General Feedback",
+        "accessibility": "Accessibility Feedback",
+        "complaint": "Complaint",
+        "compliment": "Compliment / Appreciation"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "Describe Your Feedback:"
+    },
+    "FeedbackFileInput": {
+      "label": "Attach Screenshots (Optional)"
+    }
+  },
+  "Sidebar": {
+    "home": "Home",
+    "settings": "Settings",
+    "progress": "Progress",
+    "feedback": "Feedback",
+    "account": "Account",
+    "signIn": "Sign In"
+  }
+}

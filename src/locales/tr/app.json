@@ -1,0 +1,124 @@
+{
+  "Levels": {
+    "BottomStrip": {
+      "practiceButtonText": "Pratik",
+      "randomButtonText": "rastgele",
+      "selectLevelsText": "Seviyeleri Seçin"
+    },
+    "CurrentWords": {
+      "label": "Güncel Kelimeler",
+      "copyButtonText": "Kopyala",
+      "copiedAlert": "Panoya Kopyalandı"
+    },
+    "LevelBox": {
+      "easy": "kolay",
+      "medium": "orta",
+      "hard": "zor",
+      "expert": "uzman",
+      "custom": "gelenek"
+    },
+    "LevelWords": {
+      "easy": "kolay",
+      "medium": "orta",
+      "hard": "zor",
+      "expert": "uzman",
+      "custom": "gelenek"
+    }
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "Sonraki Kelime",
+      "showButton": "Ayrıntıları Göster",
+      "removeButton": "Kelimeyi Kaldır",
+      "addCustom": "Özel'e Kelime Ekle",
+      "removeCustom": "Özelden Kelimeyi Kaldır"
+    },
+    "MainLabels": {
+      "practiceText": "Pratik",
+      "randomText": "rastgele",
+      "definitionText": "Tanım:",
+      "exampleText": "Örnek:",
+      "synonymsText": "Eş anlamlılar:",
+      "antonymsText": "Zıt anlamlılar:"
+    }
+  },
+  "Popups": {
+    "AccountPopups": {
+      "deleteAlert": "Hesap Silinirken Hata Oluştu!",
+      "SignOut": {
+        "text": "Yerel ilerleme verilerinizi daha sonra silebilirsiniz.",
+        "link": "İlerleme Sayfası",
+        "backButton": "Geri gitmek",
+        "signOutButton": "Oturumu Kapat"
+      },
+      "Delete": {
+        "text1": "Sunucularımızda bulunan verileriniz 15 gün sonra kalıcı olarak silinecektir.",
+        "text2": "O zamana kadar giriş yaparak silme işlemini iptal edebilirsiniz.",
+        "backButton": "Geri gitmek",
+        "deleteButton": "Hesabı Sil"
+      }
+    },
+    "SignInPopup": {
+      "sending0": "Sihirli Bağlantıyı Gönder",
+      "sending1": "Gönderiliyor.",
+      "sending2": "Gönderiliyor..",
+      "sending3": "Gönderiliyor...",
+      "warningText": "Lütfen geçerli bir e-posta girin",
+      "emailLabel": "E-posta",
+      "placeHolder": "dontstoplearning@email.com",
+      "waitingText": "Özel Giriş Bağlantısı İçin E-postanızı Kontrol Edin",
+      "waitingSmallText": "Spam'ınızı kontrol etmeyi unutmayın...",
+      "refreshText": "Bağlantıya tıkladıktan sonra web sitesini yenileyin",
+      "refreshButton": "Yenile"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {},
+    "ProgressRadios": {
+      "searchPlaceholder": "Aranan Kelime...",
+      "noProgress": "İlerleme Verisi Bulunamadı!"
+    },
+    "WordProgressDisplay": {}
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "Hesap",
+      "signInButton": "Kayıt olmak",
+      "signOutButton": "Oturumu Kapat",
+      "deleteButton": "Hesabı Sil"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "Gizli ve Özel Kelimeler",
+      "removeHiddenLabel": "Gizliden Kaldır",
+      "removeCustomLabel": "Özelden Kaldır",
+      "placeholder": "Aranan Kelime...",
+      "noWordsText": "Aradığınız Kelime Bulunamadı",
+      "noCustomWordsText": "Özel Kelime Yok",
+      "noHiddenWordsText": "Gizli Kelime Yok"
+    }
+  },
+  "Feedback": {
+    "thankingText": "Geri bildiriminiz için teşekkür ederiz!",
+    "submitButton": "Geri bildirim gönder",
+    "FeedbackDropdown": {
+      "label": "Geribildirim Türünü Seçin:",
+      "Options": {
+        "select": "-- Geribildirim Türünü Seçin --",
+        "bug": "Hata Raporu",
+        "feature": "Özellik Talebi",
+        "usability": "Kullanılabilirlik Geri Bildirimi",
+        "performance": "Performans Sorunu",
+        "general": "Genel Geribildirim",
+        "accessibility": "Erişilebilirlik Geri Bildirimi",
+        "complaint": "Şikayet",
+        "compliment": "Övgü / Takdir"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "Geri bildiriminizi açıklayın:"
+    },
+    "FeedbackFileInput": {
+      "label": "Ekran Görüntülerini Ekleyin (İsteğe bağlı)"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.container {
+  width: 100vw;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow-y: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 4rem 1rem;  
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.submitButton {
+  font-size: 1.25rem;
+  min-height: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #cc9900;
+  cursor: pointer;
+}
+.submitButton:hover {
+  background-color: #ad8200;
+}
+
+.hidden {
+  display: none;
+}
+
+.thanksDiv {
+  font-size: 2.5rem;
+  text-align: center;
+  justify-self: center;
+}

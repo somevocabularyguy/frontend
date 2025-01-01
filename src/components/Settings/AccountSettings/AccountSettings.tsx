@@ -2,12 +2,15 @@ import styles from './AccountSettings.module.css';
 
 import { SectionLabel } from '../reuseable';
 import { Text, Button } from '@/components/atoms';
+import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsAccountSettingsVisible } from '@/store/settingsUiSlice';
 import { updateIsSignInPopupActive, updateIsSignOutPopupActive, updateIsDeletePopupActive } from '@/store/accountUiSlice';
 
 const AccountSettings: React.FC = () => {
+  const t = useCustomTranslation("Settings.AccountSettings");
+
   const dispatch = useAppDispatch();
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn);
 
@@ -36,18 +39,18 @@ const AccountSettings: React.FC = () => {
     <>
       <SectionLabel 
         handleToggleSection={handleToggleSection} 
-        labelText="Account" 
+        labelText={t("labelText")} 
         isVisible={isAccountSettingsVisible}
       />
         <section className={accountSectionClassName}>
-          {isSignedIn ?
+          {true ?
             <>
-              <Button text="Sign Out" className={styles.blankButton} onClick={openSignOutPopup} />
-              <Button text="Delete Account" className={`${styles.blankButton} ${styles.deleteButton}`} onClick={openDeletePopup} />
+              <Button text={t("signOutButton")} className={styles.blankButton} onClick={openSignOutPopup} />
+              <Button text={t("deleteButton")} className={`${styles.blankButton} ${styles.deleteButton}`} onClick={openDeletePopup} />
             </>
             :
             <>
-              <Button text="Sign In" className={styles.signInButton} onClick={openSignInPopup} />
+              <Button text={t("signInButton")} className={styles.signInButton} onClick={openSignInPopup} />
             </>
           }
         </section>

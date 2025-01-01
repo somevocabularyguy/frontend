@@ -1,13 +1,14 @@
 import React from 'react';
 import { Text } from '@/components/atoms';
-import { TextArray } from '@/components/molecules';
-import { useTranslate } from '@/hooks';
+import { useTranslate, useCustomTranslation } from '@/hooks';
 
 import styles from './MainLabels.module.css';
 
 import { useAppSelector } from '@/store/store';
 
 const MainLabels: React.FC = () => {
+  const t = useCustomTranslation("Main.MainLabels");
+
   const translate = useTranslate();
 
   const displayWordObject = useAppSelector(state => state.word.displayWordObject);
@@ -20,7 +21,7 @@ const MainLabels: React.FC = () => {
       <div className={styles.wordLabelContainer}>
         <div style={{ width: '6.75rem' }}></div>
         <Text 
-          text={displayWordObject?.word || (isRandom ? 'Random' : 'Practice')} className={styles.wordLabel} 
+          text={displayWordObject?.word || (isRandom ? t("randomText") : t("practiceText"))} className={styles.wordLabel} 
           onClick={displayWordObject?.id ? 
             () => translate(displayWordObject.word) : undefined}
         />
@@ -28,7 +29,7 @@ const MainLabels: React.FC = () => {
 
       <div className={styles.otherLabelsContainer}>
         <div className={styles.shownLabelGroup}>
-          <Text text="Definition:" className={styles.headLabel} />
+          <Text text={t("definitionText")} className={styles.headLabel} />
           <article className={styles.dynamicLabelContainer}>
             {isShown && 
               <Text 
@@ -42,7 +43,7 @@ const MainLabels: React.FC = () => {
         </div>
 
         <div className={styles.shownLabelGroup}>
-          <Text text="Example:" className={styles.headLabel} />
+          <Text text={t("exampleText")} className={styles.headLabel} />
           <article className={styles.dynamicLabelContainer}>
             {isShown && 
               <Text 
@@ -56,7 +57,7 @@ const MainLabels: React.FC = () => {
         </div>
 
         <div className={styles.shownLabelGroup}>
-          <Text text="Synonyms:" className={styles.headLabel} />
+          <Text text={t("synonymsText")} className={styles.headLabel} />
           <article className={styles.dynamicLabelContainer}>
             {(displayWordObject && isShown) ? 
               displayWordObject.synonyms.map((synonym, index, array) => (
@@ -75,7 +76,7 @@ const MainLabels: React.FC = () => {
         </div>
 
         <div className={styles.shownLabelGroup}>
-          <Text text="Antonyms:" className={styles.headLabel} />
+          <Text text={t("antonymsText")} className={styles.headLabel} />
           <article className={styles.dynamicLabelContainer}>
             {(displayWordObject && isShown) ? 
               displayWordObject.antonyms.map((antonym, index, array) => (
