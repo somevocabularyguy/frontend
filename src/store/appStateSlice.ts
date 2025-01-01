@@ -8,6 +8,7 @@ interface AppStateState {
   levels: LevelObject[];
   hoveredLevel: string | null;
   iteration: number;
+  handleNextFlag: boolean;
 }
 
 const initialState: AppStateState = {
@@ -15,7 +16,8 @@ const initialState: AppStateState = {
   checkedLevels: [],
   levels: [],
   hoveredLevel: null,
-  iteration: 0
+  iteration: -1,
+  handleNextFlag: false
 }
 
 const appStateSlice = createSlice({
@@ -58,9 +60,12 @@ const appStateSlice = createSlice({
     },
     updateIteration: (state, action: PayloadAction<number>) => {
       state.iteration = action.payload;
+    },
+    updateHandleNextFlag: (state, action: PayloadAction<boolean>) => {
+      state.handleNextFlag = action.payload;
     }
   }
 })
 
-export const { updateBatch, updateCheckedLevels, updateLevels, updateHoveredLevel, updateIteration, updateLevel, addCheckedLevel, removeCheckedLevel } = appStateSlice.actions; 
+export const { updateBatch, updateCheckedLevels, updateLevels, updateHoveredLevel, updateIteration, updateLevel, addCheckedLevel, removeCheckedLevel, updateHandleNextFlag } = appStateSlice.actions; 
 export default appStateSlice.reducer;

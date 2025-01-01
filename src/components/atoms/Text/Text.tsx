@@ -3,7 +3,7 @@
 import React from 'react';
 
 interface TextProps {
-  text?: string;
+  children?: React.ReactNode;
   className?: string;
   style?: Object;
   as?: 'span' | 'p' | 'label' | 'h2' | 'h3'; 
@@ -11,15 +11,14 @@ interface TextProps {
   onContextMenu?:  React.MouseEventHandler<HTMLElement>;
 }
 
-
-const Text: React.FC<TextProps> = ({ text, className, style, as: Component = 'p', onContextMenu, onClick }) => {
+const Text: React.FC<TextProps> = ({ children = '', className, style, as: Component = 'span', onContextMenu, onClick }) => {
   return (
     <Component
       style={style || {}}
       className={className || ''} 
       onClick={onClick} 
       onContextMenu={onContextMenu}
-    >{text}</Component>
+    >{children}</Component>
   )
 }
 

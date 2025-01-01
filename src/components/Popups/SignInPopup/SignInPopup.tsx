@@ -12,7 +12,7 @@ import { sendMagicLink } from '@/lib/api';
 import { useCustomTranslation } from '@/hooks';
 
 const SignInPopup: React.FC = () => {
-  const t = useCustomTranslation("Popups.SignInPopup");
+  const { t } = useCustomTranslation("Popups.SignInPopup");
 
   const [email, setEmail] = useState('');
   const [isWarned, setIsWarned] = useState(false);
@@ -88,19 +88,19 @@ const SignInPopup: React.FC = () => {
             <div className={styles.waitingUpperContainer}>
               <EmailIcon className={styles.emailIcon} />
               <div className={styles.waitingTextContainer}>
-                <Text text={t("waitingText")} as="span" className={styles.waitingText} />
-                <Text text={t("waitingSmallText")} as="span" className={styles.waitingSmallText}/>
+                <Text className={styles.waitingText}>{t("waitingText")}</Text>
+                <Text className={styles.waitingSmallText}>{t("waitingSmallText")}</Text>
               </div>
             </div>
-            <Text className={styles.refreshText} text={t("refreshText")} as="span" />
+            <Text className={styles.refreshText}>{t("refreshText")}</Text>
             <Button text={t("refreshButton")} onClick={checkAndRefresh} className={styles.refreshButton} />
           </section>
           :
           <section className={styles.inputContainer}>
             {isWarned &&
-              <Text className={styles.warningText} text={t("warningText")} as="span" />
+              <Text className={styles.warningText}>{t("warningText")}</Text>
             }
-            <Text text={t("emailLabel")} as="span" className={styles.emailLabel} />
+            <Text className={styles.emailLabel}>{t("emailLabel")}</Text>
             <input 
               className={styles.emailInput}
               placeholder={t("placeHolderStart") + '@email.com'}

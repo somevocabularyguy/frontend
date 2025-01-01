@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  height: 24rem  
+  height: 24rem;
+  gap: 0.5rem;
 }
 
 

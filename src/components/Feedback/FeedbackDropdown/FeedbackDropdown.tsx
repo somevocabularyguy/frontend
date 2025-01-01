@@ -11,7 +11,7 @@ import { updateSelectedTypeObject, updateIsSended } from '@/store/feedbackSlice'
 
 const FeedbackDropdown: React.FC = () => {
   const dispatch = useAppDispatch();
-  const t = useCustomTranslation("Feedback.FeedbackDropdown")
+  const { t } = useCustomTranslation("Feedback.FeedbackDropdown")
 
   const isFeedbackDropdownActive = useAppSelector(state => state.feedbackUi.isFeedbackDropdownActive)
   const isSended = useAppSelector(state => state.feedback.isSended);
@@ -45,10 +45,10 @@ const FeedbackDropdown: React.FC = () => {
 
   return (
     <div className={styles.feedbackTypeContainer}>
-      <Text className={styles.dropdownLabel} text={t("label")} as="span" />
+      <Text className={styles.dropdownLabel}>{t("label")}</Text>
       <div className={styles.dropdownButtonContainer}>
         <div className={dropdownButtonStyle} onClick={toggleDropdown}>
-          <Text text={selectedTypeObject.text} className={styles.dropdownButtonText} as="span" />
+          <Text className={styles.dropdownButtonText}>{selectedTypeObject.text}</Text>
           <ArrowIcon className={dropdownArrowIconStyle} fill="black" />
         </div>
 
@@ -61,7 +61,7 @@ const FeedbackDropdown: React.FC = () => {
                   className={styles.option} 
                   onClick={() => handleFeedbackTypeChange(optionObject)}
                 >
-                  <Text text={optionObject.text} className={styles.optionText} />
+                  <Text className={styles.optionText}>{optionObject.text}</Text>
                 </div>
               )
             })}      

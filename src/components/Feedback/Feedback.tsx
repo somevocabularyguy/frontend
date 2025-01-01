@@ -11,11 +11,13 @@ import { updateSelectedTypeObject, updateFeedbackText, updateIsSended, updateIma
 import { FeedbackData } from '@/types'; 
 import { sendFeedbackData } from '@/lib/api';
 
-import { FeedbackTextarea, FeedbackFileInput, FeedbackDropdown } from './';
+import FeedbackDropdown from './FeedbackDropdown';
+import FeedbackTextarea from './FeedbackTextarea';
+import FeedbackFileInput from './FeedbackFileInput';
 
 const FeedbackPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const t = useCustomTranslation("Feedback")
+  const { t } = useCustomTranslation("Feedback")
 
   const [files, setFiles] = useState<File[]>([]);
 

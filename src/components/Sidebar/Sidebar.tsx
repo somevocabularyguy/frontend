@@ -17,7 +17,7 @@ import { useCustomTranslation } from '@/hooks';
 
 const Sidebar: React.FC = () => {
   const dispatch = useAppDispatch();
-  const t = useCustomTranslation("Sidebar");
+  const { t } = useCustomTranslation("Sidebar");
 
   const isSidebarVisible = useAppSelector(state => state.ui.isSidebarVisible);
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn)
@@ -71,15 +71,15 @@ const Sidebar: React.FC = () => {
 
         <Link href="/" className={returnLinkClass('/')}>
           <HomeIcon width="2.25rem" height="2.25rem" />
-          <Text text={t("home")} className={styles.sidebarLinkText} as="span" />
+          <Text className={styles.sidebarLinkText}>{t("home")}</Text>
         </Link>
         <Link href="/settings" className={returnLinkClass('/settings')}>
           <SettingsIcon width="2.25rem" height="2.25rem" />
-          <Text text={t("settings")} className={styles.sidebarLinkText} as="span" />
+          <Text className={styles.sidebarLinkText}>{t("settings")}</Text>
         </Link>
         <Link href="/progress" className={returnLinkClass('/progress')}>
           <ProgressIcon width="2.25rem" height="2.25rem" />
-          <Text text={t("progress")} className={styles.sidebarLinkText} as="span" />
+          <Text className={styles.sidebarLinkText}>{t("progress")}</Text>
         </Link>
 
         <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
@@ -90,11 +90,11 @@ const Sidebar: React.FC = () => {
         </Link> */}
         <Link href="/feedback" className={returnLinkClass('/feedback')}>
           <FeedbackIcon height="2.25rem" width="2.25rem" />
-          <Text text={t("feedback")} className={styles.sidebarLinkText} as="span" />
+          <Text className={styles.sidebarLinkText}>{t("feedback")}</Text>
         </Link>
         <Link href="/about" className={returnLinkClass('/about')}>
           <InfoIcon width="2.25rem" height="2.25rem" />
-          <Text text="About" className={styles.sidebarLinkText} as="span" />
+          <Text className={styles.sidebarLinkText}>{t('about')}</Text>
         </Link>
 
         <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
@@ -102,7 +102,7 @@ const Sidebar: React.FC = () => {
         {isSignedIn ? 
           <Link href="/account" className={returnLinkClass('/about')}>
             <AccountIcon width="2.25rem" height="2.25rem" />
-            <Text text={t("account")} className={styles.sidebarLinkText} as="span" />
+            <Text className={styles.sidebarLinkText}>{t("account")}</Text>
           </Link>
           :
           <Button text={t("signIn")} className={styles.signInButton} onClick={openSignInPopup} />

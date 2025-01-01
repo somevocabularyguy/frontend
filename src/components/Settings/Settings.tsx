@@ -1,6 +1,7 @@
 import styles from './Settings.module.css';
 
-import { HiddenCustomSettings, AccountSettings } from './';
+import HiddenCustomSettings from './HiddenCustomSettings';
+import AccountSettings from './AccountSettings';
 
 const Settings: React.FC = () => {
  

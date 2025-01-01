@@ -12,7 +12,7 @@ const GeneralProgress: React.FC = () => {
 
   return (
     <span className={styles.container}>
-      <Text text={`Total time spent to learn: ${totalTimeSpentText}`} />
+      <Text>{`Total time spent to learn: ${totalTimeSpentText}`}</Text>
     </span>
   )
 }

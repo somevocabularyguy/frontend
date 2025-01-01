@@ -16,7 +16,7 @@ const SectionLabel: React.FC<SectionLabelProps> = ({ handleToggleSection, labelT
 
   return (
     <div onClick={handleToggleSection} className={styles.sectionLabelContainer}>
-      <Text className={styles.sectionLabel} text={labelText} as="h2"/>
+      <Text className={styles.sectionLabel} as="h2">{labelText}</Text>
       <ArrowIcon className={sectionToggleIconClassName}/>
     </div>
   )

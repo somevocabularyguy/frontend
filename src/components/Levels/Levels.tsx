@@ -1,6 +1,10 @@
 import styles from './Levels.module.css';
 
-import { LevelBox, LevelWords, CurrentWords, BottomStrip } from './';
+import LevelBox from './LevelBox';
+import LevelWords from './LevelWords';
+import CurrentWords from './CurrentWords';
+import BottomStrip from './BottomStrip';
+
 import { Line } from '@/components/atoms';
 
 import { useAppSelector } from '@/store/store';

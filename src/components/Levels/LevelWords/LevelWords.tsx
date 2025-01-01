@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './LevelWords.module.css';
+import { Word } from '@/types';
 
 import { Text, Line } from '@/components/atoms';
 
@@ -9,17 +10,16 @@ import { extractParts } from '@/utils/generalUtils';
 import { useAppSelector } from '@/store/store';
 
 const LevelWords: React.FC  = () => {
-  const t = useCustomTranslation('Levels.LevelWords');
+  const { t } = useCustomTranslation('Levels.LevelWords');
 
   const translate = useTranslate()
 
   const words = useAppSelector(state => state.data.words);
   const hoveredLevel = useAppSelector(state => state.appState.hoveredLevel);
 
-  let hoveredLevelWords: string[] = [];
+  let filteredWordObjects: Word[] = [];
   if (hoveredLevel) {
-    const filteredWordObjects = words.filter(wordObject => wordObject.levelName === hoveredLevel)
-    hoveredLevelWords = filteredWordObjects.map(wordObject => wordObject.word);
+    filteredWordObjects = words.filter(wordObject => wordObject.levelName === hoveredLevel)
   }
 
   const returnHoveredLevelText = () => {
@@ -35,17 +35,15 @@ const LevelWords: React.FC  = () => {
 
   return (
     <section className={styles.mainGrid}>
-      <Text text={returnHoveredLevelText()} className={styles.hoveredLevelHeader} as='h2' />
+      <Text className={styles.hoveredLevelHeader} as='h2'>{returnHoveredLevelText()}</Text>
       <Line width={'9.75rem'} />
       <article>
-        {hoveredLevelWords.map((wordString, index) => (
+        {filteredWordObjects.map((wordObject, index) => (
           <Text 
             key={`hoveredWord${index}`} 
-            text={wordString} 
             className={styles.levelWord} 
-            as='span'
-            onClick={() => translate(wordString)}
-          />
+            onClick={() => translate(wordObject.id)}
+          >{wordObject.word}</Text>
         ))}
       </article>
     </section>

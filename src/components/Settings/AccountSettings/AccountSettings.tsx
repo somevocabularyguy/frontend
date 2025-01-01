@@ -9,7 +9,7 @@ import { updateIsAccountSettingsVisible } from '@/store/settingsUiSlice';
 import { updateIsSignInPopupVisible, updateIsSignOutPopupVisible, updateIsDeletePopupVisible } from '@/store/accountUiSlice';
 
 const AccountSettings: React.FC = () => {
-  const t = useCustomTranslation("Settings.AccountSettings");
+  const { t } = useCustomTranslation("Settings.AccountSettings");
 
   const dispatch = useAppDispatch();
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn);

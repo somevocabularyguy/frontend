@@ -1,4 +1,7 @@
-import { useReturnNextDisplayWordObject, useKeepLog } from '@/hooks'; 
+import useReturnNextDisplayWordObject from './useReturnNextDisplayWordObject'; 
+import useKeepLog from './useKeepLog'; 
+
+import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateDisplayWordObject, updateIsShown } from '@/store/wordSlice';
@@ -8,21 +11,10 @@ const useMainButtonsUtils = () => {
   const dispatch = useAppDispatch();
 
   const returnNextDisplayWordObject = useReturnNextDisplayWordObject();
-  const keepLog = useKeepLog();
+  const callKeepLog = useKeepLog();
 
   const isShown = useAppSelector(state => state.word.isShown);
   const displayWordObject = useAppSelector(state => state.word.displayWordObject);
-
-  let timer1: NodeJS.Timeout | undefined;
-  const callKeepLog = () => {
-    if (timer1) {
-      clearTimeout(timer1);
-    }
-    timer1 = setTimeout(() => {
-      keepLog(true);
-    }, 5000)
-    keepLog(false);
-  }
 
   const handleNext = (iterate: boolean = true) => {
     const nextDisplayWordObject = returnNextDisplayWordObject(iterate);
@@ -30,7 +22,9 @@ const useMainButtonsUtils = () => {
       dispatch(updateIsShown(false));
     }
     dispatch(updateDisplayWordObject(nextDisplayWordObject));
-    callKeepLog()
+    if (iterate) {
+      callKeepLog()
+    }
   }
 
   const handleShow = () => {
@@ -43,20 +37,24 @@ const useMainButtonsUtils = () => {
   const handleHideWord = () => {
     if (!displayWordObject?.id) return;
     dispatch(addHiddenWordId(displayWordObject.id))
-    handleNext(false);
   }
 
   const handleAddToCustom = () => {
     if (!displayWordObject?.id) return;
     dispatch(addCustomWordId(displayWordObject.id));
-    handleNext(false);
   }
 
   const handleRemoveCustomWord = () => {
     if (!displayWordObject?.id) return;
     dispatch(removeCustomWordId(displayWordObject.id));
-    handleNext(false);
   }
+
+  useEffect(() => {
+    return () => {
+      dispatch(updateDisplayWordObject(null));
+      dispatch(updateIsShown(false));
+    }
+  }, [])
 
   return { handleNext, handleShow, handleHideWord, handleAddToCustom, handleRemoveCustomWord };
 }

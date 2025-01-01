@@ -2,33 +2,28 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserSettingsState {
   isSignedIn: boolean;
-  translateFrom: string;
-  translateTo: string;
+  namespaceArray: string[];
 }
 
 const initialState: UserSettingsState = {
   isSignedIn: false,
-  translateFrom: 'en',
-  translateTo: 'tr'
+  namespaceArray: ['en', 'ru']
 } 
 
 const userSettingsSlice = createSlice({
   name: 'userSettings',
   initialState,
   reducers: {
-    updateTranslateFrom: (state, action: PayloadAction<string>) => {
-      state.translateFrom = action.payload;
-    },
-    updateTranslateTo: (state, action: PayloadAction<string>) => {
-      state.translateTo = action.payload;
-    },
     updateIsSignedIn: (state, action: PayloadAction<boolean>) => {
       state.isSignedIn = action.payload;
+    },
+    updateNamespaceArray: (state, action: PayloadAction<string[]>) => {
+      state.namespaceArray = action.payload;
     }
   }
 })
 
-export const { updateIsSignedIn, updateTranslateTo } = userSettingsSlice.actions;
+export const { updateIsSignedIn, updateNamespaceArray } = userSettingsSlice.actions;
 export default userSettingsSlice.reducer;
 
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { UserData, Word } from '@/types';
 import storage from '@/storage';
 
@@ -12,7 +12,7 @@ import { updateDisplayWordObject } from '@/store/wordSlice';
 import { updateIsSignedIn } from '@/store/userSettingsSlice';
 
 import { returnUserData } from '@/utils/userDataUtils';
-import { useCreateLevels } from '@/hooks';
+import { useCreateLevels, useMainButtonsUtils } from '@/hooks';
 
 import { Shading } from '@/components/overlays';
 import { LanguageDropdown } from '@/components/Language';
@@ -29,11 +29,16 @@ interface RootLayoutChildWrapperProps {
 const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ children, serverUserData, signedInFlag }) => {
   const dispatch = useAppDispatch();
   const createLevels = useCreateLevels();
-
   const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
+  const levels = useAppSelector(state => state.appState.levels);
+  const batch = useAppSelector(state => state.appState.batch);
   const userData = useAppSelector(state => state.userData.userData);
   const isRandom = useAppSelector(state => state.word.isRandom);
   const words = useAppSelector(state => state.data.words);
+
+  const { handleNext } = useMainButtonsUtils();
+
+  const [handleNextFlag, setHandleNextFlag] = useState(false);
 
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn);
   if (isSignedIn !== signedInFlag) {
@@ -54,7 +59,15 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
   useEffect(() => {
     const levels = createLevels();
     dispatch(updateLevels(levels));
+    setHandleNextFlag(true);
   }, [userData.hiddenWordIds, userData.customWordIds, dispatch])
+
+  useEffect(() => {
+    if (handleNextFlag) {
+      handleNext(false);
+      setHandleNextFlag(false);
+    }
+  }, [batch])
 
   useEffect(() => {
     dispatch(updateDisplayWordObject(null));
@@ -65,6 +78,17 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
     const newBatch: Word[] = words.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
     dispatch(updateBatch(newBatch));
   }, [checkedLevels, words, dispatch])
+
+  // useEffect(() => {
+  //   const levelNamesSet = new Set();
+  //   for (let i = 0; i < levels.length; i++) {
+  //     levelNamesSet.add(levels[i].levelName)
+  //   } 
+  //   const newCheckedLevels = checkedLevels.filter(levelName => levelNamesSet.has(levelName));
+  //   if (JSON.stringify(newCheckedLevels) !== JSON.stringify(checkedLevels)) {
+  //     dispatch(updateCheckedLevels(newCheckedLevels));
+  //   }
+  // }, [levels])
 
 
   return (

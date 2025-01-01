@@ -19,7 +19,7 @@
   text-align: center;
 }
 .wordLabel:hover {
-  background-color: #363636;
+  background-color: #444444;
 }
 
 .otherLabelsContainer {
@@ -31,7 +31,9 @@
 .shownLabelGroup {
   display: flex;
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .headLabel {

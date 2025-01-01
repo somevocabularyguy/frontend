@@ -10,7 +10,7 @@ import { updateLoadingState } from '@/store/dataSlice';
 import { updateIsDeletePopupVisible } from '@/store/accountUiSlice';
 
 const DeletePopup: React.FC = () => {
-  const t = useCustomTranslation("Popups.DeletePopup");
+  const { t } = useCustomTranslation("Popups.DeletePopup");
   const dispatch = useAppDispatch();
 
   const isDeletePopupVisible = useAppSelector(state => state.accountUi.isDeletePopupVisible);
@@ -46,16 +46,8 @@ const DeletePopup: React.FC = () => {
 
   return (
     <section className={deletePopupClassName}>
-      <Text 
-        text={t("text1")} 
-        className={styles.popupText}
-        as="span"
-      />
-      <Text 
-        text={t("text2")}
-        className={styles.popupText}
-        as="span"
-      />
+      <Text className={styles.popupText}>{t("text1")}</Text>
+      <Text className={styles.popupText}>{t("text2")}</Text>
       <div className={styles.buttonsContainer}>
         <Button text={t("backButton")} className={styles.blankButton} onClick={closePopup} />
         <Button text={t("deleteButton")} className={`${styles.blankButton} ${styles.deleteButton}`} onClick={handleDeleteAccount} />

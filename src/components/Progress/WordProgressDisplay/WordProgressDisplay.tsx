@@ -39,10 +39,10 @@ const WordProgressDisplay: React.FC<SelectedWordDisplayProps> = ({ selectedWordD
 
   return (
     <section className={styles.selectedWordDisplayContainer}>
-      <Text text={word} as="h2" />
-      <Text text={`Times Seen: ${notShownSeen}`} />
-      <Text text={`Times Details Shown: ${shownSeen}`} />
-      <Text text={`Total Time Spent On Word: ${timeSpentText}`} />
+      <Text as="h2">{word}</Text>
+      <Text>{`Times Seen: ${notShownSeen}`}</Text>
+      <Text>{`Times Details Shown: ${shownSeen}`}</Text>
+      <Text>{`Total Time Spent On Word: ${timeSpentText}`}</Text>
     </section>
   )
 }

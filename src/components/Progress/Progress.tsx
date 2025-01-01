@@ -5,7 +5,9 @@ import styles from './Progress.module.css';
 import { useState } from 'react';
 import { Word, WordData } from '@/types';
 
-import { WordProgressDisplay, ProgressRadios, GeneralProgress } from './';
+import ProgressRadios from './ProgressRadios';
+import WordProgressDisplay from './WordProgressDisplay';
+import GeneralProgress from './GeneralProgress';
 
 import { useAppSelector } from '@/store/store';
 

@@ -13,7 +13,7 @@ interface FeedbackFileInputProps {
 
 const FeedbackFileInput: React.FC<FeedbackFileInputProps> = ({ files, setFiles}) => {
   const dispatch = useAppDispatch();
-  const t = useCustomTranslation("Feedback.FeedbackFileInput")
+  const { t } = useCustomTranslation("Feedback.FeedbackFileInput")
 
   const imageUrls = useAppSelector(state => state.feedback.imageUrls);
 

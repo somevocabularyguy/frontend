@@ -16,7 +16,7 @@ interface ProgressRadiosProps {
 
 const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordId, setSelectedWordId }) => {
 
-  const t = useCustomTranslation("Progress.ProgressRadios");
+  const { t } = useCustomTranslation("Progress.ProgressRadios");
 
   const [wordsDataSearchValue, setWordsDataSearchValue] = useState('');
 

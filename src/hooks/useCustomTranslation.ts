@@ -4,12 +4,14 @@ const useCustomTranslation = (preString?: string) => {
   const { t: translator } = useTranslation();
 
   const t = (key: string) => {
-    if (preString) {
-      return translator(preString + '.' + key)
-    }
-    return translator(key);
+    return translator(preString ? preString + '.' + key : key);
   }
-  return t;
+
+  const returnKey = (key: string) => {
+    return preString ? preString + '.' + key : key;
+  }
+
+  return { t, returnKey };
 }
 
 export default useCustomTranslation;

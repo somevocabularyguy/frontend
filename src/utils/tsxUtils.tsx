@@ -12,7 +12,7 @@ const highlightSubtext = (text: string, subtext: string) => {
   return (
     <>
       {before}
-      <Text text={match} style={{ color: "#2aaaff" }} as="span" />
+      <Text style={{ color: "#2aaaff" }}>{match}</Text>
       {after}
     </>
   );

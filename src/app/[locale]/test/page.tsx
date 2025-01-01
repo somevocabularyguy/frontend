@@ -1,19 +1,14 @@
 'use client';
 
-import styles from './styles.module.css';
-import { useTranslation }  from 'react-i18next';
-
-import { Text } from '@/components/atoms';
-import { LanguageDropdown } from '@/components/Language';
-import { FeedbackFileInput } from '@/components/Feedback';
+import { TText, Text } from '@/components/atoms';
+import { useCustomTranslation } from '@/hooks';
  
 const TestComponent: React.FC = () => {
-
-  const { t } = useTranslation();
+  const { t, returnKey } = useCustomTranslation('greeting');
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>
-      <FeedbackFileInput />
+      <TText translateKey={returnKey('hello')} />
     </div>
   )
 }

@@ -6,7 +6,7 @@ import { useCustomTranslation } from '@/hooks';
 import { Text } from '@/components/atoms';
 
 const Loading: React.FC = () => {
-  const t = useCustomTranslation();
+  const { t } = useCustomTranslation('Loading');
 
   const loading = useAppSelector(state => state.data.loading);
   const [animationIndex, setAnimationIndex] = useState(3);
@@ -35,7 +35,7 @@ const Loading: React.FC = () => {
     <>
       {loading && 
         <div className={styles.container}>
-          <Text className={styles.loadingText} text={`${t('loadingText')}${'.'.repeat(animationIndex)}`} />
+          <Text className={styles.loadingText}>{`${t('loadingText')}${'.'.repeat(animationIndex)}`}</Text>
         </div>
       }
     </>    

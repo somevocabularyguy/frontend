@@ -1,4 +1,5 @@
-import { MainLabels, MainButtons } from './';
+import MainButtons from './MainButtons';
+import MainLabels from './MainLabels';
 import styles from './Main.module.css';
 
 const Main: React.FC = () => {

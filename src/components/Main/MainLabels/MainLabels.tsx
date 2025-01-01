@@ -7,7 +7,7 @@ import styles from './MainLabels.module.css';
 import { useAppSelector } from '@/store/store';
 
 const MainLabels: React.FC = () => {
-  const t = useCustomTranslation("Main.MainLabels");
+  const { t } = useCustomTranslation("Main.MainLabels");
 
   const translate = useTranslate();
 
@@ -21,76 +21,71 @@ const MainLabels: React.FC = () => {
       <div className={styles.wordLabelContainer}>
         <div style={{ width: '6.75rem' }}></div>
         <Text 
-          text={displayWordObject?.word || (isRandom ? t("randomText") : t("practiceText"))} className={styles.wordLabel} 
+          className={styles.wordLabel} 
           onClick={displayWordObject?.id ? 
             () => translate(displayWordObject.word) : undefined}
-        />
+          as="p"
+        >{displayWordObject?.word || (isRandom ? t("randomText") : t("practiceText"))}</Text>
       </div>
 
       <div className={styles.otherLabelsContainer}>
         <div className={styles.shownLabelGroup}>
-          <Text text={t("definitionText")} className={styles.headLabel} />
+          <Text className={styles.headLabel}>{t("definitionText")}</Text>
           <article className={styles.dynamicLabelContainer}>
             {isShown && 
-              <Text 
-                text={displayWordObject?.definition || ''} 
+              <Text  
                 className={styles.dynamicLabel} 
                 onClick={displayWordObject?.id && isShown ? 
                   () => translate(displayWordObject.definition) : undefined}
-              /> 
+              >{displayWordObject?.definition || ''}</Text>
             }
           </article>
         </div>
 
         <div className={styles.shownLabelGroup}>
-          <Text text={t("exampleText")} className={styles.headLabel} />
+          <Text className={styles.headLabel}>{t("exampleText")}</Text>
           <article className={styles.dynamicLabelContainer}>
             {isShown && 
-              <Text 
-                text={isShown && displayWordObject?.example || ''} 
+              <Text  
                 className={styles.dynamicLabel} 
                 onClick={displayWordObject?.id && isShown ? 
                   () => translate(displayWordObject.example) : undefined}
-              /> 
+              >{isShown && displayWordObject?.example || ''}</Text>
             }
           </article>
         </div>
 
         <div className={styles.shownLabelGroup}>
-          <Text text={t("synonymsText")} className={styles.headLabel} />
+          <Text className={styles.headLabel}>{t("synonymsText")}</Text>
           <article className={styles.dynamicLabelContainer}>
             {(displayWordObject && isShown) ? 
               displayWordObject.synonyms.map((synonym, index, array) => (
                 <React.Fragment key={synonym + index}>
                   <Text 
-                    text={synonym}
                     className={styles.dynamicLabel}
-                    as="span"
                     onClick={() => translate(synonym)}
-                  />
-                  {index !==  array.length - 1 && <Text text="-"/>}
+                  >{synonym}</Text>
+                  {index !==  array.length - 1 && <Text>-</Text>}
                 </React.Fragment>
               ))
-            : <Text text='' />}
+            : <Text></Text>}
           </article>
         </div>
 
         <div className={styles.shownLabelGroup}>
-          <Text text={t("antonymsText")} className={styles.headLabel} />
+          <Text className={styles.headLabel}>{t("antonymsText")}</Text>
           <article className={styles.dynamicLabelContainer}>
             {(displayWordObject && isShown) ? 
               displayWordObject.antonyms.map((antonym, index, array) => (
                 <React.Fragment key={antonym + index}>
                   <Text 
-                    text={antonym}
                     className={styles.dynamicLabel}
-                    as="span"
                     onClick={() => translate(antonym)}
-                  />
-                  {index !==  array.length - 1 && <Text text="-"/>}
+                  >{antonym}</Text>
+                  {index !==  array.length - 1 && <Text>-</Text>}
                 </React.Fragment>
               ))
-            : <Text text='' />}
+            : <Text></Text>}
           </article>
         </div>
 

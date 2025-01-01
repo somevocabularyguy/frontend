@@ -1,15 +1,13 @@
-"use client";
-
 import { useState } from 'react';
 import { Word } from '@/types';
 
 import { updateSingleWordData } from '@/utils/keepLogUtils';
-import { useUpdateSingleLevel } from '@/hooks';
+import useUpdateSingleLevel from './useUpdateSingleLevel';
 
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import { updateUserUseTime, updateWordData } from '@/store/userDataSlice';
 
-const useKeepLog = () => {
+const useKeepLog = (): () => void => {
   const dispatch = useAppDispatch();
   const updateSingleLevel = useUpdateSingleLevel();
 
@@ -57,7 +55,18 @@ const useKeepLog = () => {
     updateSingleLevel(wordObject.levelName)
   }
 
-  return keepLog;
+  let timer1: NodeJS.Timeout | undefined;
+  const callKeepLog = () => {
+    if (timer1) {
+      clearTimeout(timer1);
+    }
+    timer1 = setTimeout(() => {
+      keepLog(true);
+    }, 5000)
+    keepLog(false);
+  }
+
+  return callKeepLog;
 };
 
 export default useKeepLog;

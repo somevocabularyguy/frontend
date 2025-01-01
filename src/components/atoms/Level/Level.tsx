@@ -44,7 +44,7 @@ const Level: React.FC<LevelProps> = ({ levelName, colorValue }) => {
       onMouseEnter={handleLevelOnHover}
       onClick={handleLevelChange}
     >
-      <Text text={'lv' + levelNumber}/>
+      <Text>{'lv' + levelNumber}</Text>
     </div>
   )
 }

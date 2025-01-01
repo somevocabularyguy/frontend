@@ -45,6 +45,7 @@
   cursor: pointer;
   gap: 0.625rem;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .activeLink {

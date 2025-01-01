@@ -12,21 +12,23 @@ import { updateIteration } from '@/store/appStateSlice';
 const useReturnNextDisplayWordObject = (): (iterate: boolean) => Word | null => {
   const dispatch = useAppDispatch();
 
+  const [indexArray, setIndexArray] = useState<number[]>([]);
+
   const checkedLevels = useAppSelector(state => state.appState.checkedLevels)
   const batch = useAppSelector(state => state.appState.batch)
   const displayWordObject = useAppSelector(state => state.word.displayWordObject)
   const iteration = useAppSelector(state => state.appState.iteration)
 
   const returnNextWordForPractice = (iterate: boolean): Word | null => {  
-    const nextWordObject: Word | null = batch[iteration] ? batch[iteration] : null;
+    let newIteration = iteration;
     if (iterate) {
-      const newIteration = iteration < batch.length - 1 ? iteration + 1 : 0;
+      newIteration = iteration < batch.length - 1 ? iteration + 1 : 0;
       dispatch(updateIteration(newIteration));
     }
+    const nextWordObject: Word | null = batch[newIteration] ? batch[newIteration] : null;
     return nextWordObject;
   }
 
-  const [indexArray, setIndexArray] = useState<number[]>([]);
 
   useEffect(() => {
     const newIndexArray = batch.flatMap((_, index) => Array(8).fill(index));
@@ -34,7 +36,7 @@ const useReturnNextDisplayWordObject = (): (iterate: boolean) => Word | null => 
   }, [batch])
 
   useEffect(() => {
-    dispatch(updateIteration(0));
+    dispatch(updateIteration(-1));
   }, [checkedLevels, dispatch])
 
   const returnNextWordForRandom = (): Word | null => {

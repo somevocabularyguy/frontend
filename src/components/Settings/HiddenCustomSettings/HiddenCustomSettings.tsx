@@ -13,7 +13,7 @@ import { useCustomTranslation } from '@/hooks';
 import { highlightSubtext } from '@/utils/tsxUtils';
 
 const HiddenCustomSettings: React.FC = () => {
-  const t = useCustomTranslation("Settings.HiddenCustomSettings");
+  const { t } = useCustomTranslation("Settings.HiddenCustomSettings");
   const dispatch = useAppDispatch();
 
   const words = useAppSelector(state => state.data.words);
@@ -62,7 +62,7 @@ const HiddenCustomSettings: React.FC = () => {
       <section className={hiddenCustomSectionClassName}>
 
         <div className={styles.hiddenCustomContainer}>
-          <Text className={styles.hiddenCustomLabel} text={t("HiddenSettings.removeHiddenLabel")} as="h3"/>
+          <Text className={styles.hiddenCustomLabel} as="h3">{t("HiddenSettings.removeHiddenLabel")}</Text>
           <input 
             className={styles.hiddenCustomSearch}
             placeholder={t("HiddenSettings.placeholder")}
@@ -83,14 +83,14 @@ const HiddenCustomSettings: React.FC = () => {
                   )
                 })
               : hiddenWords.length ?
-                  <Text text={t("HiddenSettings.noWordsText")} className={styles.notFoundText} /> 
-                  : <Text text={t("HiddenSettings.noHiddenWordsText")} className={styles.notFoundText} />
+                  <Text className={styles.notFoundText}>{t("HiddenSettings.noWordsText")}</Text> 
+                  : <Text className={styles.notFoundText}>{t("HiddenSettings.noHiddenWordsText")} </Text>
             }
           </div>
         </div>
 
         <div className={styles.hiddenCustomContainer}>
-          <Text className={styles.hiddenCustomLabel} text={t("CustomSettings.removeCustomLabel")} as="h3"/>
+          <Text className={styles.hiddenCustomLabel} as="h3">{t("CustomSettings.removeCustomLabel")} </Text>
           <input 
             className={styles.hiddenCustomSearch}
             placeholder={t("CustomSettings.placeholder")}
@@ -111,8 +111,8 @@ const HiddenCustomSettings: React.FC = () => {
                   )
                 })
               : hiddenWords.length ?
-                  <Text text={t("CustomSettings.noWordsText")} className={styles.notFoundText} /> 
-                  : <Text text={t("CustomSettings.noCustomWordsText")} className={styles.notFoundText} />
+                  <Text className={styles.notFoundText}>{t("CustomSettings.noWordsText")}</Text> 
+                  : <Text className={styles.notFoundText}>{t("CustomSettings.noCustomWordsText")}</Text>
             }
           </div>
         </div>

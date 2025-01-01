@@ -22,7 +22,6 @@ const LanguageDropdown: React.FC = () => {
 
   const handleLanguageChange = (optionObject: OptionObject) => {
     const newLocale = optionObject.key;
-
     const days = 30;
     const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -54,7 +53,7 @@ const LanguageDropdown: React.FC = () => {
   }
 
   const [currentSelection, setCurrentSelection] = useState<OptionObject>(() =>  
-      languageOptions.filter(option => option.key === currentLocale)[0]
+    languageOptions.filter(option => option.key === currentLocale)[0]
   ) 
 
   const dispatchHandler = (optionObject: OptionObject) => {
@@ -69,7 +68,7 @@ const LanguageDropdown: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={dropdownButtonStyle} onClick={toggleLanguageDropdown}>
-        <Text text={currentSelection.text} className={styles.dropdownButtonText} as="span" />
+        <Text className={styles.dropdownButtonText}>{currentSelection.text}</Text>
         <ArrowIcon className={dropdownArrowIconStyle} fill="black" />
       </div>
 
@@ -82,7 +81,7 @@ const LanguageDropdown: React.FC = () => {
                 className={styles.option} 
                 onClick={() => dispatchHandler(optionObject)}
               >
-                <Text text={optionObject.text} className={styles.optionText} as="span" />
+                <Text className={styles.optionText}>{optionObject.text}</Text>
               </div>
             )
           })}      
