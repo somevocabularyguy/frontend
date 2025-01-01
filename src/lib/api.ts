@@ -10,7 +10,7 @@ const getUserData = async (authToken: string): Promise<UserData | null> => {
   }
 
   try {
-    const response = await axios.get(`http://localhost:3000/api/proxy/data/get-data`, config);
+    const response = await axios.get(`http://localhost:3000/api/web/proxy/data/get-data`, config);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -26,22 +26,22 @@ const getUserData = async (authToken: string): Promise<UserData | null> => {
 }
 
 const sendMagicLink = async (email: string) => {
-  const response = await axios.post(`/api/proxy/entry/send-magic-link`, { email });
+  const response = await axios.post(`/api/web/proxy/entry/send-magic-link`, { email });
   return response;
 }
 
 const sendFeedbackData = async (feedbackData: FeedbackData) => {
-  const response = await axios.post(`http://localhost:3000/api/proxy/feedback/send-feedback`, { feedbackData }, { withCredentials: true })
+  const response = await axios.post(`http://localhost:3000/api/web/proxy/feedback/send-feedback`, { feedbackData }, { withCredentials: true })
   return response;
 }
 
 const logout = async () => {
-  const response = await axios.get('http://localhost:3000/api/logout', { withCredentials: true });
+  const response = await axios.get('http://localhost:3000/api/web/logout', { withCredentials: true });
   return response
 }
 
 const deleteAccount = async () => {
-  const response = await axios.delete('http://localhost:3000/api/proxy/entry/delete-account', { withCredentials: true });
+  const response = await axios.delete('http://localhost:3000/api/web/proxy/entry/delete-account', { withCredentials: true });
   return response;
 }
 

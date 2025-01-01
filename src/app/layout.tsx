@@ -21,8 +21,6 @@ const RootLayout = async ({children}: {children: React.ReactNode}) => {
   if (authToken) {
     signedInFlag = true;
     serverUserData = await getUserData(authToken);
-  } else {
-
   }
 
   return (

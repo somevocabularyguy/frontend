@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   const cookieStore = await cookies();
   const authToken = cookieStore.get('authCookie')?.value;
 
-  let config: AuthConfig | {} = {};
+  let config: AuthConfig | object = {};
 
   if (authToken) {
     config = {

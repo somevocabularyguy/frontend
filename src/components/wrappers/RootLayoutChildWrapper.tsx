@@ -48,7 +48,7 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
   useEffect(() => {
     const levels = createLevels();
     dispatch(updateLevels(levels));
-  }, [userData.hiddenWordIds, userData.customWordIds, dispatch])
+  }, [userData.hiddenWordIds, userData.customWordIds, dispatch, createLevels])
 
   const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
   const isRandom = useAppSelector(state => state.word.isRandom);
