@@ -1,0 +1,27 @@
+.mainGrid {
+  display: grid;
+  background-color: #5b5b5b;
+  grid-template-rows: 21rem  0.125rem;
+  grid-template-columns: 10rem 1.5rem 34.25rem 1.5rem 10.5rem;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  width: 58.5rem;
+  height: 24.35rem;
+  border-radius: 1.125rem 1.125rem 0 0;
+  position: absolute;
+  bottom: -22.25rem;
+  transition: bottom 0.3s ease;
+  transform: translateX(-50%);
+  left: 50vw;
+}
+
+.levelsOpen {
+  bottom: 0;
+}
+
+.stripLine {
+  grid-column: span 5;
+  position: relative;
+  bottom: 0.2rem;
+}

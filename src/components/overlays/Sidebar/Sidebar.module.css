@@ -1,0 +1,106 @@
+.mainLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12.5rem;
+  height: 3.75rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  gap: 0.375rem;
+  z-index: 100;
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+}
+
+.blankDiv {
+  height: 3.75rem;
+}
+
+.sidebarContainer {
+  background-color: #424242;
+  width: 13.75rem;
+  padding-left: 0.625rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;  
+  left: -15rem;
+  transition: left 0.3s ease;
+  z-index: 90
+}
+
+.sidebarOpen {
+  left: 0;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  width: 12.5rem;
+  height: 3.25rem;
+  padding-left: 0.625rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: white;
+  cursor: pointer;
+  gap: 0.625rem;
+  box-sizing: border-box;
+}
+
+.activeLink {
+  border-left: 0.125rem solid yellow;
+}
+
+.sidebarLink:hover {
+  background-color: #383838;
+} 
+
+.linkDividerLine {
+  margin: 1.25rem 0 1.25rem 0.625rem;
+}
+
+.accountButton {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  width: 11.875rem;
+  height: 3.125rem;
+  border: none;
+  border-radius: 1.875rem;
+  font-size: 1.5rem;
+  background-color: #f2b500;
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.accountButton:hover {
+  background-color: #d09c00;
+}
+
+.signInButton {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  width: 11.875rem;
+  height: 3.125rem;
+  border: none;
+  border-radius: 1.875rem;
+  font-size: 1.5rem;
+  background-color: #f2b500;
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.signInButton:hover {
+  background-color: #d09c00;
+}

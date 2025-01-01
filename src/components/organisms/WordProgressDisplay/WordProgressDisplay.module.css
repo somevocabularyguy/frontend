@@ -1,0 +1,8 @@
+.selectedWordDisplayContainer {
+  display: grid;
+  height: 30rem;
+  width: 33rem;
+  border: 1px solid #d09c00;
+  overflow-y: auto;
+  text-align: center;
+}

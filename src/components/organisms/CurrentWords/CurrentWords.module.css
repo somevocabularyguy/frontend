@@ -1,0 +1,121 @@
+.mainDiv {
+  display: grid;
+  width: 10.5rem;
+  grid-template-rows: 2.125rem 1rem 15rem 2.5rem;
+  text-align: center;
+  background-color: transparent; 
+  position: relative;
+}
+
+.labelGrid {
+  display: grid;
+  grid-template-columns: auto 1.875rem;
+  align-items: center;
+}
+
+.label {
+  font-size: 1rem;
+  margin: 0;  
+}
+
+.amount {
+  display: flex;
+  background-color: #848484;
+  width: 1.875rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  user-select: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.9375rem;
+  right: 0.1875rem;
+}
+
+.wordBox {
+  overflow-y: auto;
+  margin-bottom: 0.625rem;
+  font-size: 0.75rem;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.wordBox::-webkit-scrollbar {
+  width: 0.375rem;
+  display: transparent;
+}
+
+.wordBox::-webkit-scrollbar-track {
+  display: transparent;
+}
+
+.wordBox::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 0.625rem;
+  position: relative;
+  z-index: 10;
+}
+
+.scrollRail {
+  position: absolute;
+  top: 2.625rem;
+  right: 0.03125rem;
+  z-index: 0;
+}
+
+.copySection {
+  display: grid;
+  grid-template-columns: 5.625rem 3.75rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 0.3125rem;
+}
+
+.copyButton {
+  width: 3.25rem;
+  height: 1.625rem;
+  border: none;
+  border-radius: 1rem;
+  position: relative;
+  left: 0.3125rem;
+  cursor: pointer;
+  font-family: poppins;
+  font-size: 0.75rem;
+}
+
+.copyButton:hover {
+  background-color: #d8d8d8;
+}
+
+.copyButton:active {
+  background-color: #cbcbcb;
+}
+
+.messageBox {
+  position: relative;
+  left: 1.5rem;
+  top: 0.375;
+  height: 1.875rem;
+  width: 3.75rem;
+  background-color: #444444;
+  border-radius: 0.5rem;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  opacity: 0;
+}
+
+
+.visible {
+  opacity: 1;
+  transition: opacity 0s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.2s ease; 
+}

@@ -1,0 +1,25 @@
+.checkboxLabel {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkboxChecked {
+  color: white;
+  border: 0.1875rem solid #e6ac00;
+}
+
+.checkboxNotChecked {
+  border: 0.1875rem solid transparent;
+  color: white;
+  background-clip: padding-box;
+}

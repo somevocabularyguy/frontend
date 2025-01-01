@@ -1,0 +1,78 @@
+.bottomStrip {
+  display: grid;
+  grid-template-columns: 6.25rem 6.875rem 44.375rem;
+  grid-template-rows: 2.65rem;
+  justify-items: center;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  background-color: #5b5b5b;
+  padding: 0.375rem 0.5rem;
+  bottom: 0;
+  transform: translateX(-50%);
+  left: 50vw;
+  border-radius: 1.125rem 1.125rem 0 0;
+}
+
+.toggleButton {
+  height: 2.5rem; 
+  width: 5.875rem;
+  border-radius: 1.875rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  background-color: #cfcfcf;
+}
+
+.toggleButtonActive {
+  border: 0.2rem solid greenyellow;
+  background-color: #ff8855;
+}
+
+.toggleButtonActive:hover {
+  background-color: #e57a4c;
+}
+
+.selectLevelsLabel {
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+  user-select: none;
+}
+
+.levelsToggleContainer {
+  display: grid;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  grid-template-columns: 31rem 13.375rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.levelsToggleIcon {
+  position: relative;
+  left: 6rem;
+  width: 2.75rem;
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.levelsToggleContainer:hover .levelsToggleIcon {
+  transform: rotate(180deg);
+}
+
+.levelsToggleIconRotated {
+  position: relative;
+  left: 6rem;
+  width: 2.75rem;
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.levelsToggleContainer:hover .levelsToggleIconRotated {
+  transform: rotate(0deg);
+}

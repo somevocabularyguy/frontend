@@ -1,0 +1,16 @@
+{
+  "parser": "@typescript-eslint/parser", 
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020, // Support modern ECMAScript features
+    "sourceType": "module" // Use ES modules
+  },
+  "rules": {
+  }
+}

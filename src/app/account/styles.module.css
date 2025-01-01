@@ -1,0 +1,176 @@
+.mainContainer {
+  display: grid;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.buttonType1 {
+  justify-self: center;
+  width: 12rem; 
+  height: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.deleteButton {
+  font-weight: bold;
+  font-size: 1.25rem;
+  background-color: #cc0000;
+  color: #ffecec;
+}
+
+.deleteButton:hover {
+  background-color: #aa0000;
+}
+
+.signOutButton {
+  font-size: 1.25rem;
+  background-color: #dda400;
+  color: #000000;
+}
+
+.signOutButton:hover {
+  background-color: #b38600;
+}
+
+.popup {
+  display: grid;
+  height: 12rem;
+  grid-template-columns: 15rem 15rem;
+  position: absolute;
+  top: 45vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem; 
+  text-align: center;
+  background-color: #060606;
+  z-index: 1002;
+  opacity: 0%;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+}
+
+.signOutPopupVisible {
+  border: 1px solid #dda400;
+  opacity: 100%;
+  pointer-events: all;
+}
+
+.signOutPopupText {
+  grid-column: span 2;
+  justify-self: center;
+  width: 84%;
+}
+
+.singOutProgressText {
+  color: gold;
+}
+
+.deletePopupVisible {
+  border: 1px solid red;
+  opacity: 100%;
+  pointer-events: all;
+}
+
+.deletePopupText {
+  grid-column: span 2;
+  justify-self: center;
+  width: 96%;
+}
+.overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000000;
+  z-index: 1001;
+  opacity: 0%;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+}
+
+.overlayVisible {
+  opacity: 40%;
+  pointer-events: all;
+}
+
+.deleted {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #282828;
+  position: absolute;
+  z-index: 1004;
+  font-size: 1.25rem;
+  text-align: center;
+  display: none;
+}
+
+.deletedVisible {
+  display: grid;
+}
+
+.deletedContainer {
+  display: grid;
+  grid-template-rows: 8rem 5rem; 
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 12.5rem;
+}
+
+.deletedTextContainer {
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  background-color: #121212;
+  border: 0.125rem solid white;
+}
+
+.deletedText {
+  margin: 0.5rem;
+}
+
+.progressInfoContainer {
+  width: 80%;
+  height: 4rem;
+  background-color: #121212;
+  border: 0.125rem solid white;
+  border-radius: 1rem;
+  align-content: center;
+  position: relative;
+}
+
+.progressLink {
+  color: #dda400;
+  padding: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.progressLink:hover {
+  color: gold;
+}
+
+.deletedButton {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  width: 24rem;
+  margin-top: 0.5rem;
+  height: 3.75rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #bfbfbf;
+  color: #121212;
+  border: 0.125rem solid #bfbfbf;
+}
+
+.deletedButton:hover {
+  background-color: #121212;
+  color: #d0d0d0;
+  border: 0.125rem solid #ffffff;
+}

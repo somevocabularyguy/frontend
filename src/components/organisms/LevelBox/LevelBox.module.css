@@ -1,0 +1,57 @@
+.wrapper {
+  display: grid;
+  width: 34.25rem;
+  height: 18.125rem;
+  grid-template-columns: 33.75rem auto;
+  padding: 0.625rem;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: transparent;
+  position: relative;
+}
+
+.mainGrid {
+  overflow-y: auto;
+  height: 100%;
+  background-color: transparent;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  justify-items: center;
+}
+
+.categoryLabel {
+  width: 32.5rem;
+  margin-bottom: 0;
+  font-size: 1.875rem;
+  user-select: none;
+}
+
+.categoryLabelLine {
+  margin-bottom: 0.45rem;
+}
+
+.firstCategoryLabel {
+  margin-top: 0;
+}
+
+.mainGrid::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.mainGrid::-webkit-scrollbar-track {
+  display: none;
+}
+
+.mainGrid::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 0.625rem;
+}
+
+.scrollRail {
+  position: absolute;
+  right: 0.03125rem;
+  top: 0;
+}

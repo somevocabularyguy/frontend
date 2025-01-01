@@ -1,0 +1,7 @@
+.mainGrid {
+  display: grid;
+  grid-template-columns: 51.25rem 6.25rem;
+}
+
+
+

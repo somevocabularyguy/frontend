@@ -1,0 +1,7 @@
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 33.125rem 33rem;
+  padding-top: 4rem;
+}
+

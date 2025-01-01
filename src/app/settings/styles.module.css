@@ -1,0 +1,28 @@
+.mainGrid {
+  display: grid;
+  justify-content: center;
+}
+
+.hiddenWordsGrid {
+  display: grid;
+  grid-template-columns: 12.5rem 12.5rem 12.5rem;
+}
+
+.hiddenWordCell {
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  border: rgb(181, 181, 181) solid 0.0625rem;
+}
+
+.customWordsGrid {
+  display: grid;
+  grid-template-columns: 12.5rem 12.5rem 12.5rem;
+}
+
+.customWordCell {
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  border: rgb(181, 181, 181) solid 0.0625rem;
+}
