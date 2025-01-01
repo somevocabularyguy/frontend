@@ -24,7 +24,6 @@ const useLoadApp = (
   wordResources: WordResources,
   languageArray: string[]
 ) => {
-
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(state => state.loading.isLoading);
   const isAppLoaded = useAppSelector(state => state.loading.isAppLoaded);
@@ -59,40 +58,41 @@ const useLoadApp = (
     return isSignInVerified;
   }
 
-  useEffect(() => {
-    if (isLoading) dispatch(updateIsLoading(false));
-    const loadData = async () => {
-      const isSignInVerified = await checkVerify(signedInFlag);
+  const loadData = async () => {
+    const isSignInVerified = await checkVerify(signedInFlag);
 
-      const isSignedIn = isSignInVerified || signedInFlag === true;
+    const isSignedIn = isSignInVerified || signedInFlag === true;
 
-      const storedUserData = storage.getItem('userData');
-      const updatedUserData = returnUserData(storedUserData, serverUserData, languageArray);
-      if (isSignedIn) {
-        syncUserData(updatedUserData);
-      }
-
-      const groupedWords = groupWordsByLevel(initialWords, updatedUserData.hiddenWordIds, updatedUserData.customWordIds);
-      const levels = createLevels(groupedWords, updatedUserData.wordsData);
-
-      const storedCheckedLevels = storage.getItem('checkedLevels');
-      const checkedLevelsSet = new Set(storedCheckedLevels);
-      const newBatch: Word[] = groupedWords.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
-
-      dispatch(updateLevels(levels));
-      dispatch(updateBatch(newBatch));
-      dispatch(updateWords(groupedWords));
-      dispatch(updateUserData(updatedUserData));
-      dispatch(updateWordResources(wordResources));
-      dispatch(updateCheckedLevels(storedCheckedLevels));
-      dispatch(updateIsSignedIn(isSignInVerified || signedInFlag === true));
-
-      dispatch(updateIsLoading(false));
-    } 
-    if (!isAppLoaded) {
-      loadData();
+    const storedUserData = storage.getItem('userData');
+    const updatedUserData = returnUserData(storedUserData, serverUserData, languageArray);
+    if (isSignedIn) {
+      syncUserData(updatedUserData);
     }
-  }, [])
+
+    const groupedWords = groupWordsByLevel(initialWords, updatedUserData.hiddenWordIds, updatedUserData.customWordIds);
+    const levels = createLevels(groupedWords, updatedUserData.wordsData);
+
+    const storedCheckedLevels = storage.getItem('checkedLevels');
+    const checkedLevelsSet = new Set(storedCheckedLevels);
+    const newBatch: Word[] = groupedWords.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
+
+    dispatch(updateLevels(levels));
+    dispatch(updateBatch(newBatch));
+    dispatch(updateWords(groupedWords));
+    dispatch(updateUserData(updatedUserData));
+    dispatch(updateWordResources(wordResources));
+    dispatch(updateCheckedLevels(storedCheckedLevels));
+    dispatch(updateIsSignedIn(isSignInVerified || signedInFlag === true));
+  } 
+
+  useEffect(() => {
+    if (!isAppLoaded) {
+      dispatch(updateIsLoading(true));
+      loadData();
+    } else {
+      dispatch(updateIsLoading(false));
+    }
+  }, [isAppLoaded])
 }
 
 export default useLoadApp;

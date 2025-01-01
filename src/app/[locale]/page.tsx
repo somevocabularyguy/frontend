@@ -5,6 +5,7 @@ import { Text } from '@/components/atoms';
 
 import Main from '@/components/Main';
 import Levels from '@/components/Levels';
+import Language from '@/components/Language';
 
 const MainPage: React.FC = () => {
 
@@ -13,6 +14,7 @@ const MainPage: React.FC = () => {
       <section className={styles.container}>
         <Main />
         <Levels />
+        <Language />
       </section>
     </>
   )

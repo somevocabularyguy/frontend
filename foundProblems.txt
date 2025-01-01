@@ -1,23 +1,13 @@
-Error handling and feedback for Feedback Page.
-
-signout popup settings link
-
-Auto scaling Text component!!
-
-Language settings.!!!!!!!!!!!!
-
 level stays checked when becomes empty.
-
-signIn button enter to send mail.
-
-a level loses background color sometimes. Why is that?
-
-add highlight to words found in example
-
-add levelWords update with  clicking instead of hover setting
-
 back and retry button to sign-in waiting
 
-change returnUserData to useTime to be more efficient
+Error handling and feedback for Feedback Page.
+signIn button enter to send mail.
 
+change returnUserData to useTime to be more efficient
 put use time in cookie return server data if necessary
+
+signout popup settings link
+a level loses background color sometimes. Why is that?
+
+add levelWords update with  clicking instead of hover setting

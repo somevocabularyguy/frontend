@@ -137,7 +137,7 @@
     }
   },
   "Sidebar": {
-    "home": "Home",
+    "practice": "Practice",
     "settings": "Settings",
     "progress": "Progress",
     "guide": "How To Use",
@@ -145,5 +145,27 @@
     "about": "About",
     "signIn": "Sign In",
     "signOut": "Sign Out"
+  },
+  "Language": {
+    "en": "English",
+    "ru": "Russian",
+    "ja": "Japanese",
+    "zh": "Chinese",
+    "tr": "Turkish",
+    "loading": "Loading Language Data...",
+    "WordsLanguageSelect": {
+      "label": "Select Learning Language",
+      "button": "Apply Changes"
+    },
+    "OtherLanguagesSelect": {
+      "label": "Select Additional Languages",
+      "button": "Apply Changes"
+    },
+    "AppLanguageSelect": {
+      "label": "Language"
+    },
+    "LanguageStrip": {
+      "label": "Language"
+    }
   }
 }

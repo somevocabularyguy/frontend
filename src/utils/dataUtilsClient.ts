@@ -1,6 +1,6 @@
 import { getLanguageResources } from '@/lib/api';
 
-const loadWordResourcesClient = async (oldLanguageArray: string[], newLanguageArray: string[]) => {
+const loadWordResourcesClient = async (oldLanguageArray: string[], newLanguageArray: string[], requestedWordsLanguage?: string) => {
 
   let wordsLanguage: string = newLanguageArray[0];
   let newWordsLanguage: string | null = null;
@@ -16,7 +16,7 @@ const loadWordResourcesClient = async (oldLanguageArray: string[], newLanguageAr
     }
   })
 
-  const { requestedWords, requestedWordResources } = await getLanguageResources(wordsLanguage, languageDifference, newWordsLanguage);
+  const { requestedWords, requestedWordResources } = await getLanguageResources(wordsLanguage, languageDifference, newWordsLanguage || requestedWordsLanguage);
 
   return { requestedWords, requestedWordResources };
 }

@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  background-color: #5b5b5b;
+  padding: 0.375rem 1rem;
+  border-top-left-radius: 1.125rem;
+  box-sizing: border-box;
+  bottom: 0;
+  right: 0;
+  width: 22rem;
+  height: 3.4rem;
+  cursor: pointer;
+}
+.containerActive {
+  border-top-left-radius: 0;
+}
+
+.selectLanguagesLabel {
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+  user-select: none;
+}
+
+.languagesToggleIconLeft {
+  width: 2.75rem;
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+
+.languagesToggleIconRight {
+  width: 2.75rem;
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.container:hover .languagesToggleIconRight {
+  transform: rotate(180deg);
+}
+.container:hover .languagesToggleIconLeft {
+  transform: rotate(-180deg);
+}
+
+.languagesToggleIconRotatedLeft {
+  width: 2.75rem;
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+.languagesToggleIconRotatedRight {
+  width: 2.75rem;
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.container:hover .languagesToggleIconRotatedLeft {
+  transform: rotate(0deg);
+}
+.container:hover .languagesToggleIconRotatedRight {
+  transform: rotate(0deg);
+}

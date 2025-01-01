@@ -2,7 +2,7 @@
   position: absolute;
   top: 1rem;
   right: 2rem;
-  width: 10rem;
+  width: 12rem;
   height: 2.5rem;
   z-index: 1000;
 }
@@ -15,7 +15,7 @@
   align-items: center;
   background-color: #b1aaa3;
   border-radius: 0.5rem;
-  padding: 0 1rem;
+  padding-left: 1rem;
   box-sizing: border-box;
   color: black;
   cursor: pointer;
@@ -49,6 +49,19 @@
 }
 .dropdownButton:hover .dropdownArrowIconActive {
   transform: rotate(180deg);
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem
+}
+
+.languageIcon {
+  margin-right: 0.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .optionsContainer {

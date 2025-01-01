@@ -91,7 +91,7 @@ const deleteAccount = async () => {
 const getLanguageResources = async (
   wordsLanguage: string, 
   languageArray: string[], 
-  newWordsLanguage: string | null
+  newWordsLanguage?: string | null
 ) => {
   const response = await axios.post('http://localhost:3000/api/web/get-language-resources', { wordsLanguage, languageArray, newWordsLanguage });
 

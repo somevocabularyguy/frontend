@@ -3,18 +3,18 @@
 import styles from './LanguageDropdown.module.css';
 import { useState } from 'react';
 
-import { ArrowIcon } from '@/public/icons';
+import { ArrowIcon, LanguageIconBlack, LanguageIcon } from '@/public/icons';
 import { Text } from '@/components/atoms';
 import { OptionObject } from '@/types';
 
 import { updateIsLoading } from '@/store/loadingSlice';
 import { useAppSelector, useAppDispatch } from '@/store/store';
-import { updateIsLanguageDropdownActive } from '@/store/languageUiSlice';
+import { updateIsLanguageDropdownVisible } from '@/store/languageUiSlice';
 
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import i18nConfig from '@/i18nConfig';
+import i18nConfig, { languageNames } from '@/i18nConfig';
 
 const LanguageDropdown: React.FC = () => {
   const { i18n } = useTranslation();
@@ -34,7 +34,6 @@ const LanguageDropdown: React.FC = () => {
     if (newLocale === currentLocale) return;
 
     dispatch(updateIsLoading(true));
-    i18n.changeLanguage(newLocale);
 
     if (currentLocale === i18nConfig.defaultLocale) {
       router.push('/' + newLocale + currentPathname);
@@ -47,15 +46,14 @@ const LanguageDropdown: React.FC = () => {
   
   const dispatch = useAppDispatch();
 
-  const isLanguageDropdownActive = useAppSelector(state => state.languageUi.isLanguageDropdownActive);
+  const isLanguageDropdownVisible = useAppSelector(state => state.languageUi.isLanguageDropdownVisible);
 
-  const languageOptions: OptionObject[] = [
-    { key: 'en', text: 'English' },
-    { key: 'tr', text: 'Türkçe' }
-  ]
+  const languageOptions: OptionObject[] = Object.keys(languageNames).map(language => {
+    return  { key: language, text: languageNames[language] };
+  })
 
   const toggleLanguageDropdown = () => {
-    dispatch(updateIsLanguageDropdownActive(!isLanguageDropdownActive));
+    dispatch(updateIsLanguageDropdownVisible(!isLanguageDropdownVisible));
   }
 
   const [currentSelection, setCurrentSelection] = useState<OptionObject>(() =>  
@@ -68,17 +66,20 @@ const LanguageDropdown: React.FC = () => {
     toggleLanguageDropdown();
   }
 
-  const dropdownButtonStyle = `${styles.dropdownButton} ${isLanguageDropdownActive ? styles.dropdownButtonActive : ''}`;
-  const dropdownArrowIconStyle = `${styles.dropdownArrowIcon} ${isLanguageDropdownActive ? styles.dropdownArrowIconActive : ''}`;
+  const dropdownButtonStyle = `${styles.dropdownButton} ${isLanguageDropdownVisible ? styles.dropdownButtonActive : ''}`;
+  const dropdownArrowIconStyle = `${styles.dropdownArrowIcon} ${isLanguageDropdownVisible ? styles.dropdownArrowIconActive : ''}`;
 
   return (
     <div className={styles.container}>
       <div className={dropdownButtonStyle} onClick={toggleLanguageDropdown}>
         <Text className={styles.dropdownButtonText}>{currentSelection.text}</Text>
-        <ArrowIcon className={dropdownArrowIconStyle} fill="black" />
+        <div className={styles.iconContainer}>
+          <ArrowIcon className={dropdownArrowIconStyle} fill="black" />
+          <LanguageIconBlack className={styles.languageIcon} />
+        </div>
       </div>
 
-      {isLanguageDropdownActive &&
+      {isLanguageDropdownVisible &&
         <div className={styles.optionsContainer}>
           {languageOptions.map((optionObject, index) => {
             return (

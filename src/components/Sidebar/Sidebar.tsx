@@ -12,7 +12,7 @@ import { updateIsSignInPopupVisible, updateIsSignOutPopupVisible } from '@/store
 
 import { Line, Text, Button } from '@/components/atoms';
 
-import { MainIcon, HomeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon } from '@/public/icons';
+import { MainIcon, PracticeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon } from '@/public/icons';
 import { useCustomTranslation } from '@/hooks';
 
 const Sidebar: React.FC = () => {
@@ -74,8 +74,8 @@ const Sidebar: React.FC = () => {
         <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
 
         <Link href="/" className={returnLinkClass('/')}>
-          <HomeIcon width="2.25rem" height="2.25rem" />
-          <Text className={styles.sidebarLinkText}>{t("home")}</Text>
+          <PracticeIcon width="1.8rem" height="1.8rem" style={{ padding: '0.225rem'}}/>
+          <Text className={styles.sidebarLinkText}>{t("practice")}</Text>
         </Link>
         <Link href="/settings" className={returnLinkClass('/settings')}>
           <SettingsIcon width="2.25rem" height="2.25rem" />
@@ -93,7 +93,7 @@ const Sidebar: React.FC = () => {
           <Text className={styles.sidebarLinkText}>{t("feedback")}</Text>
         </Link>
         <Link href="/about" className={returnLinkClass('/about')}>
-          <InfoIcon width="2.25rem" height="2.25rem" />
+          <InfoIcon width="2.25rem" height="2.25rem" fill="#e8eaed" />
           <Text className={styles.sidebarLinkText}>{t('about')}</Text>
         </Link>
 

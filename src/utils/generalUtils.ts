@@ -37,4 +37,9 @@ const wait = (ms: number) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export { extractParts, setLanguageCookie, wait, getObjectSize };
+const areArraysEqual = (array1: any[], array2: any[]): boolean => {
+  if (array1.length !== array2.length) return false;
+  return array1.every((value, index) => value === array2[index]);
+};
+
+export { extractParts, setLanguageCookie, wait, getObjectSize, areArraysEqual };
