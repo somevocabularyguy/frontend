@@ -1,3 +1,5 @@
+"use client";
+
 const storage = {
   setItem: (key: string, value: any) => {
     try {

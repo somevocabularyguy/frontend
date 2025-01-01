@@ -1,15 +1,17 @@
-    
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserData, WordData } from '@/types';
 import { defaultUserData } from '@/constants';
 import storage from '@/storage';
+import { setLanguageCookie } from '@/utils/generalUtils';
 
 interface UserDataState {
   userData: UserData;
+  isUserDataLoaded: boolean
 }
 
 const initialState: UserDataState = {
-  userData: defaultUserData
+  userData: defaultUserData,
+  isUserDataLoaded: false
 } 
 
 const userDataSlice = createSlice({
@@ -20,11 +22,18 @@ const userDataSlice = createSlice({
       if (!action.payload) return state;
       state.userData = action.payload;
       storage.setItem('userData', state.userData)
+      state.isUserDataLoaded = true;
     },
     updateUserUseTime: (state, action: PayloadAction<number>) => {
       if (!action.payload) return state;
       state.userData.totalUseTime = action.payload;
       storage.setItem('userData', state.userData)
+    },
+    updateLanguageArray: (state, action: PayloadAction<string[]>) => {
+      if (!action.payload) return state;
+      state.userData.languageArray = action.payload;
+      storage.setItem('userData', state.userData)
+      setLanguageCookie(state.userData.languageArray);
     },
     updateWordData: (state, action: PayloadAction<WordData>) => {
       if (!action.payload) return state;
@@ -65,7 +74,7 @@ const userDataSlice = createSlice({
   }
 })
 
-export const { updateUserData, updateHiddenWordIds, updateCustomWordIds, updateUserUseTime, updateWordData, addHiddenWordId, removeHiddenWordId, addCustomWordId, removeCustomWordId } = userDataSlice.actions;
+export const { updateUserData, updateHiddenWordIds, updateCustomWordIds, updateUserUseTime, updateWordData, addHiddenWordId, removeHiddenWordId, addCustomWordId, removeCustomWordId, updateLanguageArray } = userDataSlice.actions;
 export default userDataSlice.reducer;
 
 

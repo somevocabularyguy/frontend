@@ -11,7 +11,7 @@ import { updateSelectedTypeObject, updateIsSended } from '@/store/feedbackSlice'
 
 const FeedbackDropdown: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { t } = useCustomTranslation("Feedback.FeedbackDropdown")
+  const t = useCustomTranslation("Feedback.FeedbackDropdown")
 
   const isFeedbackDropdownActive = useAppSelector(state => state.feedbackUi.isFeedbackDropdownActive)
   const isSended = useAppSelector(state => state.feedback.isSended);

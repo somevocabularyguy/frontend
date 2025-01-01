@@ -2,26 +2,27 @@
 
 import React from 'react';
 import styles from './Level.module.css';
-import { RGB } from '@/types';
+import { LevelObject } from '@/types';
 
 import { Text } from '@/components/atoms';
 import { extractParts } from '@/utils/generalUtils';
 
 import { useAppDispatch, useAppSelector } from '@/store/store';
-import { addCheckedLevel, removeCheckedLevel, updateHoveredLevel } from '@/store/appStateSlice';
+import { addCheckedLevel, removeCheckedLevel, updateHoveredLevelObject } from '@/store/appStateSlice';
 
 interface LevelProps {
-  levelName: string;
-  colorValue: RGB;
+  levelObject: LevelObject;
 }
 
-const Level: React.FC<LevelProps> = ({ levelName, colorValue }) => {
+const Level: React.FC<LevelProps> = ({ levelObject }) => {
   const dispatch = useAppDispatch()
+
+  const { levelName, colorValue } = levelObject;
 
   const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
 
   const handleLevelOnHover = () => {
-    dispatch(updateHoveredLevel(levelName))
+    dispatch(updateHoveredLevelObject(levelObject))
   }
 
  const handleLevelChange = () => {

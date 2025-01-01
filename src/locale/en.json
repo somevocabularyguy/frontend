@@ -38,6 +38,8 @@
       "removeCustom": "Remove Word From Custom"
     },
     "MainLabels": {
+      "finishText": "Finished The Random",
+      "selectLevelText": "PLease Select Level",
       "practiceText": "Practice",
       "randomText": "Random",
       "definitionText": "Definition:",
@@ -65,11 +67,10 @@
       "sendingText": "Sending",
       "warningText": "Please Enter Valid Email",
       "emailLabel": "Email",
-      "placeHolderStart": "dontstoplearning",
+      "placeholderStart": "dontstoplearning",
       "waitingText": "Check Your Email For Special Login Link",
       "waitingSmallText": "Be sure to check your spam folder...",
-      "refreshText1": "After clicking the link,",
-      "refreshText2": "Come back and refresh this page.",
+      "refreshText": "Refresh this page after clicking the link.",
       "refreshButton": "Refresh"
     }
   },
@@ -82,7 +83,7 @@
       "noProgress": "No Progress Data Found!"
     },
     "WordProgressDisplay": {
-
+      "noWordSelected": "No Word Is Selected."
     }
   },
  "Settings": {

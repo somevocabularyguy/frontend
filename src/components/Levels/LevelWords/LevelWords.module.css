@@ -1,7 +1,7 @@
 .mainGrid {
   display: grid;
   grid-template-rows: 2.5rem 0.3125rem 17.8125rem;
-  width: 10rem;
+  width: 10.5rem;
   text-align: center;
   background-color: transparent;
   justify-content: center;
@@ -14,15 +14,19 @@
   font-size: 1.375rem;
 }
 
+.wordContainer {
+  height: 1.7rem;
+}
+
 .levelWord {
-  display: flex;
   color: #fbf1e9;
-  padding: 0.1rem;
-  justify-content: center;
-  cursor: pointer;
   font-size: 1rem;
 }
 
 .levelWord:hover {
   background-color: #808080;
+}
+
+.hidden {
+  display: none; 
 }

@@ -6,11 +6,11 @@ import { Text, Button } from '@/components/atoms';
 import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
-import { updateLoadingState } from '@/store/dataSlice';
+import { updateLoadingState } from '@/store/loadingSlice';
 import { updateIsDeletePopupVisible } from '@/store/accountUiSlice';
 
 const DeletePopup: React.FC = () => {
-  const { t } = useCustomTranslation("Popups.DeletePopup");
+  const t = useCustomTranslation("Popups.DeletePopup");
   const dispatch = useAppDispatch();
 
   const isDeletePopupVisible = useAppSelector(state => state.accountUi.isDeletePopupVisible);

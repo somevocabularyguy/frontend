@@ -1,5 +1,5 @@
 import { WordData } from '@/types';
-import { returnColorValue } from '@/utils/levelSectionUtils';
+import { returnColorValue } from '@/utils/levelUtils';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateLevel } from '@/store/appStateSlice';

@@ -54,7 +54,7 @@ function sortWordsAscending(words: Word[]) {
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       const temp = array[i];
-      if (array[j].frequency > array[i].frequency) {
+      if (array[j].rank < array[i].rank) {
         array[i] = array[j];
         array[j] = temp;
       }

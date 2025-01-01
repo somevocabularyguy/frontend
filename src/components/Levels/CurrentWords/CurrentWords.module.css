@@ -14,7 +14,7 @@
 }
 
 .label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;  
 }
 
@@ -73,7 +73,7 @@
 }
 
 .copyButton {
-  width: 3.25rem;
+  min-width: 3.25rem;
   height: 1.625rem;
   border: none;
   border-radius: 1rem;

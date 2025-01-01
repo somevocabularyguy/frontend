@@ -47,23 +47,29 @@
 .hiddenCustomWordsContainer {
   width: 100%;
   height: 20rem;
-  display: grid;
-  grid-auto-rows: 2.75rem;
+  display: flex;
   overflow-y: auto;
+  flex-direction: column;
 }
 
 .hiddenCustomWordContainer {
   width: 100%;
+  height: 2.75rem;
   box-sizing: border-box;
   align-items: center;
+  justify-content: center;
   display: flex;
   border: 0.125rem solid #646464;
 }
 
 .hiddenCustomWordText {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.25rem;
   width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .hiddenCustomDeleteIcon {
@@ -79,8 +85,11 @@
 }
 
 .notFoundText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
+  height: 90%;
   text-align: center;
   font-size: 1.5rem;
 }

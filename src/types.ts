@@ -1,15 +1,28 @@
 interface Word {
   readonly id: string;
-  word: string;
-  definition: string;
-  example: string;
-  synonyms: string[];
-  antonyms: string[];
-  frequency: string;
+  readonly rank: number;
   difficulty: string;
   levelName: string;
-  isHidden: boolean;
-  isCustom: boolean;
+}
+
+interface WordObject {
+  word: string,
+  meaning: string,
+  example: string,
+  synonyms: string[],
+  antonyms: string[]
+}
+
+interface WordsObject {
+  [key: string]: WordObject;
+}
+
+interface WordResources {
+  [key: string]: WordsObject;
+}
+
+interface AllWordResources {
+  [key: string]: WordResources;
 }
 
 interface LevelObject {
@@ -41,6 +54,7 @@ interface WordData {
 
 interface UserData {
   totalUseTime: number;
+  languageArray: string[];
   hiddenWordIds: string[];
   customWordIds: string[];
   wordsData: WordData[]
@@ -53,8 +67,8 @@ interface FeedbackData {
 }
 
 interface OptionObject {
-  key: string,
-  text: string
+  key: string;
+  text: string;
 }
 
-export type { Word, LevelObject, Position, WordData, UserData, RGB, FeedbackData, OptionObject };
+export type { Word, LevelObject, Position, WordData, UserData, RGB, FeedbackData, OptionObject, WordObject, WordsObject, WordResources, AllWordResources };

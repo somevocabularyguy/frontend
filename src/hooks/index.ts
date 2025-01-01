@@ -1,9 +1,8 @@
-import useReturnNextDisplayWordObject from './useReturnNextDisplayWordObject';
 import useKeepLog from './useKeepLog';
+import useCheckAppLoaded from './useCheckAppLoaded';
 import useMainButtonsUtils from './useMainButtonsUtils';
-import useTranslate from './useTranslate';
 import useUpdateSingleLevel from './useUpdateSingleLevel';
-import useCreateLevels from './useCreateLevels';
 import useCustomTranslation from './useCustomTranslation';
+import useReturnNextDisplayWordObject from './useReturnNextDisplayWordObject';
 
-export { useReturnNextDisplayWordObject, useKeepLog, useMainButtonsUtils, useTranslate, useUpdateSingleLevel, useCreateLevels, useCustomTranslation };
+export { useReturnNextDisplayWordObject, useKeepLog, useMainButtonsUtils, useUpdateSingleLevel, useCustomTranslation, useCheckAppLoaded };

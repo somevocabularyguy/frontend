@@ -1,4 +1,5 @@
 'use client';
+
 import styles from './LanguageDropdown.module.css';
 import { useState } from 'react';
 
@@ -22,6 +23,7 @@ const LanguageDropdown: React.FC = () => {
 
   const handleLanguageChange = (optionObject: OptionObject) => {
     const newLocale = optionObject.key;
+
     const days = 30;
     const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);

@@ -19,7 +19,7 @@ const returnUserData = (storedUserData: UserData | null, serverUserData: UserDat
   } else if (serverUserData) {
     newUserData = serverUserData;
   } else {
-    newUserData = defaultUserData;
+    newUserData = { ...defaultUserData };
   }
 
   return newUserData;

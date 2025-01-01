@@ -7,11 +7,7 @@ const useCustomTranslation = (preString?: string) => {
     return translator(preString ? preString + '.' + key : key);
   }
 
-  const returnKey = (key: string) => {
-    return preString ? preString + '.' + key : key;
-  }
-
-  return { t, returnKey };
+  return t;
 }
 
 export default useCustomTranslation;

@@ -1,12 +1,14 @@
 import './index.css';
 import './fonts.css';
 
+import { loadWordResources } from '@/utils/dataUtils';
+
 import { ReduxProvider, RootLayoutChildWrapper, TranslationsProvider } from '@/components/wrappers';
 
 import { cookies } from 'next/headers';
-import initTranslations from '../i18n';
 import i18nConfig from '@/i18nConfig';
 import { dir } from 'i18next';
+import initTranslation from '@/app/i18n';
 
 import { getUserData } from '@/lib/api';
 import { UserData } from '@/types';
@@ -32,13 +34,11 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
 
   const { locale } = await params;
-
-  const i18nNamespaces: string[] = ['app'];
-
-  const { resources } = await initTranslations(locale, i18nNamespaces);
-
   const cookieStore = await cookies();
   const authToken = cookieStore.get('authCookie')?.value;
+  const cookieArrayString = cookieStore.get('languageArray')?.value;
+  const cookieArray = cookieArrayString ? JSON.parse(cookieArrayString) : null;
+
   let serverUserData: UserData | null = null;
   let signedInFlag = false;
   if (authToken) {
@@ -46,12 +46,26 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
     serverUserData = await getUserData(authToken);
   }
 
+  const languageArray = cookieArray || serverUserData?.languageArray || ['en', 'ja'];
+  const { initialWords, wordResources } = loadWordResources(languageArray);
+
+  const { resources } =  await initTranslation(locale);
+
   return (
     <html lang={locale} dir={dir(locale)}>
       <body>
-        <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
+        <TranslationsProvider 
+          locale={locale} 
+          resources={resources}
+        >
           <ReduxProvider>
-            <RootLayoutChildWrapper serverUserData={serverUserData} signedInFlag={signedInFlag}>
+            <RootLayoutChildWrapper 
+              serverUserData={serverUserData} 
+              signedInFlag={signedInFlag}
+              initialWords={initialWords}
+              wordResources={wordResources}
+              languageArray={languageArray}
+            >
               {children}
             </RootLayoutChildWrapper>
           </ReduxProvider>

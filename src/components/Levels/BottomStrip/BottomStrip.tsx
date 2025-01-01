@@ -11,7 +11,7 @@ import { useCustomTranslation } from '@/hooks';
 
 const BottomStrip: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { t } = useCustomTranslation('Levels.BottomStrip');
+  const t = useCustomTranslation('Levels.BottomStrip');
 
   const isLevelsVisible = useAppSelector(state => state.ui.isLevelsVisible);
   const isRandom = useAppSelector(state => state.word.isRandom);

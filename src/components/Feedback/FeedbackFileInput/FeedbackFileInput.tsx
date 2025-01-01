@@ -13,7 +13,7 @@ interface FeedbackFileInputProps {
 
 const FeedbackFileInput: React.FC<FeedbackFileInputProps> = ({ files, setFiles}) => {
   const dispatch = useAppDispatch();
-  const { t } = useCustomTranslation("Feedback.FeedbackFileInput")
+  const t = useCustomTranslation("Feedback.FeedbackFileInput")
 
   const imageUrls = useAppSelector(state => state.feedback.imageUrls);
 
@@ -21,17 +21,15 @@ const FeedbackFileInput: React.FC<FeedbackFileInputProps> = ({ files, setFiles})
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const newFiles = Array.from(event.target.files)
-      setFiles([...files, ...newFiles]);
+      const updatedFiles = [...files, ...newFiles];
+      const newUrls = updatedFiles.map(file => {
+        return file.type.startsWith('image/') ? URL.createObjectURL(file) : '';
+      });
+
       dispatch(updateIsSended(false));
+      dispatch(updateImageUrls(newUrls));
     }
   };
-
-  useEffect(() => {
-    const newUrls = files.map(file => {
-      return file.type.startsWith('image/') ? URL.createObjectURL(file) : '';
-    });
-    dispatch(updateImageUrls(newUrls));
-  }, [files])
 
   const removeFile = (fileName: string): void => {
     const updatedFiles = [...files];

@@ -6,16 +6,16 @@ import { useCustomTranslation } from '@/hooks';
 import { Text } from '@/components/atoms';
 
 const Loading: React.FC = () => {
-  const { t } = useCustomTranslation('Loading');
+  const t = useCustomTranslation('Loading');
 
-  const loading = useAppSelector(state => state.data.loading);
+  const isLoading = useAppSelector(state => state.loading.isLoading);
   const [animationIndex, setAnimationIndex] = useState(3);
   const animationIndexRef = useRef(animationIndex);
 
   useEffect(() => {
     let loadingInterval: NodeJS.Timeout | null = null;
 
-    if (loading) {
+    if (isLoading) {
       loadingInterval = setInterval(() => {
         setAnimationIndex(prevIndex => {
           const nextIndex = prevIndex === 3 ? 0 : prevIndex + 1;
@@ -28,12 +28,12 @@ const Loading: React.FC = () => {
     return () => {
       if (loadingInterval) clearInterval(loadingInterval);
     };
-  }, [loading]);
+  }, [isLoading]);
 
 
   return (
     <>
-      {loading && 
+      {isLoading && 
         <div className={styles.container}>
           <Text className={styles.loadingText}>{`${t('loadingText')}${'.'.repeat(animationIndex)}`}</Text>
         </div>

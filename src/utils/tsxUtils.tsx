@@ -3,7 +3,7 @@ import { Text } from '@/components/atoms';
 const highlightSubtext = (text: string, subtext: string) => {
   const index = text.toLowerCase().indexOf(subtext.toLowerCase());
 
-  if (index === -1) return null;
+  if (index === -1) return text;
 
   const before = text.slice(0, index);
   const match = text.slice(index, index + subtext.length);

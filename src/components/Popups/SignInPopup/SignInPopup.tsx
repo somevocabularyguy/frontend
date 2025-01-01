@@ -12,7 +12,7 @@ import { sendMagicLink } from '@/lib/api';
 import { useCustomTranslation } from '@/hooks';
 
 const SignInPopup: React.FC = () => {
-  const { t } = useCustomTranslation("Popups.SignInPopup");
+  const t = useCustomTranslation("Popups.SignInPopup");
 
   const [email, setEmail] = useState('');
   const [isWarned, setIsWarned] = useState(false);
@@ -103,7 +103,7 @@ const SignInPopup: React.FC = () => {
             <Text className={styles.emailLabel}>{t("emailLabel")}</Text>
             <input 
               className={styles.emailInput}
-              placeholder={t("placeHolderStart") + '@email.com'}
+              placeholder={t("placeholderStart") + '@email.com'}
               value={email}
               onChange={handleInputChange}
             />

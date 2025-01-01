@@ -1,5 +1,9 @@
 .text {
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .text:hover {

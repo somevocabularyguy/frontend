@@ -6,7 +6,7 @@ interface AppStateState {
   batch: Word[];
   checkedLevels: string[];
   levels: LevelObject[];
-  hoveredLevel: string | null;
+  hoveredLevelObject: LevelObject | null;
   iteration: number;
   handleNextFlag: boolean;
 }
@@ -15,7 +15,7 @@ const initialState: AppStateState = {
   batch: [],
   checkedLevels: [],
   levels: [],
-  hoveredLevel: null,
+  hoveredLevelObject: null,
   iteration: -1,
   handleNextFlag: false
 }
@@ -54,9 +54,9 @@ const appStateSlice = createSlice({
         state.levels[index] = action.payload;
       }
     },
-    updateHoveredLevel: (state, action: PayloadAction<string | null>) => {
+    updateHoveredLevelObject: (state, action: PayloadAction<LevelObject | null>) => {
       if (!action.payload && action.payload !== null) return state;
-      state.hoveredLevel = action.payload;
+      state.hoveredLevelObject = action.payload;
     },
     updateIteration: (state, action: PayloadAction<number>) => {
       state.iteration = action.payload;
@@ -67,5 +67,5 @@ const appStateSlice = createSlice({
   }
 })
 
-export const { updateBatch, updateCheckedLevels, updateLevels, updateHoveredLevel, updateIteration, updateLevel, addCheckedLevel, removeCheckedLevel, updateHandleNextFlag } = appStateSlice.actions; 
+export const { updateBatch, updateCheckedLevels, updateLevels, updateHoveredLevelObject, updateIteration, updateLevel, addCheckedLevel, removeCheckedLevel, updateHandleNextFlag } = appStateSlice.actions; 
 export default appStateSlice.reducer;

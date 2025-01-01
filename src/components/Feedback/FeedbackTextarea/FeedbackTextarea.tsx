@@ -7,7 +7,7 @@ import { updateFeedbackText, updateIsSended } from '@/store/feedbackSlice';
 
 const FeedbackTextarea: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { t } = useCustomTranslation("Feedback.FeedbackTextarea");
+  const t = useCustomTranslation("Feedback.FeedbackTextarea");
 
   const isSended = useAppSelector(state => state.feedback.isSended);
   const feedbackText = useAppSelector(state => state.feedback.feedbackText);

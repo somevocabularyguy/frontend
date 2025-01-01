@@ -2,12 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserSettingsState {
   isSignedIn: boolean;
-  namespaceArray: string[];
 }
 
 const initialState: UserSettingsState = {
   isSignedIn: false,
-  namespaceArray: ['en', 'ru']
 } 
 
 const userSettingsSlice = createSlice({
@@ -16,14 +14,11 @@ const userSettingsSlice = createSlice({
   reducers: {
     updateIsSignedIn: (state, action: PayloadAction<boolean>) => {
       state.isSignedIn = action.payload;
-    },
-    updateNamespaceArray: (state, action: PayloadAction<string[]>) => {
-      state.namespaceArray = action.payload;
     }
   }
 })
 
-export const { updateIsSignedIn, updateNamespaceArray } = userSettingsSlice.actions;
+export const { updateIsSignedIn } = userSettingsSlice.actions;
 export default userSettingsSlice.reducer;
 
 

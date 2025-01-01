@@ -8,7 +8,7 @@ import { LevelArray } from '@/components/molecules';
 import { useCustomTranslation } from '@/hooks';
  
 const LevelBox: React.FC = () => {
-  const { t } = useCustomTranslation("Levels.LevelBox");
+  const t = useCustomTranslation("Levels.LevelBox");
 
   const levelKeys: string[] = ['easy', 'medium', 'hard', 'expert', 'custom']; 
 

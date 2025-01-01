@@ -21,7 +21,7 @@ const useKeepLog = (): () => void => {
 
   const keepLog = (isTimerEnded: boolean) => {
 
-    if (!displayWordObject?.frequency) return;
+    if (!displayWordObject?.id) return;
     if (lastIsShown === true && isShown === true && !isTimerEnded) return;
 
     setLastDisplayWordObject(displayWordObject);

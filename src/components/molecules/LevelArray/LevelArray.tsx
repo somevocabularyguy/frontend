@@ -12,19 +12,18 @@ interface LevelArrayProps {
 const LevelArray: React.FC<LevelArrayProps> = ({ levelKey }) => {
 
   const levels = useAppSelector(state => state.appState.levels);
+  // console.log("🚀 ~ file: LevelArray.tsx:15 ~ levels:", levels);
 
   const filteredLevels = levels.filter(levelObject => levelObject.levelName.startsWith(levelKey));
-
+  // console.log("🚀 ~ file: LevelArray.tsx:17 ~ filteredLevels:", filteredLevels);
+  
   return (
     <section className={styles.levelsContainer}>
       {filteredLevels.map(levelObject => {
-        const levelName = levelObject.levelName;
-        const levelColor = levelObject.colorValue;
         return (
           <Level 
-            key={levelName} 
-            levelName={levelName} 
-            colorValue={levelColor} 
+            key={levelObject.levelName} 
+            levelObject={levelObject}
           />
         )
       })}

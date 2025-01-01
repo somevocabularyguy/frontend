@@ -5,20 +5,30 @@ import { Word } from '@/types';
 import { useCustomTranslation } from '@/hooks';
 
 import { highlightSubtext } from '@/utils/tsxUtils';
+import { Text } from '@/components/atoms';
 
 import { useAppSelector } from '@/store/store';
 
 interface ProgressRadiosProps {
-  wordsMap: Map<string, Word>;
   selectedWordId: string;
   setSelectedWordId: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordId, setSelectedWordId }) => {
+const ProgressRadios: React.FC<ProgressRadiosProps> = ({ selectedWordId, setSelectedWordId }) => {
 
-  const { t } = useCustomTranslation("Progress.ProgressRadios");
+  const t = useCustomTranslation("Progress.ProgressRadios");
 
   const [wordsDataSearchValue, setWordsDataSearchValue] = useState('');
+
+  const userData = useAppSelector(state => state.userData.userData); 
+  const wordsData = userData.wordsData;
+
+  const wordsLanguage = userData.languageArray[0];
+  const wordResources = useAppSelector(state => state.language.wordResources); 
+
+  const filteredWordsData = wordsData.filter(wordData => (
+    wordResources[wordsLanguage][wordData.id].word.includes(wordsDataSearchValue)
+  ));
 
   const returnClassNameForRadioText = (wordId: string) => {
     let className = styles.radioText; 
@@ -29,8 +39,6 @@ const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordI
     return className;
   }
 
-  const wordsData = useAppSelector(state => state.userData.userData.wordsData); 
-
   return (
     <section className={styles.radioContainer}>
       <input 
@@ -40,22 +48,23 @@ const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordI
         onChange={(event) => setWordsDataSearchValue(event.target.value)}
       />
       <div className={styles.radioTextContainer}>
-        {wordsData[0] ? wordsData.map(wordData => {
+        {filteredWordsData.length ? filteredWordsData.map(wordData => {
 
-          const wordObject = wordsMap.get(wordData.id);
-          if (!wordObject) return null;
-
-          const wordName = highlightSubtext(wordObject.word, wordsDataSearchValue);
+          const word = wordResources[wordsLanguage][wordData.id].word;
+          const wordName = highlightSubtext(word, wordsDataSearchValue);
           if (!wordName) return null;          
 
           return (
-            <span
-              key={`progressRadioText${wordObject.id}`} 
-              className={returnClassNameForRadioText(wordObject.id)} 
-              onClick={() => setSelectedWordId(wordObject.id)} 
-            >{wordName}</span>
+            <Text
+              key={`progressRadioText${wordData.id}`} 
+              className={returnClassNameForRadioText(wordData.id)} 
+              onClick={() => setSelectedWordId(wordData.id)} 
+            >{wordName}</Text>
           )
-        }) : <h3 className={styles.notFound}>{t("noProgress")}</h3>} 
+        }) : wordsData.length ? 
+            <Text className={styles.notFound}>{t("noProgress")}</Text>
+            : <Text className={styles.notFound}>{t("noProgress")}</Text>
+        } 
       </div>
     </section>
   )

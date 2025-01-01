@@ -11,7 +11,7 @@ import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsSignOutPopupVisible } from '@/store/accountUiSlice';
 
 const SignOutPopup: React.FC = () => {
-  const { t } = useCustomTranslation("Popups.SignOutPopup");
+  const t = useCustomTranslation("Popups.SignOutPopup");
   const dispatch = useAppDispatch();
 
   const isSignOutPopupVisible = useAppSelector(state => state.accountUi.isSignOutPopupVisible);

@@ -5,7 +5,7 @@ import { useAppSelector, useAppDispatch } from '@/store/store';
 import { removeHiddenWordId, removeCustomWordId } from '@/store/userDataSlice';
 import { updateIsHiddenCustomSettingsVisible } from '@/store/settingsUiSlice';
 
-import { Text } from '@/components/atoms';
+import { Text, TText } from '@/components/atoms';
 import { DeleteIcon } from '@/public/icons';
 import { SectionLabel } from '../reuseable';
 import { useCustomTranslation } from '@/hooks';
@@ -13,24 +13,23 @@ import { useCustomTranslation } from '@/hooks';
 import { highlightSubtext } from '@/utils/tsxUtils';
 
 const HiddenCustomSettings: React.FC = () => {
-  const { t } = useCustomTranslation("Settings.HiddenCustomSettings");
+  const t = useCustomTranslation("Settings.HiddenCustomSettings");
   const dispatch = useAppDispatch();
 
-  const words = useAppSelector(state => state.data.words);
   const userData = useAppSelector(state => state.userData.userData);
+  const wordResources = useAppSelector(state => state.language.wordResources);
 
-  const hiddenWordIdsSet = new Set(userData.hiddenWordIds);
-  const customWordIdsSet = new Set(userData.customWordIds);
+  const hiddenWordIds = userData.hiddenWordIds;
+  const customWordIds = userData.customWordIds;
+  const wordsLanguage = userData.languageArray[0];
 
   const [hiddenSearchValue, setHiddenSearchValue] = useState('');
   const [customSearchValue, setCustomSearchValue] = useState('');
 
-  const hiddenWords = words.filter(wordObject => hiddenWordIdsSet.has(wordObject.id));
-  const customWords = words.filter(wordObject => customWordIdsSet.has(wordObject.id));
-
-  const hiddenWordsFiltered = hiddenWords.filter(wordObject => wordObject.word.indexOf(hiddenSearchValue) !== -1)
-  const customWordsFiltered = customWords.filter(wordObject => wordObject.word.indexOf(customSearchValue) !== -1)
-
+  const hiddenWordIdsFiltered = hiddenWordIds.filter(wordId => 
+    wordResources[wordsLanguage][wordId].word.includes(hiddenSearchValue))
+  const customWordIdsFiltered = customWordIds.filter(wordId => 
+    wordResources[wordsLanguage][wordId].word.includes(customSearchValue))
 
   const handleRemoveHiddenWord = (wordId: string) => {
     dispatch(removeHiddenWordId(wordId));
@@ -70,27 +69,27 @@ const HiddenCustomSettings: React.FC = () => {
             onChange={(event) => setHiddenSearchValue(event.target.value)}
           />
           <div className={styles.hiddenCustomWordsContainer}>
-            {
-              hiddenWordsFiltered.length ? 
-                hiddenWordsFiltered.map(wordObject => {
-                  const highlightedWord = highlightSubtext(wordObject.word, hiddenSearchValue)
-                  if (!highlightedWord) return null;
-                  return (
-                    <div key={'hidden' + wordObject.id} className={styles.hiddenCustomWordContainer}>
-                      <span className={styles.hiddenCustomWordText}>{highlightedWord}</span>
-                      <DeleteIcon onClick={() => handleRemoveHiddenWord(wordObject.id)} className={styles.hiddenCustomDeleteIcon} />
-                    </div> 
-                  )
-                })
-              : hiddenWords.length ?
-                  <Text className={styles.notFoundText}>{t("HiddenSettings.noWordsText")}</Text> 
-                  : <Text className={styles.notFoundText}>{t("HiddenSettings.noHiddenWordsText")} </Text>
+            {hiddenWordIdsFiltered.length ? 
+              hiddenWordIdsFiltered.map(id => (
+                <div key={'hidden' + id} className={styles.hiddenCustomWordContainer}>
+                  <TText 
+                    wordId={id} 
+                    dataKey="word" 
+                    className={styles.hiddenCustomWordText}
+                    highlightKey={hiddenSearchValue}
+                  />
+                  <DeleteIcon onClick={() => handleRemoveHiddenWord(id)} className={styles.hiddenCustomDeleteIcon} />
+                </div> 
+              ))
+            : hiddenWordIds.length ?
+                <Text className={styles.notFoundText}>{t("HiddenSettings.noResultText")}</Text> 
+                : <Text className={styles.notFoundText}>{t("HiddenSettings.noHiddenWordsText")} </Text>
             }
           </div>
         </div>
 
         <div className={styles.hiddenCustomContainer}>
-          <Text className={styles.hiddenCustomLabel} as="h3">{t("CustomSettings.removeCustomLabel")} </Text>
+          <Text className={styles.hiddenCustomLabel} as="h3">{t("CustomSettings.removeCustomLabel")}</Text>
           <input 
             className={styles.hiddenCustomSearch}
             placeholder={t("CustomSettings.placeholder")}
@@ -98,21 +97,21 @@ const HiddenCustomSettings: React.FC = () => {
             onChange={(event) => setCustomSearchValue(event.target.value)}
           />
           <div className={styles.hiddenCustomWordsContainer}>
-            {
-              customWordsFiltered.length ? 
-                customWordsFiltered.map(wordObject => {
-                  const highlightedWord = highlightSubtext(wordObject.word, customSearchValue)
-                  if (!highlightedWord) return null;
-                  return (
-                    <div key={'custom' + wordObject.id} className={styles.hiddenCustomWordContainer}>
-                      <span className={styles.hiddenCustomWordText}>{highlightedWord}</span>
-                      <DeleteIcon onClick={() => handleRemoveCustomWord(wordObject.id)} className={styles.hiddenCustomDeleteIcon} />
-                    </div> 
-                  )
-                })
-              : hiddenWords.length ?
-                  <Text className={styles.notFoundText}>{t("CustomSettings.noWordsText")}</Text> 
-                  : <Text className={styles.notFoundText}>{t("CustomSettings.noCustomWordsText")}</Text>
+            {customWordIdsFiltered.length ? 
+              customWordIdsFiltered.map(id => (
+                <div key={'custom' + id} className={styles.hiddenCustomWordContainer}>
+                  <TText 
+                    wordId={id} 
+                    dataKey="word" 
+                    className={styles.hiddenCustomWordText}
+                    highlightKey={customSearchValue}
+                  />
+                  <DeleteIcon onClick={() => handleRemoveCustomWord(id)} className={styles.hiddenCustomDeleteIcon} />
+                </div> 
+              ))
+            : customWordIds.length ?
+                <Text className={styles.notFoundText}>{t("CustomSettings.noResultText")}</Text> 
+                : <Text className={styles.notFoundText}>{t("CustomSettings.noCustomWordsText")} </Text>
             }
           </div>
         </div>

@@ -25,6 +25,9 @@
       "custom": "gelenek"
     }
   },
+  "Loading": {
+    "loadingText": "Yükleniyor"
+  },
   "Main": {
     "MainButtons": {
       "nextButton": "Sonraki Kelime",

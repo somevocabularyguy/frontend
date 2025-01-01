@@ -17,6 +17,9 @@
   font-size: 1.25rem;
   font-family: Poppins;
   line-height: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainButton:hover {
@@ -37,6 +40,9 @@
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .removeButton:hover {
   background-color: #d09c00
@@ -51,6 +57,9 @@
   width: 6.25rem;
   height: 4rem;
   padding-bottom: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .addToCustomButton:hover {
   background-color: #d09c00

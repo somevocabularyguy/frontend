@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import dataReducer from './dataSlice';
+import loadingReducer from './loadingSlice';
 import userDataReducer from './userDataSlice';
 import uiReducer from './uiSlice';
 import wordReducer from './wordSlice';
@@ -12,10 +12,11 @@ import accountUiSlice from './accountUiSlice';
 import feedbackSlice from './feedbackSlice';
 import feedbackUiSlice from './feedbackUiSlice';
 import languageUiSlice from './languageUiSlice';
+import languageSlice from './languageSlice';
 
 const store = configureStore({
   reducer: {
-    data: dataReducer,
+    loading: loadingReducer,
     userData: userDataReducer,
     ui: uiReducer,
     word: wordReducer,
@@ -25,7 +26,8 @@ const store = configureStore({
     accountUi: accountUiSlice,
     feedback: feedbackSlice,
     feedbackUi: feedbackUiSlice,
-    languageUi: languageUiSlice
+    languageUi: languageUiSlice,
+    language: languageSlice
   }
 })
 

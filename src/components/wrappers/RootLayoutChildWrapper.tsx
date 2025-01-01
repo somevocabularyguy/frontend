@@ -1,22 +1,27 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { UserData, Word } from '@/types';
 import storage from '@/storage';
+import { useState, useEffect } from 'react';
+import { UserData, Word, WordResources } from '@/types';
 
-import { useAppDispatch, useAppSelector } from '@/store/store';
-import { updateLoadingState } from '@/store/dataSlice';
-import { updateLevels, updateCheckedLevels, updateBatch } from '@/store/appStateSlice';
-import { updateUserData } from '@/store/userDataSlice';
-import { updateDisplayWordObject } from '@/store/wordSlice';
+import { updateWords } from '@/store/wordSlice';
 import { updateIsSignedIn } from '@/store/userSettingsSlice';
+import { updateDisplayWordObject } from '@/store/wordSlice';
+import { useAppDispatch, useAppSelector } from '@/store/store';
+import { updateUserData, updateLanguageArray } from '@/store/userDataSlice';
+import { updateWordResources } from '@/store/languageSlice';
+import { updateLevels, updateCheckedLevels, updateBatch, updateIteration } from '@/store/appStateSlice';
 
+import { createLevels } from '@/utils/levelUtils';
 import { returnUserData } from '@/utils/userDataUtils';
-import { useCreateLevels, useMainButtonsUtils } from '@/hooks';
+import { groupWordsByLevel } from '@/utils/wordUtils';
+
+import { useMainButtonsUtils, useCheckAppLoaded } from '@/hooks';
 
 import { Shading } from '@/components/overlays';
 import { LanguageDropdown } from '@/components/Language';
 import { SignInPopup, SignOutPopup, DeletePopup } from '@/components/Popups';
+
 import Sidebar from '@/components/Sidebar';
 import Loading from '@/components/Loading';
 
@@ -24,42 +29,65 @@ interface RootLayoutChildWrapperProps {
   children: React.ReactNode;
   serverUserData: UserData | null;
   signedInFlag: boolean;
+  initialWords: Word[];
+  wordResources: WordResources;
+  languageArray: string[];
 }
 
-const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ children, serverUserData, signedInFlag }) => {
+const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ 
+  children, 
+  serverUserData, 
+  signedInFlag,
+  initialWords,
+  wordResources,
+  languageArray
+}) => {
+  useCheckAppLoaded();
+
   const dispatch = useAppDispatch();
-  const createLevels = useCreateLevels();
-  const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
-  const levels = useAppSelector(state => state.appState.levels);
-  const batch = useAppSelector(state => state.appState.batch);
-  const userData = useAppSelector(state => state.userData.userData);
-  const isRandom = useAppSelector(state => state.word.isRandom);
-  const words = useAppSelector(state => state.data.words);
-
   const { handleNext } = useMainButtonsUtils();
-
-  const [handleNextFlag, setHandleNextFlag] = useState(false);
-
-  const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn);
-  if (isSignedIn !== signedInFlag) {
-    dispatch(updateIsSignedIn(signedInFlag));
-  }
 
   useEffect(() => {
     const storedUserData = storage.getItem('userData');
-    const userData = returnUserData(storedUserData, serverUserData);
+    const updatedUserData = returnUserData(storedUserData, serverUserData);
+    dispatch(updateUserData(updatedUserData));
+
+    const groupedWords = groupWordsByLevel(initialWords, updatedUserData.hiddenWordIds, updatedUserData.customWordIds);
+    const levels = createLevels(groupedWords, updatedUserData.wordsData);
 
     const storedCheckedLevels = storage.getItem('checkedLevels');
+    const checkedLevelsSet = new Set(storedCheckedLevels);
+    const newBatch: Word[] = groupedWords.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
 
-    dispatch(updateUserData(userData));
+    dispatch(updateLevels(levels));
+    dispatch(updateBatch(newBatch));
+    dispatch(updateWords(groupedWords));
+    dispatch(updateIsSignedIn(signedInFlag));
+    dispatch(updateWordResources(wordResources));
+    dispatch(updateLanguageArray(languageArray));
     dispatch(updateCheckedLevels(storedCheckedLevels));
-    dispatch(updateLoadingState(false));
-  }, [serverUserData, dispatch])
+  }, [])
+
+  /*-----------------------------------------------------------------------*/
+
+  const appIsLoaded = useAppSelector(state => state.loading.appIsLoaded);
+
+  const words = useAppSelector(state => state.word.words);
+  const batch = useAppSelector(state => state.appState.batch);
+  const isRandom = useAppSelector(state => state.word.isRandom);
+  const userData = useAppSelector(state => state.userData.userData);
+  const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
+
+  const [handleNextFlag, setHandleNextFlag] = useState(false);
 
   useEffect(() => {
-    const levels = createLevels();
-    dispatch(updateLevels(levels));
-    setHandleNextFlag(true);
+    if (appIsLoaded) {
+      const groupedWords = groupWordsByLevel(words, userData.hiddenWordIds, userData.customWordIds);
+      const levels = createLevels(groupedWords, userData.wordsData);
+      dispatch(updateWords(groupedWords));
+      dispatch(updateLevels(levels));
+      setHandleNextFlag(true);
+    }
   }, [userData.hiddenWordIds, userData.customWordIds, dispatch])
 
   useEffect(() => {
@@ -70,30 +98,23 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
   }, [batch])
 
   useEffect(() => {
-    dispatch(updateDisplayWordObject(null));
+    if (appIsLoaded) {
+      dispatch(updateIteration(-1));
+      dispatch(updateDisplayWordObject(null));
+    }
   }, [checkedLevels, isRandom, dispatch])
 
   useEffect(() => {
-    const checkedLevelsSet = new Set(checkedLevels);
-    const newBatch: Word[] = words.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
-    dispatch(updateBatch(newBatch));
+    if (appIsLoaded) {
+      const checkedLevelsSet = new Set(checkedLevels);
+      const newBatch: Word[] = words.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
+      dispatch(updateBatch(newBatch));
+    }
   }, [checkedLevels, words, dispatch])
-
-  // useEffect(() => {
-  //   const levelNamesSet = new Set();
-  //   for (let i = 0; i < levels.length; i++) {
-  //     levelNamesSet.add(levels[i].levelName)
-  //   } 
-  //   const newCheckedLevels = checkedLevels.filter(levelName => levelNamesSet.has(levelName));
-  //   if (JSON.stringify(newCheckedLevels) !== JSON.stringify(checkedLevels)) {
-  //     dispatch(updateCheckedLevels(newCheckedLevels));
-  //   }
-  // }, [levels])
-
 
   return (
     <>
-      <Loading />
+      {/* <Loading /> */}
       <Sidebar />
       <Shading />
       <SignInPopup />

@@ -17,7 +17,7 @@ import { useCustomTranslation } from '@/hooks';
 
 const Sidebar: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { t } = useCustomTranslation("Sidebar");
+  const t = useCustomTranslation("Sidebar");
 
   const isSidebarVisible = useAppSelector(state => state.ui.isSidebarVisible);
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn)

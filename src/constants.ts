@@ -2,13 +2,7 @@ import { UserData, Word, RGB } from './types';
 
 const defaultUserData: UserData = {
   totalUseTime: 0,
-  hiddenWordIds: [],
-  customWordIds: [],
-  wordsData: []
-}
-
-const templateUserData: UserData = {
-  totalUseTime: 0,
+  languageArray: ['en'],
   hiddenWordIds: [],
   customWordIds: [],
   wordsData: []
@@ -16,30 +10,9 @@ const templateUserData: UserData = {
 
 const finishWord: Word = {
   id: '',
-  word: '🎉🎉🎉Finish🎉🎉🎉',
-  definition: '',
-  example: '',
-  synonyms: [],
-  antonyms: [],
-  frequency: '0',
-  difficulty: '',
+  rank: 0,
+  difficulty: 'finish',
   levelName: '',
-  isHidden: false,
-  isCustom: false
-}
-
-const selectLevelWord: Word = {
-  id: '',
-  word: 'Please Select Level',
-  definition: '',
-  example: '',
-  synonyms: [],
-  antonyms: [],
-  frequency: '0',
-  difficulty: '',
-  levelName: '',
-  isHidden: false,
-  isCustom: false
 }
 
 const defaultColorValue: RGB = {
@@ -48,4 +21,4 @@ const defaultColorValue: RGB = {
   b: 128
 }
 
-export { defaultUserData, finishWord, selectLevelWord, templateUserData, defaultColorValue };
+export { defaultUserData, finishWord, defaultColorValue };
