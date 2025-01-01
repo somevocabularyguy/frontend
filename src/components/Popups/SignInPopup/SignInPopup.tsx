@@ -1,7 +1,7 @@
 "use client"
 
 import styles from './SignInPopup.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { Button, Text } from '@/components/atoms';
 
@@ -18,7 +18,8 @@ const SignInPopup: React.FC = () => {
   const [isWarned, setIsWarned] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
-  const [animationState, setAnimationState] = useState(t("sending0"));
+  const [animationIndex, setAnimationIndex] = useState(0);
+  const animationIndexRef = useRef(animationIndex);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -58,21 +59,22 @@ const SignInPopup: React.FC = () => {
   }
 
   useEffect(() => {
-    let iteration = 0;
-    const sendingArray = [t("sending1"), t("sending2"), t("sending3")];
-    let intervalId: NodeJS.Timeout;
+    let loadingInterval: NodeJS.Timeout | null = null;
 
     if (isSending) {
-      setAnimationState(sendingArray[iteration]);
-      intervalId = setInterval(() => {
-        iteration = (iteration + 1) % sendingArray.length;
-        setAnimationState(sendingArray[iteration]);
-      }, 400);
-    } else {
-      setAnimationState(t("sending0"));
+      loadingInterval = setInterval(() => {
+        setAnimationIndex(prevIndex => {
+          const nextIndex = prevIndex === 3 ? 1 : prevIndex + 1;
+          animationIndexRef.current = nextIndex;
+          return nextIndex;
+        });
+      }, 250);
     }
 
-    return () => clearInterval(intervalId);
+    return () => {
+      if (loadingInterval) clearInterval(loadingInterval);
+      setAnimationIndex(0);
+    };
   }, [isSending]);
 
   const isSignInPopupVisible = useAppSelector(state => state.accountUi.isSignInPopupVisible);
@@ -101,11 +103,11 @@ const SignInPopup: React.FC = () => {
             <Text text={t("emailLabel")} as="span" className={styles.emailLabel} />
             <input 
               className={styles.emailInput}
-              placeholder={t("placeHolder")}
+              placeholder={t("placeHolderStart") + '@email.com'}
               value={email}
               onChange={handleInputChange}
             />
-            <Button text={animationState} className={styles.emailButton} onClick={handleSubmit}/>
+            <Button text={isSending ? t('sendingText') + '.'.repeat(animationIndex) : t('sendText')} className={styles.emailButton} onClick={handleSubmit}/>
           </section>
         }
       </section>

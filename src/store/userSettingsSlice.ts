@@ -7,7 +7,7 @@ interface UserSettingsState {
 }
 
 const initialState: UserSettingsState = {
-  isSignedIn: true,
+  isSignedIn: false,
   translateFrom: 'en',
   translateTo: 'tr'
 } 

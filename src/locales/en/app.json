@@ -1,12 +1,13 @@
 {
   "Levels": {
+    "levelsSelectedText": "Levels Selected", 
     "BottomStrip": {
       "practiceButtonText": "Practice",
       "randomButtonText": "Random",
       "selectLevelsText": "Select Levels"
     },
     "CurrentWords": {
-      "label": "Current Words",
+      "label": "Selected Words",
       "copyButtonText": "Copy",
       "copiedAlert": "Copied To Clipboard"
     },
@@ -24,6 +25,9 @@
       "expert": "expert",
       "custom": "custom"
     }
+  },
+  "Loading": {
+    "loadingText": "Loading"
   },
   "Main": {
     "MainButtons": {
@@ -43,32 +47,29 @@
     }
   },
   "Popups": {
-    "AccountPopups": {
+    "DeletePopup": {
       "deleteAlert": "Error Deleting Account!",
-      "SignOut": {
-        "text": "You can delete your local progress data later at the",
-        "link": "Progress Page",
-        "backButton": "Go Back",
-        "signOutButton": "Sign Out"
-      },
-      "Delete": {
-        "text1": "Your data on our servers will be permanently deleted after 15 days.",
-        "text2": "You can cancel deletion by signing in until that time.",
-        "backButton": "Go Back",
-        "deleteButton": "Delete Account"
-      }
+      "text1": "Your data on our servers will be permanently deleted after 15 days.",
+      "text2": "You can cancel deletion by signing in until that time.",
+      "backButton": "Go Back",
+      "deleteButton": "Delete Account"
+    },
+    "SignOutPopup": {
+      "text": "You can delete your local progress data later in the",
+      "link": "Progress Settings",
+      "backButton": "Go Back",
+      "signOutButton": "Sign Out"
     },
     "SignInPopup": {
-      "sending0": "Send Magic Link",
-      "sending1": "Sending.",
-      "sending2": "Sending..",
-      "sending3": "Sending...",
+      "sendText": "Send Magic Link",
+      "sendingText": "Sending",
       "warningText": "Please Enter Valid Email",
       "emailLabel": "Email",
-      "placeHolder": "dontstoplearning@email.com",
+      "placeHolderStart": "dontstoplearning",
       "waitingText": "Check Your Email For Special Login Link",
       "waitingSmallText": "Be sure to check your spam folder...",
-      "refreshText": "Refresh the website after you clicked the link",
+      "refreshText1": "After clicking the link,",
+      "refreshText2": "Come back and refresh this page.",
       "refreshButton": "Refresh"
     }
   },
@@ -93,12 +94,20 @@
     },
     "HiddenCustomSettings": {
       "labelText": "Hidden And Custom Words",
-      "removeHiddenLabel": "Remove From Hidden",
-      "removeCustomLabel": "Remove From Custom",
-      "placeholder": "Search Word...",
-      "noWordsText": "No Words Found With Your Search",
-      "noCustomWordsText": "No Custom Words",
-      "noHiddenWordsText": "No Hidden Words"
+      "CustomSettings": {
+        "labelText": "Custom Words",
+        "removeCustomLabel": "Remove From Custom",
+        "placeholder": "Search Word...",
+        "noResultText": "No Words Found With Your Search",
+        "noCustomWordsText": "No Custom Words"
+      },
+      "HiddenSettings": {
+        "labelText": "Hidden Words",
+        "removeHiddenLabel": "Remove From Hidden",
+        "placeholder": "Search Word...",
+        "noResultText": "No Words Found With Your Search",
+        "noHiddenWordsText": "No Hidden Words"
+      }
     }
   },
   "Feedback": {
@@ -119,7 +128,8 @@
       }
     },
     "FeedbackTextarea": {
-      "label": "Describe Your Feedback:"
+      "label": "Describe Your Feedback:",
+      "placeholder": "Enter your feedback..."
     },
     "FeedbackFileInput": {
       "label": "Attach Screenshots (Optional)"
@@ -129,8 +139,10 @@
     "home": "Home",
     "settings": "Settings",
     "progress": "Progress",
+    "guide": "How To Use",
     "feedback": "Feedback",
-    "account": "Account",
-    "signIn": "Sign In"
+    "about": "About",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
   }
 }

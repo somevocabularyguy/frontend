@@ -62,10 +62,10 @@ const HiddenCustomSettings: React.FC = () => {
       <section className={hiddenCustomSectionClassName}>
 
         <div className={styles.hiddenCustomContainer}>
-          <Text className={styles.hiddenCustomLabel} text={t("removeHiddenLabel")} as="h3"/>
+          <Text className={styles.hiddenCustomLabel} text={t("HiddenSettings.removeHiddenLabel")} as="h3"/>
           <input 
             className={styles.hiddenCustomSearch}
-            placeholder={t("placeholder")}
+            placeholder={t("HiddenSettings.placeholder")}
             value={hiddenSearchValue}
             onChange={(event) => setHiddenSearchValue(event.target.value)}
           />
@@ -83,17 +83,17 @@ const HiddenCustomSettings: React.FC = () => {
                   )
                 })
               : hiddenWords.length ?
-                  <Text text={t("noWordsText")} className={styles.notFoundText} /> 
-                  : <Text text={t("noHiddenWordsText")} className={styles.notFoundText} />
+                  <Text text={t("HiddenSettings.noWordsText")} className={styles.notFoundText} /> 
+                  : <Text text={t("HiddenSettings.noHiddenWordsText")} className={styles.notFoundText} />
             }
           </div>
         </div>
 
         <div className={styles.hiddenCustomContainer}>
-          <Text className={styles.hiddenCustomLabel} text={t("removeCustomLabel")} as="h3"/>
+          <Text className={styles.hiddenCustomLabel} text={t("CustomSettings.removeCustomLabel")} as="h3"/>
           <input 
             className={styles.hiddenCustomSearch}
-            placeholder={t("placeholder")}
+            placeholder={t("CustomSettings.placeholder")}
             value={customSearchValue}
             onChange={(event) => setCustomSearchValue(event.target.value)}
           />
@@ -111,8 +111,8 @@ const HiddenCustomSettings: React.FC = () => {
                   )
                 })
               : hiddenWords.length ?
-                  <Text text={t("noWordsText")} className={styles.notFoundText} /> 
-                  : <Text text={t("noCustomWordsText")} className={styles.notFoundText} />
+                  <Text text={t("CustomSettings.noWordsText")} className={styles.notFoundText} /> 
+                  : <Text text={t("CustomSettings.noCustomWordsText")} className={styles.notFoundText} />
             }
           </div>
         </div>

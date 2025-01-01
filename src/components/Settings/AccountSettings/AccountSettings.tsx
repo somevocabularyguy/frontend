@@ -43,7 +43,7 @@ const AccountSettings: React.FC = () => {
         isVisible={isAccountSettingsVisible}
       />
         <section className={accountSectionClassName}>
-          {true ?
+          {isSignedIn ?
             <>
               <Button text={t("signOutButton")} className={styles.blankButton} onClick={openSignOutPopup} />
               <Button text={t("deleteButton")} className={`${styles.blankButton} ${styles.deleteButton}`} onClick={openDeletePopup} />

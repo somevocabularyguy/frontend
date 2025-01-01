@@ -10,7 +10,7 @@ import { updateLoadingState } from '@/store/dataSlice';
 import { updateIsDeletePopupVisible } from '@/store/accountUiSlice';
 
 const DeletePopup: React.FC = () => {
-  const t = useCustomTranslation("Popups.Delete");
+  const t = useCustomTranslation("Popups.DeletePopup");
   const dispatch = useAppDispatch();
 
   const isDeletePopupVisible = useAppSelector(state => state.accountUi.isDeletePopupVisible);

@@ -2,3 +2,10 @@ When navigating Main > a route > Main, hiding or adding to custom becomes slower
 there is a problem with custom word button. probably custom's effect to level rendering
 
 Error handling and feedback for Feedback Page.
+
+signout popup settings link
+
+hiding words adds to progress
+
+Auto scaling Text component!
+
