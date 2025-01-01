@@ -6,13 +6,13 @@ import styles from './Sidebar.module.css';
 import { usePathname } from 'next/navigation'
 import Link from 'next/link';
 
-import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsSidebarVisible } from '@/store/uiSlice';
-import { updateIsSignInPopupVisible } from '@/store/accountUiSlice';
+import { useAppSelector, useAppDispatch } from '@/store/store';
+import { updateIsSignInPopupVisible, updateIsSignOutPopupVisible } from '@/store/accountUiSlice';
 
 import { Line, Text, Button } from '@/components/atoms';
 
-import { MainIcon, HomeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon, AccountIcon } from '@/public/icons';
+import { MainIcon, HomeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon } from '@/public/icons';
 import { useCustomTranslation } from '@/hooks';
 
 const Sidebar: React.FC = () => {
@@ -58,6 +58,10 @@ const Sidebar: React.FC = () => {
     dispatch(updateIsSignInPopupVisible(true));
   }
 
+  const openSignOutPopup = () => {
+    dispatch(updateIsSignOutPopupVisible(true));
+  }
+
   return (
     <>
       <Link href="/" className={styles.mainLink}>
@@ -84,10 +88,6 @@ const Sidebar: React.FC = () => {
 
         <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
 
-        {/* <Link href="/user-guide" className={returnLinkClass('/user-guide')}>
-          <GuideIcon height="2rem" width="2.25rem" />
-          <Text text="How To Use" className={styles.sidebarLinkText} as="span" />
-        </Link> */}
         <Link href="/feedback" className={returnLinkClass('/feedback')}>
           <FeedbackIcon height="2.25rem" width="2.25rem" />
           <Text className={styles.sidebarLinkText}>{t("feedback")}</Text>
@@ -100,10 +100,7 @@ const Sidebar: React.FC = () => {
         <Line width="11.875rem" height="0.1rem" className={styles.linkDividerLine}/>
 
         {isSignedIn ? 
-          <Link href="/account" className={returnLinkClass('/about')}>
-            <AccountIcon width="2.25rem" height="2.25rem" />
-            <Text className={styles.sidebarLinkText}>{t("account")}</Text>
-          </Link>
+          <Button text={t("signOut")} className={styles.signOutButton} onClick={openSignOutPopup} />
           :
           <Button text={t("signIn")} className={styles.signInButton} onClick={openSignInPopup} />
         }

@@ -7,6 +7,7 @@ import { ArrowIcon } from '@/public/icons';
 import { Text } from '@/components/atoms';
 import { OptionObject } from '@/types';
 
+import { updateIsLoading } from '@/store/loadingSlice';
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsLanguageDropdownActive } from '@/store/languageUiSlice';
 
@@ -30,6 +31,9 @@ const LanguageDropdown: React.FC = () => {
     const expires = date.toUTCString();
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/;SameSite=Strict`;
 
+    if (newLocale === currentLocale) return;
+
+    dispatch(updateIsLoading(true));
     i18n.changeLanguage(newLocale);
 
     if (currentLocale === i18nConfig.defaultLocale) {

@@ -3,21 +3,26 @@
 const storage = {
   setItem: (key: string, value: any) => {
     try {
-      localStorage.setItem(key, JSON.stringify(value));
+      if (typeof value === 'string') {
+        localStorage.setItem(key, value);
+      } else {
+        localStorage.setItem(key, JSON.stringify(value));
+      }
     } catch (error) {
       console.error('Error saving data:', error);
     }
   },
   
   getItem: (key: string) => {
+    const value = localStorage.getItem(key);
     try {
-      const value = localStorage.getItem(key);
       if (value !== null) {
         return JSON.parse(value);
       }
       return null;
     } catch (error) {
       console.error('Error retrieving data:', error);
+      return value
     }
   },
   

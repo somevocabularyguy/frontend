@@ -4,11 +4,10 @@ import storage from '@/storage';
 
 import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/store/store';
-import { updateAppIsLoaded } from '@/store/loadingSlice';
+import { updateIsAppLoaded, updateIsLoading } from '@/store/loadingSlice';
 
 const useCheckAppLoaded = () => {
   const dispatch = useAppDispatch();
-
 
   const words = useAppSelector(state => state.word.words);
   const levels = useAppSelector(state => state.appState.levels);
@@ -16,7 +15,7 @@ const useCheckAppLoaded = () => {
 
   const wordResources = useAppSelector(state => state.language.wordResources);
 
-  const appIsLoaded = useAppSelector(state => state.loading.appIsLoaded);
+  const isAppLoaded = useAppSelector(state => state.loading.isAppLoaded);
   const isUserDataLoaded = useAppSelector(state => state.userData.isUserDataLoaded);
 
   useEffect(() => {
@@ -27,9 +26,9 @@ const useCheckAppLoaded = () => {
       : true;
     const arrayBoolean = words.length && levels.length; 
     const objectBoolean = Object.keys(wordResources).length;
-
-    if (!appIsLoaded && checkedLevelsBoolean && arrayBoolean && objectBoolean && isUserDataLoaded) {
-      dispatch(updateAppIsLoaded(true));
+    if (!isAppLoaded && checkedLevelsBoolean && arrayBoolean && objectBoolean && isUserDataLoaded) {
+      dispatch(updateIsAppLoaded(true));
+      dispatch(updateIsLoading(false));
     }
   }, [words, levels, checkedLevels, wordResources, isUserDataLoaded])
 }

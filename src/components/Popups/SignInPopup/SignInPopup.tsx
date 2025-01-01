@@ -3,21 +3,27 @@
 import styles from './SignInPopup.module.css';
 import { useState, useEffect, useRef } from 'react';
 
+import storage from '@/storage';
 import { Button, Text } from '@/components/atoms';
 
-import { useAppSelector } from '@/store/store';
+import { updateIsSignedIn } from '@/store/userSettingsSlice';
+import { useAppSelector, useAppDispatch } from '@/store/store';
+import { updateIsWaitingVerify, updateIsSignInPopupVisible } from '@/store/accountUiSlice';
 
 import { EmailIcon } from '@/public/icons';
-import { sendMagicLink } from '@/lib/api';
 import { useCustomTranslation } from '@/hooks';
+import { sendMagicLink, verifySignIn } from '@/lib/api';
 
 const SignInPopup: React.FC = () => {
   const t = useCustomTranslation("Popups.SignInPopup");
+  const dispatch = useAppDispatch();
+
+  const isSignInPopupVisible = useAppSelector(state => state.accountUi.isSignInPopupVisible);
+  const isWaitingVerify = useAppSelector(state => state.accountUi.isWaitingVerify);
 
   const [email, setEmail] = useState('');
   const [isWarned, setIsWarned] = useState(false);
   const [isSending, setIsSending] = useState(false);
-  const [isWaiting, setIsWaiting] = useState(false);
   const [animationIndex, setAnimationIndex] = useState(0);
   const animationIndexRef = useRef(animationIndex);
 
@@ -43,7 +49,8 @@ const SignInPopup: React.FC = () => {
     try {
       const response = await sendMagicLink(email);
       if (response.status === 200) {
-        setIsWaiting(true);
+        dispatch(updateIsWaitingVerify(true));
+        storage.setItem('waitingVerify', true);
         setEmail('');
       }
     } catch (error) {
@@ -54,8 +61,22 @@ const SignInPopup: React.FC = () => {
     }
   };
 
-  const checkAndRefresh = () => {
-    
+  const checkAndRefresh = async () => {
+    const waitingVerify = storage.getItem('waitingVerify');
+    if (waitingVerify) {
+      const response = await verifySignIn();
+      if (response === 'verified') {
+        dispatch(updateIsSignInPopupVisible(false));
+        dispatch(updateIsWaitingVerify(false));
+        storage.removeItem('waitingVerify');
+        dispatch(updateIsSignedIn(true));
+      } else if (response === 'not-verified') {
+        console.log(response);
+      } else if (response === 'expired') {
+        dispatch(updateIsWaitingVerify(false));
+        storage.removeItem('waitingVerify');
+      }
+    }
   }
 
   useEffect(() => {
@@ -77,13 +98,12 @@ const SignInPopup: React.FC = () => {
     };
   }, [isSending]);
 
-  const isSignInPopupVisible = useAppSelector(state => state.accountUi.isSignInPopupVisible);
 
   const signInContainerClassName = `${styles.container} ${isSignInPopupVisible ? styles.containerVisible : ''}`
 
   return (
       <section className={signInContainerClassName}>
-        {isWaiting ?
+        {isWaitingVerify ?
           <section className={styles.waitingContainer}>
             <div className={styles.waitingUpperContainer}>
               <EmailIcon className={styles.emailIcon} />

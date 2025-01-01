@@ -25,6 +25,32 @@ const getUserData = async (authToken: string): Promise<UserData | null> => {
   }
 }
 
+const verifySignIn = async (): Promise<string | null> => {
+  try {
+    const response = await axios.get(`http://localhost:3000/api/web/proxy/entry/verify-sign-in`, { withCredentials: true });
+    if (response.status === 200) {
+      return 'verified';
+    }
+    return null;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      if (error.code === 'ECONNREFUSED') {
+        console.log('Error: Could not connect to the server. Please check if the server is running.');
+      } else if (error.code === 'ETIMEDOUT') {
+        console.log('Error: Request timed out. Server may be slow or unreachable.');
+      } else {
+        // console.log(`Axios Error: ${error.message}`);
+      }
+      if (error.status === 401) {
+        return 'expired';
+      } else if (error.status === 403) {
+        return 'not-verified';
+      }
+    }
+    return null;
+  }
+}
+
 const sendMagicLink = async (email: string) => {
   const response = await axios.post(`/api/web/proxy/entry/send-magic-link`, { email });
   return response;
@@ -45,4 +71,4 @@ const deleteAccount = async () => {
   return response;
 }
 
-export { getUserData, sendMagicLink, sendFeedbackData, logout, deleteAccount };
+export { getUserData, sendMagicLink, sendFeedbackData, logout, deleteAccount, verifySignIn };

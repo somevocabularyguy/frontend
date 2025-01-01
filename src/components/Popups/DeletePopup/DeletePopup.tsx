@@ -6,7 +6,7 @@ import { Text, Button } from '@/components/atoms';
 import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
-import { updateLoadingState } from '@/store/loadingSlice';
+import { updateIsLoading } from '@/store/loadingSlice';
 import { updateIsDeletePopupVisible } from '@/store/accountUiSlice';
 
 const DeletePopup: React.FC = () => {
@@ -22,16 +22,16 @@ const DeletePopup: React.FC = () => {
   }, []);
 
   const handleDeleteAccount = async () => {
-    dispatch(updateLoadingState(true));
+    dispatch(updateIsLoading(true));
     try {
     const response = await deleteAccount();
       if (response.status === 202) {
         window.alert(t("deletedAlert"));
         window.location.href = 'http://localhost:3000/settings';
-        dispatch(updateLoadingState(false));
+        dispatch(updateIsLoading(false));
       }
     } catch (error) {
-      dispatch(updateLoadingState(false));
+      dispatch(updateIsLoading(false));
       window.alert(t("deleteAlert"));
     }
   }

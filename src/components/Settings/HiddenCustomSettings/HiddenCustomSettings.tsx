@@ -10,8 +10,6 @@ import { DeleteIcon } from '@/public/icons';
 import { SectionLabel } from '../reuseable';
 import { useCustomTranslation } from '@/hooks';
 
-import { highlightSubtext } from '@/utils/tsxUtils';
-
 const HiddenCustomSettings: React.FC = () => {
   const t = useCustomTranslation("Settings.HiddenCustomSettings");
   const dispatch = useAppDispatch();
@@ -40,8 +38,6 @@ const HiddenCustomSettings: React.FC = () => {
   }
 
   const isHiddenCustomSettingsVisible = useAppSelector(state => state.settingsUi.isHiddenCustomSettingsVisible);
-
-
 
   const hiddenCustomSectionClassName = `${styles.hiddenCustomSection} 
     ${isHiddenCustomSettingsVisible ? styles.hiddenCustomSectionVisible : ''}`;

@@ -10,8 +10,10 @@ level stays checked when becomes empty.
 
 quick clicking can make url /tr/tr which is undefined. Also remove the delay between language change or put a loading screen.
 
-TText have problem with being hidden. It has something to do with navigation.
-
 signIn button enter to send mail.
 
 a level loses background color sometimes. Why is that?
+
+add highlight to words found in example
+
+add levelWords update with  clicking instead of hover setting

@@ -36,11 +36,12 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   const { locale } = await params;
   const cookieStore = await cookies();
   const authToken = cookieStore.get('authCookie')?.value;
+  const tempVerifyToken = cookieStore.get('tempVerifyCookie')?.value;
   const cookieArrayString = cookieStore.get('languageArray')?.value;
   const cookieArray = cookieArrayString ? JSON.parse(cookieArrayString) : null;
 
   let serverUserData: UserData | null = null;
-  let signedInFlag = false;
+  let signedInFlag: string | boolean = tempVerifyToken ? 'waiting' : false;
   if (authToken) {
     signedInFlag = true;
     serverUserData = await getUserData(authToken);

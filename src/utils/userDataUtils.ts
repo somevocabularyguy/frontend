@@ -9,7 +9,7 @@ const compareUserData = (userData1: UserData, userData2: UserData) => {
   }
 }
 
-const returnUserData = (storedUserData: UserData | null, serverUserData: UserData | null) => {
+const returnUserData = (storedUserData: UserData | null, serverUserData: UserData | null, languageArray: string[]) => {
   let newUserData: UserData | null = null;
 
   if (storedUserData && serverUserData) {
@@ -21,6 +21,7 @@ const returnUserData = (storedUserData: UserData | null, serverUserData: UserDat
   } else {
     newUserData = { ...defaultUserData };
   }
+  newUserData.languageArray = languageArray;
 
   return newUserData;
 }

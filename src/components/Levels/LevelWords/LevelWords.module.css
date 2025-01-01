@@ -21,6 +21,9 @@
 .levelWord {
   color: #fbf1e9;
   font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .levelWord:hover {

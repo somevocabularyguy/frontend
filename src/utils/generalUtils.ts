@@ -18,4 +18,8 @@ const setLanguageCookie = (languageArray: string[]) => {
   });
 };
 
-export { extractParts, setLanguageCookie };
+const wait = (ms: number) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export { extractParts, setLanguageCookie, wait };

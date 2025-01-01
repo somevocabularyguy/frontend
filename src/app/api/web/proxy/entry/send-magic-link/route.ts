@@ -12,8 +12,23 @@ export async function POST(req: Request) {
 
   try {
     const response = await axios.post('http://localhost:5000/entry/send-magic-link', body)
+    if (response.status === 200) {
 
-    return NextResponse.json(response.data);
+      const { tempVerifyToken } = response.data;
+
+      const nextResponse = NextResponse.json(null, { status: 200 });
+      nextResponse.cookies.set('tempVerifyCookie', tempVerifyToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        path: '/',
+        maxAge: 24 * 60 * 60,
+      });
+
+      return nextResponse;
+    }
+
+    return NextResponse.json(null, { status: response.status });
   } catch (error) {
     console.error(error)
   }

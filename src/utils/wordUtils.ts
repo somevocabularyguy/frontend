@@ -43,24 +43,13 @@ const groupWordsByLevel = (words: Word[], hiddenWordIds: string[], customWordIds
     }
     groupedWords.push(newWordObject);
   }
-
   const sortedGroupedWords = sortWordsAscending(groupedWords)
 
   return sortedGroupedWords;
 }
 
 function sortWordsAscending(words: Word[]) {
-  const array = [...words];
-  for (let i = 0; i < array.length; i++) {
-    for (let j = i + 1; j < array.length; j++) {
-      const temp = array[i];
-      if (array[j].rank < array[i].rank) {
-        array[i] = array[j];
-        array[j] = temp;
-      }
-    }
-  }
-	return array;
+  return [...words].sort((a, b) => a.rank - b.rank);
 }
 
 export { groupWordsByLevel };
