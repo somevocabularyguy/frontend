@@ -1,32 +1,32 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AccountUiState {
-  isSignInPopupActive: boolean;
-  isSignOutPopupActive: boolean;
-  isDeletePopupActive: boolean;
+  isSignInPopupVisible: boolean;
+  isSignOutPopupVisible: boolean;
+  isDeletePopupVisible: boolean;
 }
 
 const initialState: AccountUiState = {
-  isSignInPopupActive: false,
-  isSignOutPopupActive: false,
-  isDeletePopupActive: false
+  isSignInPopupVisible: false,
+  isSignOutPopupVisible: false,
+  isDeletePopupVisible: false
 }
 
 const accountUiSlice = createSlice({
   name: 'accountUi',
   initialState,
   reducers: {
-    updateIsSignInPopupActive: (state, action: PayloadAction<boolean>) => {
-      state.isSignInPopupActive = action.payload;
+    updateIsSignInPopupVisible: (state, action: PayloadAction<boolean>) => {
+      state.isSignInPopupVisible = action.payload;
     },
-    updateIsSignOutPopupActive: (state, action: PayloadAction<boolean>) => {
-      state.isSignOutPopupActive = action.payload;
+    updateIsSignOutPopupVisible: (state, action: PayloadAction<boolean>) => {
+      state.isSignOutPopupVisible = action.payload;
     },
-    updateIsDeletePopupActive: (state, action: PayloadAction<boolean>) => {
-      state.isDeletePopupActive = action.payload;
+    updateIsDeletePopupVisible: (state, action: PayloadAction<boolean>) => {
+      state.isDeletePopupVisible = action.payload;
     }
   }
 })
 
-export const { updateIsSignInPopupActive, updateIsSignOutPopupActive, updateIsDeletePopupActive } = accountUiSlice.actions; 
+export const { updateIsSignInPopupVisible, updateIsSignOutPopupVisible, updateIsDeletePopupVisible } = accountUiSlice.actions; 
 export default accountUiSlice.reducer;

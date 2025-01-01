@@ -10,6 +10,8 @@ import { DeleteIcon } from '@/public/icons';
 import { SectionLabel } from '../reuseable';
 import { useCustomTranslation } from '@/hooks';
 
+import { highlightSubtext } from '@/utils/tsxUtils';
+
 const HiddenCustomSettings: React.FC = () => {
   const t = useCustomTranslation("Settings.HiddenCustomSettings");
   const dispatch = useAppDispatch();
@@ -37,22 +39,6 @@ const HiddenCustomSettings: React.FC = () => {
   const handleRemoveCustomWord = (wordId: string) => {
     dispatch(removeCustomWordId(wordId));
   }
-
-  const highlightSubtext = (text: string, subtext: string) => {
-    const index = text.indexOf(subtext);
-
-    const before = text.slice(0, index);
-    const match = text.slice(index, index + subtext.length);
-    const after = text.slice(index + subtext.length);
-
-    return (
-      <>
-        {before}
-        <Text text={match} className={styles.highlightedSubtext} as="span" />
-        {after}
-      </>
-    );
-  }; 
 
   const isHiddenCustomSettingsVisible = useAppSelector(state => state.settingsUi.isHiddenCustomSettingsVisible);
 
@@ -88,6 +74,7 @@ const HiddenCustomSettings: React.FC = () => {
               hiddenWordsFiltered.length ? 
                 hiddenWordsFiltered.map(wordObject => {
                   const highlightedWord = highlightSubtext(wordObject.word, hiddenSearchValue)
+                  if (!highlightedWord) return null;
                   return (
                     <div key={'hidden' + wordObject.id} className={styles.hiddenCustomWordContainer}>
                       <span className={styles.hiddenCustomWordText}>{highlightedWord}</span>
@@ -115,6 +102,7 @@ const HiddenCustomSettings: React.FC = () => {
               customWordsFiltered.length ? 
                 customWordsFiltered.map(wordObject => {
                   const highlightedWord = highlightSubtext(wordObject.word, customSearchValue)
+                  if (!highlightedWord) return null;
                   return (
                     <div key={'custom' + wordObject.id} className={styles.hiddenCustomWordContainer}>
                       <span className={styles.hiddenCustomWordText}>{highlightedWord}</span>

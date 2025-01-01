@@ -9,19 +9,19 @@ import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateLoadingState } from '@/store/dataSlice';
-import { updateIsSignOutPopupActive, updateIsDeletePopupActive } from '@/store/accountUiSlice';
+import { updateIsSignOutPopupVisible, updateIsDeletePopupVisible } from '@/store/accountUiSlice';
 
 const AccountPopup: React.FC = () => {
   const t = useCustomTranslation("Popups.AccountPopups");
   const dispatch = useAppDispatch();
 
-  const isSignOutPopupActive = useAppSelector(state => state.accountUi.isSignOutPopupActive);
-  const isDeletePopupActive = useAppSelector(state => state.accountUi.isDeletePopupActive);
+  const isSignOutPopupVisible = useAppSelector(state => state.accountUi.isSignOutPopupVisible);
+  const isDeletePopupVisible = useAppSelector(state => state.accountUi.isDeletePopupVisible);
 
   useEffect(() => {
     return () => {
-      dispatch(updateIsSignOutPopupActive(false));
-      dispatch(updateIsDeletePopupActive(false));
+      dispatch(updateIsSignOutPopupVisible(false));
+      dispatch(updateIsDeletePopupVisible(false));
     }
   }, []);
 
@@ -52,16 +52,16 @@ const AccountPopup: React.FC = () => {
   }
 
   const closePopup = () => {
-    if (isDeletePopupActive) {
-      dispatch(updateIsDeletePopupActive(false));
+    if (isDeletePopupVisible) {
+      dispatch(updateIsDeletePopupVisible(false));
     }
-    if (isSignOutPopupActive) {
-      dispatch(updateIsSignOutPopupActive(false));
+    if (isSignOutPopupVisible) {
+      dispatch(updateIsSignOutPopupVisible(false));
     }
   }
 
-  const deletePopupClassName = `${styles.popup} ${isDeletePopupActive ? styles.deletePopupVisible : ''}`
-  const signOutPopupClassName = `${styles.popup} ${isSignOutPopupActive ? styles.signOutPopupVisible : ''}`
+  const deletePopupClassName = `${styles.popup} ${isDeletePopupVisible ? styles.deletePopupVisible : ''}`
+  const signOutPopupClassName = `${styles.popup} ${isSignOutPopupVisible ? styles.signOutPopupVisible : ''}`
 
   return (
     <>

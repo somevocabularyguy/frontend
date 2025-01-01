@@ -14,7 +14,7 @@ const FeedbackDropdown: React.FC = () => {
   const t = useCustomTranslation("Feedback.FeedbackDropdown")
 
   const isFeedbackDropdownActive = useAppSelector(state => state.feedbackUi.isFeedbackDropdownActive)
-  // const isSended = useAppSelector(state => state.feedback.isSended);
+  const isSended = useAppSelector(state => state.feedback.isSended);
   const selectedTypeObject = useAppSelector(state => state.feedback.selectedTypeObject);
 
   const toggleDropdown = () => {

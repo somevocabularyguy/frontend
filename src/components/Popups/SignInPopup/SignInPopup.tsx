@@ -75,9 +75,9 @@ const SignInPopup: React.FC = () => {
     return () => clearInterval(intervalId);
   }, [isSending]);
 
-  const isSignInPopupActive = useAppSelector(state => state.accountUi.isSignInPopupActive);
+  const isSignInPopupVisible = useAppSelector(state => state.accountUi.isSignInPopupVisible);
 
-  const signInContainerClassName = `${styles.container} ${isSignInPopupActive ? styles.containerVisible : ''}`
+  const signInContainerClassName = `${styles.container} ${isSignInPopupVisible ? styles.containerVisible : ''}`
 
   return (
       <section className={signInContainerClassName}>

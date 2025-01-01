@@ -6,7 +6,7 @@ import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsAccountSettingsVisible } from '@/store/settingsUiSlice';
-import { updateIsSignInPopupActive, updateIsSignOutPopupActive, updateIsDeletePopupActive } from '@/store/accountUiSlice';
+import { updateIsSignInPopupVisible, updateIsSignOutPopupVisible, updateIsDeletePopupVisible } from '@/store/accountUiSlice';
 
 const AccountSettings: React.FC = () => {
   const t = useCustomTranslation("Settings.AccountSettings");
@@ -21,15 +21,15 @@ const AccountSettings: React.FC = () => {
   }
 
   const openSignInPopup = () => {
-    dispatch(updateIsSignInPopupActive(true));
+    dispatch(updateIsSignInPopupVisible(true));
   }
 
   const openSignOutPopup = () => {
-    dispatch(updateIsSignOutPopupActive(true));
+    dispatch(updateIsSignOutPopupVisible(true));
   }
 
   const openDeletePopup = () => {
-    dispatch(updateIsDeletePopupActive(true));
+    dispatch(updateIsDeletePopupVisible(true));
   }
 
   const accountSectionClassName = `${styles.accountSection} 

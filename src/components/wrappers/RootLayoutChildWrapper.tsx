@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect } from 'react';
-import { UserData } from '@/types';
+import { UserData, Word } from '@/types';
+import storage from '@/storage';
 
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import { updateLoadingState } from '@/store/dataSlice';
-import { updateLevels, updateCheckedLevels } from '@/store/appStateSlice';
+import { updateLevels, updateCheckedLevels, updateBatch } from '@/store/appStateSlice';
 import { updateUserData } from '@/store/userDataSlice';
 import { updateDisplayWordObject } from '@/store/wordSlice';
 import { updateIsSignedIn } from '@/store/userSettingsSlice';
@@ -13,9 +14,11 @@ import { updateIsSignedIn } from '@/store/userSettingsSlice';
 import { returnUserData } from '@/utils/userDataUtils';
 import { useCreateLevels } from '@/hooks';
 
-import { Sidebar, Shading, TransparentOverlay } from '@/components/overlays';
+import { Shading } from '@/components/overlays';
 import { LanguageDropdown } from '@/components/Language';
-import { AccountPopups, SignInPopup } from '@/components/Popups';
+import { SignInPopup, SignOutPopup, DeletePopup } from '@/components/Popups';
+import Sidebar from '@/components/Sidebar';
+import Loading from '@/components/Loading';
 
 interface RootLayoutChildWrapperProps {
   children: React.ReactNode;
@@ -25,6 +28,12 @@ interface RootLayoutChildWrapperProps {
 
 const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ children, serverUserData, signedInFlag }) => {
   const dispatch = useAppDispatch();
+  const createLevels = useCreateLevels();
+
+  const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
+  const userData = useAppSelector(state => state.userData.userData);
+  const isRandom = useAppSelector(state => state.word.isRandom);
+  const words = useAppSelector(state => state.data.words);
 
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn);
   if (isSignedIn !== signedInFlag) {
@@ -32,44 +41,40 @@ const RootLayoutChildWrapper: React.FC<RootLayoutChildWrapperProps> = ({ childre
   }
 
   useEffect(() => {
-    const storedUserData = localStorage.getItem('userData');
-    const parsedUserData: UserData | null = storedUserData ? JSON.parse(storedUserData) : null;
-    const userData = returnUserData(parsedUserData, serverUserData);
+    const storedUserData = storage.getItem('userData');
+    const userData = returnUserData(storedUserData, serverUserData);
 
-    const storedCheckedLevels = localStorage.getItem('checkedLevels');
-    const parsedCheckedLevels = storedCheckedLevels ? JSON.parse(storedCheckedLevels) : null;
+    const storedCheckedLevels = storage.getItem('checkedLevels');
 
     dispatch(updateUserData(userData));
-    dispatch(updateCheckedLevels(parsedCheckedLevels));
+    dispatch(updateCheckedLevels(storedCheckedLevels));
     dispatch(updateLoadingState(false));
   }, [serverUserData, dispatch])
-
-  const userData = useAppSelector(state => state.userData.userData);
-  const createLevels = useCreateLevels();
 
   useEffect(() => {
     const levels = createLevels();
     dispatch(updateLevels(levels));
   }, [userData.hiddenWordIds, userData.customWordIds, dispatch])
 
-  const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
-  const isRandom = useAppSelector(state => state.word.isRandom);
-
   useEffect(() => {
     dispatch(updateDisplayWordObject(null));
   }, [checkedLevels, isRandom, dispatch])
 
-  const loading = useAppSelector(state => state.data.loading)
+  useEffect(() => {
+    const checkedLevelsSet = new Set(checkedLevels);
+    const newBatch: Word[] = words.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
+    dispatch(updateBatch(newBatch));
+  }, [checkedLevels, words, dispatch])
 
-  if (loading) return <h1>loading...</h1>;
 
   return (
     <>
+      <Loading />
       <Sidebar />
       <Shading />
-      {/* <TransparentOverlay /> */}
-      <AccountPopups />
       <SignInPopup />
+      <SignOutPopup />
+      <DeletePopup />
       <LanguageDropdown />
       {children}
     </>

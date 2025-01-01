@@ -11,9 +11,9 @@ const GeneralProgress: React.FC = () => {
   const totalTimeSpentText = `${userData.totalUseTime} milliseconds`
 
   return (
-    <section className={styles.container}>
+    <span className={styles.container}>
       <Text text={`Total time spent to learn: ${totalTimeSpentText}`} />
-    </section>
+    </span>
   )
 }
 

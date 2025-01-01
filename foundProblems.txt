@@ -1,4 +1,4 @@
 When navigating Main > a route > Main, hiding or adding to custom becomes slower if Next is not clicked, it may be caused bu custom word adding logic.
+there is a problem with custom word button. probably custom's effect to level rendering
 
 Error handling and feedback for Feedback Page.
-

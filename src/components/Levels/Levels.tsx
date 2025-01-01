@@ -1,28 +1,15 @@
-import { useEffect } from 'react';
-
 import styles from './Levels.module.css';
-import { Word } from '@/types';
 
 import { LevelBox, LevelWords, CurrentWords, BottomStrip } from './';
 import { Line } from '@/components/atoms';
 
-import { useAppDispatch, useAppSelector } from '@/store/store';
-import { updateBatch } from '@/store/appStateSlice';
+import { useAppSelector } from '@/store/store';
 
 const Levels: React.FC = () => {
 
-  const words = useAppSelector(state => state.data.words);
   const isLevelsVisible = useAppSelector(state => state.ui.isLevelsVisible);
-  const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
-  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    const checkedLevelsSet = new Set(checkedLevels);
-    const newBatch: Word[] = words.filter(wordObject => checkedLevelsSet.has(wordObject.levelName));
-    dispatch(updateBatch(newBatch));
-  }, [checkedLevels, words, dispatch])
-
-  const classNameForMainGrid = `${styles.mainGrid} ${isLevelsVisible ? styles.levelsOpen : ''}`;
+  const classNameForMainGrid = `${styles.mainGrid} ${isLevelsVisible ? styles.levelsVisible : ''}`;
 
   return (
     <>

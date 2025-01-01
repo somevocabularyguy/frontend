@@ -2,14 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UIState {
   isLevelsVisible: boolean;
-  isSidebarOpen: boolean;
+  isSidebarVisible: boolean;
   isShadingVisible: boolean;
   isTransparentOverlayVisible: boolean;
 }
 
 const initialState: UIState = {
   isLevelsVisible: true,
-  isSidebarOpen: false,
+  isSidebarVisible: false,
   isShadingVisible: false,
   isTransparentOverlayVisible: false
 } 
@@ -21,8 +21,8 @@ const uiSlice = createSlice({
     updateIsLevelsVisible: (state, action: PayloadAction<boolean>) =>  {
       state.isLevelsVisible = action.payload
     },
-    updateIsSidebarOpen: (state, action: PayloadAction<boolean>) => {
-      state.isSidebarOpen = action.payload;
+    updateIsSidebarVisible: (state, action: PayloadAction<boolean>) => {
+      state.isSidebarVisible = action.payload;
     },
     updateIsShadingVisible: (state, action: PayloadAction<boolean>) => {
       state.isShadingVisible = action.payload;
@@ -33,5 +33,5 @@ const uiSlice = createSlice({
   }
 })
 
-export const { updateIsLevelsVisible, updateIsSidebarOpen, updateIsShadingVisible, updateIsTransparentOverlayVisible } = uiSlice.actions;
+export const { updateIsLevelsVisible, updateIsSidebarVisible, updateIsShadingVisible, updateIsTransparentOverlayVisible } = uiSlice.actions;
 export default uiSlice.reducer;

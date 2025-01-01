@@ -7,8 +7,8 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
-import { updateIsSidebarOpen } from '@/store/uiSlice';
-import { updateIsSignInPopupActive } from '@/store/accountUiSlice';
+import { updateIsSidebarVisible } from '@/store/uiSlice';
+import { updateIsSignInPopupVisible } from '@/store/accountUiSlice';
 
 import { Line, Text, Button } from '@/components/atoms';
 
@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
   const dispatch = useAppDispatch();
   const t = useCustomTranslation("Sidebar");
 
-  const isSidebarOpen = useAppSelector(state => state.ui.isSidebarOpen);
+  const isSidebarVisible = useAppSelector(state => state.ui.isSidebarVisible);
   const isSignedIn = useAppSelector(state => state.userSettings.isSignedIn)
 
   useEffect(() => {
@@ -28,10 +28,10 @@ const Sidebar: React.FC = () => {
       const thresholdInRem = 16;
       const clientXInRem = event.clientX / rootFontSize;
 
-      if (clientXInRem < thresholdInRem && !isSidebarOpen) {
-        dispatch(updateIsSidebarOpen(true));
-      } else if (clientXInRem >= thresholdInRem && isSidebarOpen) {
-        dispatch(updateIsSidebarOpen(false));
+      if (clientXInRem < thresholdInRem && !isSidebarVisible) {
+        dispatch(updateIsSidebarVisible(true));
+      } else if (clientXInRem >= thresholdInRem && isSidebarVisible) {
+        dispatch(updateIsSidebarVisible(false));
       }
     };
 
@@ -40,7 +40,7 @@ const Sidebar: React.FC = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isSidebarOpen, dispatch]);
+  }, [isSidebarVisible, dispatch]);
 
   const currentPath = usePathname()
 
@@ -52,10 +52,10 @@ const Sidebar: React.FC = () => {
     return linkClass;
   }
 
-  const sidebarClassName = `${styles.sidebarContainer} ${isSidebarOpen ? styles.sidebarOpen : ''}`
+  const sidebarClassName = `${styles.sidebarContainer} ${isSidebarVisible ? styles.sidebarVisible : ''}`
 
   const openSignInPopup = () => {
-    dispatch(updateIsSignInPopupActive(true));
+    dispatch(updateIsSignInPopupVisible(true));
   }
 
   return (

@@ -1,4 +1,4 @@
-.checkboxLabel {
+.level {
   width: 2.25rem;
   height: 2.25rem;
   display: flex;
@@ -9,19 +9,12 @@
   cursor: pointer;
   font-size: 0.92rem;
   font-family: Sans-Serif;
-}
-
-.checkbox {
-  display: none;
-}
-
-.checkboxChecked {
-  color: white;
-  border: 0.1875rem solid #e6ac00;
-}
-
-.checkboxNotChecked {
-  border: 0.1875rem solid transparent;
-  color: white;
+  border: 0.175rem solid transparent;
   background-clip: padding-box;
+  color: white;
+}
+
+.levelChecked {
+  color: white;
+  border: 0.175rem solid #e6ac00;
 }

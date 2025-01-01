@@ -4,38 +4,48 @@ import React from 'react';
 import styles from './Level.module.css';
 import { RGB } from '@/types';
 
-import { useAppSelector } from '@/store/store';
+import { Text } from '@/components/atoms';
+import { extractParts } from '@/utils/generalUtils';
+
+import { useAppDispatch, useAppSelector } from '@/store/store';
+import { addCheckedLevel, removeCheckedLevel, updateHoveredLevel } from '@/store/appStateSlice';
 
 interface LevelProps {
   levelName: string;
-  levelNumber: number;
   colorValue: RGB;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  onMouseEnter: React.MouseEventHandler<HTMLElement>;
 }
 
-const Level: React.FC<LevelProps> = ({ levelName, levelNumber, colorValue, onChange, onMouseEnter }) => {
+const Level: React.FC<LevelProps> = ({ levelName, colorValue }) => {
+  const dispatch = useAppDispatch()
 
   const checkedLevels = useAppSelector(state => state.appState.checkedLevels);
 
+  const handleLevelOnHover = () => {
+    dispatch(updateHoveredLevel(levelName))
+  }
+
+ const handleLevelChange = () => {
+    if (checkedLevels.includes(levelName)) {
+      dispatch(removeCheckedLevel(levelName))
+    } else {
+      dispatch(addCheckedLevel(levelName))
+    }
+  }
+
+  const levelNumber = extractParts(levelName).number;
+
+  const levelStyle = { backgroundColor: `rgb(${colorValue.r}, ${colorValue.g}, ${colorValue.b})`};
+  const levelClassName = `${styles.level} ${checkedLevels.includes(levelName) ? styles.levelChecked : ''}`
+
   return (
-    <label
-      htmlFor={levelName}
-      style={{backgroundColor: `rgb(${colorValue.r}, ${colorValue.g}, ${colorValue.b})`}}
-      className={`${styles.checkboxLabel} ${checkedLevels.includes(levelName) ? 
-        styles.checkboxChecked : styles.checkboxNotChecked}`}
-      onMouseEnter={onMouseEnter}
+    <div
+      style={levelStyle}
+      className={levelClassName}
+      onMouseEnter={handleLevelOnHover}
+      onClick={handleLevelChange}
     >
-      <input  
-        id={levelName}
-        className={styles.checkbox}
-        type="checkbox"
-        name={levelName}
-        checked={checkedLevels.includes(levelName)}
-        onChange={onChange}
-      />
-      lv{levelNumber}
-    </label>
+      <Text text={'lv' + levelNumber}/>
+    </div>
   )
 }
 

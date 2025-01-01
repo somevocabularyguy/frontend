@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Word } from '@/types';
 import { useCustomTranslation } from '@/hooks';
 
-import { Text } from '@/components/atoms'; 
+import { highlightSubtext } from '@/utils/tsxUtils';
 
 import { useAppSelector } from '@/store/store';
 
@@ -13,7 +13,6 @@ interface ProgressRadiosProps {
   selectedWordId: string;
   setSelectedWordId: React.Dispatch<React.SetStateAction<string>>;
 }
-
 
 const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordId, setSelectedWordId }) => {
 
@@ -30,23 +29,7 @@ const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordI
     return className;
   }
 
-  const wordsData = useAppSelector(state => state.userData.userData.wordsData);
-
-  const highlightSubtext = (text: string, subtext: string) => {
-    const index = text.toLowerCase().indexOf(subtext.toLowerCase());
-
-    const before = text.slice(0, index);
-    const match = text.slice(index, index + subtext.length);
-    const after = text.slice(index + subtext.length);
-
-    return (
-      <>
-        {before}
-        <Text text={match} className={styles.highlightedSubtext} as="span" />
-        {after}
-      </>
-    );
-  };  
+  const wordsData = useAppSelector(state => state.userData.userData.wordsData); 
 
   return (
     <section className={styles.radioContainer}>
@@ -60,11 +43,11 @@ const ProgressRadios: React.FC<ProgressRadiosProps> = ({ wordsMap, selectedWordI
         {wordsData[0] ? wordsData.map(wordData => {
 
           const wordObject = wordsMap.get(wordData.id);
-          if (!wordObject) return;
-          if (wordObject.word.toLowerCase().indexOf(wordsDataSearchValue.toLowerCase()) === -1) return;
+          if (!wordObject) return null;
 
           const wordName = highlightSubtext(wordObject.word, wordsDataSearchValue);
-          
+          if (!wordName) return null;          
+
           return (
             <span
               key={`progressRadioText${wordObject.id}`} 
