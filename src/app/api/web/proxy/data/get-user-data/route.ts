@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { AuthConfig } from '@/apiTypes';
 import axios from 'axios';
+const SERVER_URL = process.env.SERVER_URL;
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get('authorization');
@@ -17,7 +18,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const response = await axios.get('http://localhost:5000/data/get-user-data', config)
+    const response = await axios.get(`${SERVER_URL}/data/get-user-data`, config)
 
     if (response?.data) {
       return NextResponse.json(response.data, { status: 200 });

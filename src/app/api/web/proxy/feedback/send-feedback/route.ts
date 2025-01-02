@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { FeedbackData } from '@/types'; 
 import { AuthConfig, FeedbackBody } from '@/apiTypes';
+const SERVER_URL = process.env.SERVER_URL;
  
 export async function POST(req: Request) {
   console.log('aaa')
@@ -27,7 +28,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const response = await axios.post('http://localhost:5000/feedback/send-feedback', body, config)
+    const response = await axios.post(`${SERVER_URL}/feedback/send-feedback`, body, config)
 
     return NextResponse.json(response.data, { status: 201 });
   } catch (error) {

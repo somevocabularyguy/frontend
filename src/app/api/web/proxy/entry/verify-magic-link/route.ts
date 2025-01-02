@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { AuthConfig } from '@/apiTypes';
 import axios from 'axios';
+const SERVER_URL = process.env.SERVER_URL;
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -16,7 +17,7 @@ export async function GET(req: Request) {
     }
   }
   try {
-    await axios.get('http://localhost:5000/entry/verify-magic-link', config);
+    await axios.get(`${SERVER_URL}/entry/verify-magic-link`, config);
     return NextResponse.json('Verified', { status: 200 });
   } catch (error) {
     if (axios.isAxiosError(error)) {
