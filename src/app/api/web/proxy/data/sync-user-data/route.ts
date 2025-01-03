@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { UserData } from '@/types';
 import { AuthConfig } from '@/apiTypes';
 import { NextResponse } from 'next/server';
-import { BACKEND_URL } from '@/constants';
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function POST(req: Request) {
   const cookieStore = await cookies();

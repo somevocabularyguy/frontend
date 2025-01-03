@@ -21,6 +21,4 @@ const defaultColorValue: RGB = {
   b: 128
 }
 
-const BACKEND_URL = 'http://164.90.157.50'
-
-export { defaultUserData, finishWord, defaultColorValue, BACKEND_URL };
+export { defaultUserData, finishWord, defaultColorValue };

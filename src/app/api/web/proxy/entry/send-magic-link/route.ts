@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
  
 import { EmailBody } from '@/apiTypes';
-import { BACKEND_URL } from '@/constants';
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function POST(req: Request) {
   const { email } = (await req.json()) as { email: string }

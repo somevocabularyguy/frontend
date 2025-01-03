@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 
 import { AuthConfig } from '@/apiTypes';
-import { BACKEND_URL } from '@/constants';
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);

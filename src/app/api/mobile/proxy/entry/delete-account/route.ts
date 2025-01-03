@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 
 import { AuthConfig } from '@/apiTypes';
-import { BACKEND_URL } from '@/constants';
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function DELETE(req: Request) {
   const authHeader = req.headers.get('authorization');

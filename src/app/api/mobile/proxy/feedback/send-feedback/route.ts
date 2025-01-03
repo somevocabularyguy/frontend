@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { FeedbackData } from '@/types'; 
 import { AuthConfig, FeedbackBody } from '@/apiTypes';
-import { BACKEND_URL } from '@/constants';
+const BACKEND_URL = process.env.BACKEND_URL;
  
 export async function POST(req: Request) {
   const { feedbackData } = await req.json() as { feedbackData: FeedbackData }
