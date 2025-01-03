@@ -2,7 +2,7 @@ import axios from 'axios';
 import { UserData } from '@/types';
 import { AuthConfig } from '@/apiTypes';
 import { NextResponse } from 'next/server';
-const BACKEND_URL = process.env.BACKEND_URL;
+import { BACKEND_URL } from '@/constants';
 
 export async function POST(req: Request) {
   const authHeader = req.headers.get('authorization');

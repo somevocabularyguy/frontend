@@ -4,11 +4,11 @@ import axios from 'axios';
 
 import { FeedbackData } from '@/types'; 
 import { AuthConfig, FeedbackBody } from '@/apiTypes';
-const BACKEND_URL = process.env.BACKEND_URL;
+import { BACKEND_URL } from '@/constants';
  
 export async function POST(req: Request) {
-  console.log('aaa')
   const { feedbackData } = await req.json() as { feedbackData: FeedbackData }
+  console.log("🚀 ~ file: route.ts:11 ~ feedbackData:", feedbackData);
 
   const body: FeedbackBody = {
     feedbackData
@@ -16,6 +16,7 @@ export async function POST(req: Request) {
 
   const cookieStore = await cookies();
   const authToken = cookieStore.get('authCookie')?.value;
+  console.log("🚀 ~ file: route.ts:19 ~ authToken:", authToken);
 
   let config: AuthConfig | object = {};
 
@@ -29,10 +30,12 @@ export async function POST(req: Request) {
 
   try {
     const response = await axios.post(`${BACKEND_URL}/feedback/send-feedback`, body, config)
+    console.log("🚀 ~ file: route.ts:34 ~ response.status:", response.status);
 
     return NextResponse.json(response.data, { status: 201 });
   } catch (error) {
     console.error(error)
+    console.log("🚀 ~ file: route.ts:40 ~ error:", error);
     return NextResponse.json({ status: 500 });
   }
 }

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
  
 import { EmailBody } from '@/apiTypes';
-const BACKEND_URL = process.env.BACKEND_URL;
+import { BACKEND_URL } from '@/constants';
 
 export async function POST(req: Request) {
   const { email } = (await req.json()) as { email: string }
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   try {
   console.log("🚀 ~ file: route.ts:8 ~ email:", email);
     const response = await axios.post(`${BACKEND_URL}/entry/send-magic-link`, body)
-    console.log("🚀 ~ file: route.ts:15 ~ response:", response);
+    console.log("🚀 ~ file: route.ts:15 ~ response.status:", response.status);
     if (response.status === 200) {
 
       const { tempVerifyToken } = response.data;

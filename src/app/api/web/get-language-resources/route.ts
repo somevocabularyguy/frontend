@@ -5,6 +5,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   const { wordsLanguage, languageArray, newWordsLanguage } = (await req.json())as { wordsLanguage: string, languageArray: string[] | null, newWordsLanguage: string | null };
+  console.log("🚀 ~ file: route.ts:8 ~ newWordsLanguage:", newWordsLanguage);
+  console.log("🚀 ~ file: route.ts:8 ~ languageArray:", languageArray);
+  console.log("🚀 ~ file: route.ts:8 ~ wordsLanguage:", wordsLanguage);
 
   let requestedWords: Word[] | null = null;
   if (newWordsLanguage) {

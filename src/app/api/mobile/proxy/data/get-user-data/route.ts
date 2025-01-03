@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { AuthConfig } from '@/apiTypes';
 import axios from 'axios';
-const BACKEND_URL = process.env.BACKEND_URL;
+import { BACKEND_URL } from '@/constants';
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get('authorization');
