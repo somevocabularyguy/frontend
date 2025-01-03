@@ -2,6 +2,8 @@ import { UserData, FeedbackData, Word, WordResources } from '@/types';
 import { AuthConfig } from '@/apiTypes';
 import axios from 'axios';
 
+const FRONTEND_URL = process.env.FRONTEND_URL;
+
 const getUserData = async (authToken: string): Promise<UserData | null> => {
   const config: AuthConfig = {
     headers: {
@@ -10,7 +12,7 @@ const getUserData = async (authToken: string): Promise<UserData | null> => {
   }
 
   try {
-    const response = await axios.get(`http://localhost:3000/api/web/proxy/data/get-user-data`, config);
+    const response = await axios.get(`${FRONTEND_URL}/api/web/proxy/data/get-user-data`, config);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -27,7 +29,7 @@ const getUserData = async (authToken: string): Promise<UserData | null> => {
 
 const syncUserData = async (userDataToSync: UserData | null = null) => {
   try {
-    const response = await axios.post(`http://localhost:3000/api/web/proxy/data/sync-user-data`, { userDataToSync }, { withCredentials: true });
+    const response = await axios.post(`${FRONTEND_URL}/api/web/proxy/data/sync-user-data`, { userDataToSync }, { withCredentials: true });
     return response.data as { serverUserData: UserData } | null;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -44,7 +46,7 @@ const syncUserData = async (userDataToSync: UserData | null = null) => {
 
 const verifySignIn = async (): Promise<string | null> => {
   try {
-    const response = await axios.get(`http://localhost:3000/api/web/proxy/entry/verify-sign-in`, { withCredentials: true });
+    const response = await axios.get(`${FRONTEND_URL}/api/web/proxy/entry/verify-sign-in`, { withCredentials: true });
     if (response.status === 200) {
       return 'verified';
     }
@@ -69,22 +71,22 @@ const verifySignIn = async (): Promise<string | null> => {
 }
 
 const sendMagicLink = async (email: string) => {
-  const response = await axios.post(`/api/web/proxy/entry/send-magic-link`, { email });
+  const response = await axios.post(`${FRONTEND_URL}/api/web/proxy/entry/send-magic-link`, { email });
   return response;
 }
 
 const sendFeedbackData = async (feedbackData: FeedbackData) => {
-  const response = await axios.post(`http://localhost:3000/api/web/proxy/feedback/send-feedback`, { feedbackData }, { withCredentials: true })
+  const response = await axios.post(`${FRONTEND_URL}/api/web/proxy/feedback/send-feedback`, { feedbackData }, { withCredentials: true })
   return response;
 }
 
 const logout = async () => {
-  const response = await axios.get('http://localhost:3000/api/web/logout', { withCredentials: true });
+  const response = await axios.get(`${FRONTEND_URL}/api/web/logout`, { withCredentials: true });
   return response
 }
 
 const deleteAccount = async () => {
-  const response = await axios.delete('http://localhost:3000/api/web/proxy/entry/delete-account', { withCredentials: true });
+  const response = await axios.delete(`${FRONTEND_URL}/api/web/proxy/entry/delete-account`, { withCredentials: true });
   return response;
 }
 
@@ -93,7 +95,7 @@ const getLanguageResources = async (
   languageArray: string[], 
   newWordsLanguage?: string | null
 ) => {
-  const response = await axios.post('http://localhost:3000/api/web/get-language-resources', { wordsLanguage, languageArray, newWordsLanguage });
+  const response = await axios.post(`${FRONTEND_URL}/api/web/get-language-resources`, { wordsLanguage, languageArray, newWordsLanguage });
 
   const { 
     requestedWords, 

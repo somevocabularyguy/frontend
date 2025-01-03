@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
  
 import { EmailBody } from '@/apiTypes';
-const SERVER_URL = process.env.SERVER_URL;
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function POST(req: Request) {
   const { email } = (await req.json()) as { email: string }
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
   try {
   console.log("🚀 ~ file: route.ts:8 ~ email:", email);
-    const response = await axios.post(`${SERVER_URL}/entry/send-magic-link`, body)
+    const response = await axios.post(`${BACKEND_URL}/entry/send-magic-link`, body)
     console.log("🚀 ~ file: route.ts:15 ~ response:", response);
     if (response.status === 200) {
 
@@ -34,6 +34,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(null, { status: response.status });
   } catch (error) {
+    console.log("🚀 ~ file: route.ts:37 ~ error:", error);
     if (axios.isAxiosError(error)) {
       console.error(error)
       return NextResponse.json(null, { status: error.status });

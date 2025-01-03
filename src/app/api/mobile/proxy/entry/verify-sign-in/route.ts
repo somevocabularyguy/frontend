@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AuthConfig } from '@/apiTypes';
 import { NextResponse } from 'next/server';
-const SERVER_URL = process.env.SERVER_URL;
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get('authorization');
@@ -18,7 +18,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const response = await axios.get(`${SERVER_URL}/entry/verify-sign-in`, config)
+    const response = await axios.get(`${BACKEND_URL}/entry/verify-sign-in`, config)
 
     if (response.status === 200) {
       const { authToken } = response.data;

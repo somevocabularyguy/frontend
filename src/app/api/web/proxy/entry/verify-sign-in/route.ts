@@ -2,7 +2,7 @@ import axios from 'axios';
 import { cookies } from 'next/headers';
 import { AuthConfig } from '@/apiTypes';
 import { NextResponse } from 'next/server';
-const SERVER_URL = process.env.SERVER_URL;
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function GET(req: Request) {
   const cookieStore = await cookies();
@@ -19,7 +19,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const response = await axios.get(`${SERVER_URL}/entry/verify-sign-in`, config)
+    const response = await axios.get(`${BACKEND_URL}/entry/verify-sign-in`, config)
 
       console.log("🚀 ~ file: route.ts:24 ~ response.status:", response.status);
     if (response.status === 200) {

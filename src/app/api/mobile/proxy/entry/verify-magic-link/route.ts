@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 
 import { AuthConfig } from '@/apiTypes';
-const SERVER_URL = process.env.SERVER_URL;
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -18,7 +18,7 @@ export async function GET(req: Request) {
     }
   }
 
-  const response = await axios.get(`${SERVER_URL}/entry/verify-magic-link`, config);
+  const response = await axios.get(`${BACKEND_URL}/entry/verify-magic-link`, config);
   const { authToken } = response.data as { authToken: string };
 
   return NextResponse.json({ authToken }, { status: 200 });

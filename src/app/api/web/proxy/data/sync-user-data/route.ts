@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { UserData } from '@/types';
 import { AuthConfig } from '@/apiTypes';
 import { NextResponse } from 'next/server';
-const SERVER_URL = process.env.SERVER_URL;
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function POST(req: Request) {
   const cookieStore = await cookies();
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const response = await axios.post(`${SERVER_URL}/data/sync-user-data`, { clientUserData: userDataToSync }, config)
+    const response = await axios.post(`${BACKEND_URL}/data/sync-user-data`, { clientUserData: userDataToSync }, config)
 
     if (response?.data) {
       return NextResponse.json(response.data, { status: 200 });

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 
 import { AuthConfig } from '@/apiTypes';
-const SERVER_URL = process.env.SERVER_URL;
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function DELETE(req: Request) {
   const authHeader = req.headers.get('authorization');
@@ -15,7 +15,7 @@ export async function DELETE(req: Request) {
       }
     }
     try {
-      const response = await axios.delete(`${SERVER_URL}/entry/delete-account`, config);
+      const response = await axios.delete(`${BACKEND_URL}/entry/delete-account`, config);
       if (response.status === 202) {
         const response =  NextResponse.json({ message: 'Account Deleted Successfully'}, { status: 202 });
         response.cookies.set('authCookie', '', {

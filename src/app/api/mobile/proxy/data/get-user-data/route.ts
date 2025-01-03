@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { AuthConfig } from '@/apiTypes';
 import axios from 'axios';
-const SERVER_URL = process.env.SERVER_URL;
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get('authorization');
@@ -18,7 +18,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const response = await axios.get(`${SERVER_URL}/data/get-user-data`, config)
+    const response = await axios.get(`${BACKEND_URL}/data/get-user-data`, config)
 
     if (response?.data) {
       return NextResponse.json(response.data, { status: 200 });
