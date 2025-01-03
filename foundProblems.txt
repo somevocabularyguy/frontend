@@ -11,3 +11,4 @@ signout popup settings link
 a level loses background color sometimes. Why is that?
 
 add levelWords update with  clicking instead of hover setting
+if "No Token" delete waiting verify.

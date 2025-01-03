@@ -78,7 +78,9 @@ const SignInPopup: React.FC = () => {
         storage.removeItem('tempVerifyToken');
 
         const storedUserData = storage.getItem('userData') as UserData;
+
         const dataResponse = await syncUserData(storedUserData);
+
         if (dataResponse) {
           dispatch(updateUserData(dataResponse.serverUserData));
           const oldLanguageArray = storedUserData.languageArray;

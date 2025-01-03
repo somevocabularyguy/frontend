@@ -16,7 +16,9 @@ export async function POST(req: Request) {
 
   let requestedWordResources: WordResources | null = {};
   if (languageArray?.length) {
+    console.log("🚀 ~ file: route.ts:19 ~ languageArray:", languageArray);
     languageArray.forEach(language => {
+      console.log("🚀 ~ file: route.ts:25 ~ language:", language);
       if (requestedWordResources) {
         requestedWordResources[language] = allWordResourcesMap[wordsLanguage][language];
       }

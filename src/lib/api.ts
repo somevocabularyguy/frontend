@@ -108,7 +108,9 @@ const getLanguageResources = async (
   languageArray: string[], 
   newWordsLanguage?: string | null
 ) => {
+  console.time('Waiting Language: ')
   const response = await axios.post(`${FRONTEND_URL}/api/web/get-language-resources`, { wordsLanguage, languageArray, newWordsLanguage });
+  console.timeEnd('Waiting Language: ')
 
   console.log("🚀 ~ file: api.ts:113 ~ response:", response.status);
   const { 
