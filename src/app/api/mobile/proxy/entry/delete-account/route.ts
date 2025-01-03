@@ -20,7 +20,7 @@ export async function DELETE(req: Request) {
         const response =  NextResponse.json({ message: 'Account Deleted Successfully'}, { status: 202 });
         response.cookies.set('authCookie', '', {
           httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
+          // secure: process.env.NODE_ENV === 'production',
           sameSite: 'strict',
           path: '/',
           expires: new Date(0),

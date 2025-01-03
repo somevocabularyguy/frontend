@@ -30,13 +30,13 @@ export async function GET(req: Request) {
       const nextResponse = NextResponse.json(null, { status: 200 });
       nextResponse.cookies.set('authCookie', authToken, {
         httpOnly: true, 
-        secure: process.env.NODE_ENV === 'production',
+        // secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
         path: '/'
       });
       nextResponse.cookies.set('tempVerifyCookie', '', {
         httpOnly: true, 
-        secure: process.env.NODE_ENV === 'production',
+        // secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
         path: '/',
         expires: new Date(0)
@@ -60,7 +60,7 @@ export async function GET(req: Request) {
         const nextResponse = NextResponse.json(null, { status: 401 });
         nextResponse.cookies.set('tempVerifyCookie', '', {
           httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
+          // secure: process.env.NODE_ENV === 'production',
           sameSite: 'strict',
           path: '/',
           expires: new Date(0)

@@ -13,7 +13,7 @@ const extractParts = (levelName: string) => {
 const setLanguageCookie = (languageArray: string[]) => {
   Cookies.set('languageArray', JSON.stringify(languageArray), {
     path: '/',
-    secure: process.env.NODE_ENV === 'production',
+    // secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict'
   });
 };
