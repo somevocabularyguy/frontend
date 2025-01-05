@@ -10,12 +10,12 @@ import { wordResourceKeys } from '@/i18nConfig';
 
 import { useCustomTranslation } from '@/hooks';
 
-import { loadWordResourcesClient } from '@/utils/dataUtilsClient';
+import { getWordResources } from '@/lib/api';
 
 import SectionLabel from '../SectionLabel';
 import { Text, Button } from '@/components/atoms';
 
-import { InfoIcon, ResetIcon } from '@/public/icons';
+import { InfoIcon, ResetIcon } from '#/public/icons';
 
 const WordsLanguageSelect: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -63,7 +63,7 @@ const WordsLanguageSelect: React.FC = () => {
     if (currentSelection.key === languageArray[0]) return;
     dispatch(updateIsLanguagesLoading(true));
 
-    const { requestedWords } = await loadWordResourcesClient(languageArray, languageArray, currentSelection.key)
+    const { requestedWords } = await getWordResources(languageArray[0], [], currentSelection.key)
 
     if (requestedWords) {
       dispatch(updateWords(requestedWords))

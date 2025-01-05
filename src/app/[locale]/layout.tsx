@@ -1,8 +1,6 @@
 import './index.css';
 import './fonts.css';
 
-import { loadWordResourcesServer } from '@/utils/dataUtilsServer';
-
 import { ReduxProvider, RootLayoutChildWrapper, TranslationsProvider } from '@/components/wrappers';
 
 import { cookies } from 'next/headers';
@@ -48,7 +46,6 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   }
 
   const languageArray = cookieArray || serverUserData?.languageArray || ['en', 'ja'];
-  const { initialWords, wordResources } = loadWordResourcesServer(languageArray);
 
   const { resources } =  await initTranslation(locale);
 
@@ -63,8 +60,6 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
             <RootLayoutChildWrapper 
               serverUserData={serverUserData} 
               signedInFlag={signedInFlag}
-              initialWords={initialWords}
-              wordResources={wordResources}
               languageArray={languageArray}
             >
               {children}

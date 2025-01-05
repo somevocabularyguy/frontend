@@ -21,4 +21,6 @@ const defaultColorValue: RGB = {
   b: 128
 }
 
-export { defaultUserData, finishWord, defaultColorValue };
+const FRONTEND_URL = process.env.NODE_ENV === 'production' ? 'http://164.90.157.50' : 'http://localhost:3000'
+
+export { defaultUserData, finishWord, defaultColorValue, FRONTEND_URL };

@@ -1,6 +1,46 @@
 .container {
-  height: 100%;
+  position: relative;
+  height: 50%;
   width: 33rem;
   border: 0.175rem solid #d09c00;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeSpentContainer {
+  padding-top: 2rem;
+}
+
+.timeSpentLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.45rem;
+}
+
+.timeSpentNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.deleteProgressButton {
+  width: 11rem;
+  font-size: 1.25rem;
+  height: 4rem;
+  font-family: poppins;
+  background-color: #810000;
+  border-radius: 0.5rem;
+  color: white;
+  border: none;
+  position: absolute;
+  bottom: 1rem;
+  cursor: pointer;
+}
+
+.deleteProgressButton:hover {
+  background-color: #a10000;
 }

@@ -1,7 +1,6 @@
 import styles from './ProgressRadios.module.css';
 import { useState } from 'react';
 
-import { Word } from '@/types';
 import { useCustomTranslation } from '@/hooks';
 
 import { highlightSubtext } from '@/utils/tsxUtils';
@@ -62,8 +61,8 @@ const ProgressRadios: React.FC<ProgressRadiosProps> = ({ selectedWordId, setSele
             >{wordName}</Text>
           )
         }) : wordsData.length ? 
-            <Text className={styles.notFound}>{t("noProgress")}</Text>
-            : <Text className={styles.notFound}>{t("noProgress")}</Text>
+            <Text as="h3" className={styles.notFound}>{t("noResult")}</Text>
+            : <Text as="h3" className={styles.notFound}>{t("noProgress")}</Text>
         } 
       </div>
     </section>

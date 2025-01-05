@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './LevelWords.module.css';
-import { Word } from '@/types';
 
 import { Text, Line, TText } from '@/components/atoms';
 

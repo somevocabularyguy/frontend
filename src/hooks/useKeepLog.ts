@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Word } from '@/types';
 
 import { updateSingleWordData } from '@/utils/keepLogUtils';
@@ -14,6 +14,7 @@ const useKeepLog = (): () => void => {
   const [lastDisplayWordObject, setLastDisplayWordObject] = useState<Word | null>(null);
   const [lastIsShown, setLastIsShown] = useState<boolean | null>(null);
   const [timeStamp, setTimeStamp] = useState<number | null>(null);
+  const timer1 = useRef<NodeJS.Timeout | null>(null);
 
   const displayWordObject = useAppSelector(state => state.word.displayWordObject);
   const isShown = useAppSelector(state => state.word.isShown);
@@ -55,12 +56,11 @@ const useKeepLog = (): () => void => {
     updateSingleLevel(wordObject.levelName)
   }
 
-  let timer1: NodeJS.Timeout | undefined;
   const callKeepLog = () => {
-    if (timer1) {
-      clearTimeout(timer1);
+    if (timer1.current) {
+      clearTimeout(timer1.current);
     }
-    timer1 = setTimeout(() => {
+    timer1.current = setTimeout(() => {
       keepLog(true);
     }, 5000)
     keepLog(false);

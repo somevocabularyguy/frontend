@@ -7,11 +7,15 @@
   font-family: Sans-serif;
   line-height: 1.5rem;
   border: none;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   border-radius: 0.5rem;
   color: white;
   background-color:#4f4f4f;
   width: '100%';
   resize: 'none'; 
   overflow: 'hidden';
+}
+
+.error {
+  border: 0.4rem solid rgb(255, 0, 0);
 }

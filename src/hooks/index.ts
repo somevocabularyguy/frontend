@@ -2,6 +2,7 @@ import useKeepLog from './useKeepLog';
 import useLoadApp from './useLoadApp';
 import useMaintainApp from './useMaintainApp';
 import useCheckAppLoaded from './useCheckAppLoaded';
+import useAnimationIndex from './useAnimationIndex';
 import useMainButtonsUtils from './useMainButtonsUtils';
 import useUpdateSingleLevel from './useUpdateSingleLevel';
 import useCustomTranslation from './useCustomTranslation';
@@ -12,6 +13,7 @@ export {
   useLoadApp,
   useMaintainApp,
   useCheckAppLoaded, 
+  useAnimationIndex, 
   useMainButtonsUtils,
   useUpdateSingleLevel, 
   useCustomTranslation, 

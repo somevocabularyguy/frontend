@@ -12,7 +12,7 @@ import { updateIsSignInPopupVisible, updateIsSignOutPopupVisible } from '@/store
 
 import { Line, Text, Button } from '@/components/atoms';
 
-import { MainIcon, PracticeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon } from '@/public/icons';
+import { MainIcon, PracticeIcon, FeedbackIcon, ProgressIcon, InfoIcon, SettingsIcon } from '#/public/icons';
 import { useCustomTranslation } from '@/hooks';
 
 const Sidebar: React.FC = () => {

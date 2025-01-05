@@ -25,7 +25,7 @@ const userDataSlice = createSlice({
       state.isUserDataLoaded = true;
     },
     updateUserUseTime: (state, action: PayloadAction<number>) => {
-      if (!action.payload) return state;
+      if (!action.payload && action.payload !== 0) return state;
       state.userData.totalUseTime = action.payload;
       storage.setItem('userData', state.userData)
     },
@@ -34,6 +34,11 @@ const userDataSlice = createSlice({
       state.userData.languageArray = action.payload;
       storage.setItem('userData', state.userData)
       setLanguageCookie(state.userData.languageArray);
+    },
+    updateWordsData: (state, action: PayloadAction<WordData[]>) => {
+      if (!action.payload) return state;
+      state.userData.wordsData = action.payload;
+      storage.setItem('userData', state.userData)
     },
     updateWordData: (state, action: PayloadAction<WordData>) => {
       if (!action.payload) return state;
@@ -45,7 +50,6 @@ const userDataSlice = createSlice({
       }
       storage.setItem('userData', state.userData)
     },
-
     updateHiddenWordIds: (state, action: PayloadAction<string[]>) => {
       state.userData.hiddenWordIds = action.payload;
       storage.setItem('userData', state.userData)
@@ -74,7 +78,7 @@ const userDataSlice = createSlice({
   }
 })
 
-export const { updateUserData, updateHiddenWordIds, updateCustomWordIds, updateUserUseTime, updateWordData, addHiddenWordId, removeHiddenWordId, addCustomWordId, removeCustomWordId, updateLanguageArray } = userDataSlice.actions;
+export const { updateUserData, updateHiddenWordIds, updateCustomWordIds, updateUserUseTime, updateWordData, addHiddenWordId, removeHiddenWordId, addCustomWordId, removeCustomWordId, updateLanguageArray, updateWordsData } = userDataSlice.actions;
 export default userDataSlice.reducer;
 
 

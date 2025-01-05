@@ -10,12 +10,12 @@ interface SelectedWordDisplayProps {
 
 const WordProgressDisplay: React.FC<SelectedWordDisplayProps> = ({ selectedWordData }) => {
 
-  const t = useCustomTranslation();
+  const t = useCustomTranslation('Progress.WordProgressDisplay');
 
   if (!selectedWordData) {
     return (
       <section className={styles.selectedWordDisplayContainer}>
-        <Text as="h3">{t('noWordSelected')}</Text>
+        <Text as="h3" className={styles.noDataLabel}>{t('noProgress')}</Text>
       </section>
     );
   }
@@ -23,26 +23,21 @@ const WordProgressDisplay: React.FC<SelectedWordDisplayProps> = ({ selectedWordD
   const { notShownTimeSpent, shownTimeSpent, notShownSeen, shownSeen } = selectedWordData;
 
   const timeSpent = shownTimeSpent + notShownTimeSpent;
-  const minutes = Math.floor(timeSpent / 1000 * 60);
-  const seconds = Math.floor(timeSpent / 1000) % 60;
+  const minutes = Math.floor(timeSpent / (1000 * 60));
+  const seconds = Math.floor((timeSpent % (1000 * 60)) / 1000);
 
-  let timeSpentText = '';
+  const returnDoubleDigit = (number: number) => {
+    return number.toString().padStart(2, '0');
+  };
 
-  if (minutes) {
-    timeSpentText += `${minutes} minutes`
-  }
-  if (seconds && minutes) {
-    timeSpentText += ` and ${seconds} seconds`
-  } else {
-    timeSpentText += `${seconds} seconds`
-  }
+  const timeSpentText = `${returnDoubleDigit(minutes)}:${returnDoubleDigit(seconds)}`;
 
   return (
     <section className={styles.selectedWordDisplayContainer}>
-      <TText wordId={selectedWordData.id} dataKey="word" />
-      <Text>{`Times Seen: ${notShownSeen}`}</Text>
-      <Text>{`Times Details Shown: ${shownSeen}`}</Text>
-      <Text>{`Total Time Spent On Word: ${timeSpentText}`}</Text>
+      <TText className={styles.selectedWord} wordId={selectedWordData.id} dataKey="word" />
+      <Text className={styles.detailsLabel}>{`Times Seen: ${notShownSeen}`}</Text>
+      <Text className={styles.detailsLabel}>{`Times Details Shown: ${shownSeen}`}</Text>
+      <Text className={styles.detailsLabel}>{`Total Time Spent On Word: ${timeSpentText}`}</Text>
     </section>
   )
 }

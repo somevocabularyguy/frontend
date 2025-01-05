@@ -1,7 +1,7 @@
 "use client"
 
 import styles from './SignInPopup.module.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { UserData } from '@/types';
 
 import storage from '@/storage';
@@ -14,10 +14,10 @@ import { useAppSelector, useAppDispatch } from '@/store/store';
 import { addSingleWordResource, removeSingleWordResource } from '@/store/languageSlice';
 import { updateIsWaitingVerify, updateIsSignInPopupVisible } from '@/store/accountUiSlice';
 
-import { loadWordResourcesClient } from '@/utils/dataUtilsClient';
+import { getWordResources } from '@/lib/api';
 
-import { EmailIcon } from '@/public/icons';
-import { useCustomTranslation } from '@/hooks';
+import { EmailIcon, BackArrowIcon } from '#/public/icons';
+import { useCustomTranslation, useAnimationIndex } from '@/hooks';
 import { sendMagicLink, verifySignIn, syncUserData } from '@/lib/api';
 
 const SignInPopup: React.FC = () => {
@@ -30,8 +30,6 @@ const SignInPopup: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isWarned, setIsWarned] = useState(false);
   const [isSending, setIsSending] = useState(false);
-  const [animationIndex, setAnimationIndex] = useState(0);
-  const animationIndexRef = useRef(animationIndex);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -91,7 +89,10 @@ const SignInPopup: React.FC = () => {
             }
           })
 
-          const { requestedWords, requestedWordResources } = await loadWordResourcesClient(oldLanguageArray, newLanguageArray);
+          const requestArray = newLanguageArray.filter(language => !oldLanguageArray.includes(language));
+          const newWordsLanguage = newLanguageArray[0] === oldLanguageArray[0] ? newLanguageArray[0] : null;
+
+          const { requestedWords, requestedWordResources } = await getWordResources(newLanguageArray[0], requestArray, newWordsLanguage);
 
           if (requestedWords) {
             dispatch(updateWords(requestedWords))
@@ -121,28 +122,10 @@ const SignInPopup: React.FC = () => {
   }
 
   const handleGoBack = () => {
-
+    dispatch(updateIsWaitingVerify(false));
   }
 
-  useEffect(() => {
-    let loadingInterval: NodeJS.Timeout | null = null;
-
-    if (isSending) {
-      loadingInterval = setInterval(() => {
-        setAnimationIndex(prevIndex => {
-          const nextIndex = prevIndex === 3 ? 1 : prevIndex + 1;
-          animationIndexRef.current = nextIndex;
-          return nextIndex;
-        });
-      }, 250);
-    }
-
-    return () => {
-      if (loadingInterval) clearInterval(loadingInterval);
-      setAnimationIndex(0);
-    };
-  }, [isSending]);
-
+  const sendingAnimationIndex = useAnimationIndex(isSending, 250, 3);
 
   const signInContainerClassName = `${styles.container} ${isSignInPopupVisible ? styles.containerVisible : ''}`
 
@@ -158,10 +141,18 @@ const SignInPopup: React.FC = () => {
               </div>
             </div>
             <Text className={styles.refreshText}>{t("refreshText")}</Text>
-            <div>
-              {/* <Button text="" onClick={handleGoBack} className={styles.goBackButton} /> */}
-              <Button text={t("refreshButton")} onClick={checkAndRefresh} className={styles.refreshButton} />
-              {/* <Button text={'aaa'} onClick={handleGoBack} className={styles.tryAgain} /> */}
+            <div className={styles.buttonsContainer}>
+              <div 
+                className={styles.backIconContainer}
+                onClick={handleGoBack}
+              >
+                <BackArrowIcon className={styles.backIcon} />
+              </div>
+              <Button 
+                text={t("refreshButton")} 
+                onClick={checkAndRefresh} 
+                className={styles.refreshButton} 
+              />
             </div>
           </section>
           :
@@ -176,7 +167,11 @@ const SignInPopup: React.FC = () => {
               value={email}
               onChange={handleInputChange}
             />
-            <Button text={isSending ? t('sendingText') + '.'.repeat(animationIndex) : t('sendText')} className={styles.emailButton} onClick={handleSubmit}/>
+            <Button 
+              text={isSending ? t('sendingText') + '.'.repeat(sendingAnimationIndex) : t('sendText')} 
+              className={styles.emailButton} 
+              onClick={handleSubmit}
+            />
           </section>
         }
       </section>

@@ -2,12 +2,12 @@ import styles from './FeedbackDropdown.module.css';
 import { OptionObject } from '@/types';
 
 import { Text } from '@/components/atoms';
-import { ArrowIcon } from '@/public/icons'; 
+import { ArrowIcon } from '#/public/icons'; 
 import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsFeedbackDropdownActive } from '@/store/feedbackUiSlice';
-import { updateSelectedTypeObject, updateIsSended } from '@/store/feedbackSlice';
+import { updateSelectedTypeObject, updateIsSended, updateIsError } from '@/store/feedbackSlice';
 
 const FeedbackDropdown: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -15,21 +15,29 @@ const FeedbackDropdown: React.FC = () => {
 
   const isFeedbackDropdownActive = useAppSelector(state => state.feedbackUi.isFeedbackDropdownActive)
   const isSended = useAppSelector(state => state.feedback.isSended);
+  const isError = useAppSelector(state => state.feedback.isError);
   const selectedTypeObject = useAppSelector(state => state.feedback.selectedTypeObject);
 
   const toggleDropdown = () => {
     dispatch(updateIsFeedbackDropdownActive(!isFeedbackDropdownActive))
+    if (isError) {
+      dispatch(updateIsError(false));
+    }
   }
 
   const handleFeedbackTypeChange = (typeObject: OptionObject) => {
     dispatch(updateSelectedTypeObject(typeObject));
     dispatch(updateIsFeedbackDropdownActive(false));
-
-    updateIsSended(false);
+    if (isSended) {
+      dispatch(updateIsSended(false));
+    }
+    if (isError) {
+      dispatch(updateIsError(false));
+    }
   }
 
-  const dropdownButtonStyle = `${styles.dropdownButton} ${isFeedbackDropdownActive ? styles.dropdownButtonActive : ''}`;
-  const dropdownArrowIconStyle = `${styles.dropdownArrowIcon} ${isFeedbackDropdownActive ? styles.dropdownArrowIconActive : ''}`;
+  const dropdownButtonClassName = `${styles.dropdownButton} ${isFeedbackDropdownActive ? styles.dropdownButtonActive : isError ? styles.error : ''}`;
+  const dropdownArrowIconClassName = `${styles.dropdownArrowIcon} ${isFeedbackDropdownActive ? styles.dropdownArrowIconActive : ''}`;
 
   const options: OptionObject[] = [
     { key: '', text: t("Options.select") },
@@ -43,13 +51,14 @@ const FeedbackDropdown: React.FC = () => {
     { key: 'appreciation', text: t("Options.compliment") },
   ]
 
+
   return (
     <div className={styles.feedbackTypeContainer}>
       <Text className={styles.dropdownLabel}>{t("label")}</Text>
       <div className={styles.dropdownButtonContainer}>
-        <div className={dropdownButtonStyle} onClick={toggleDropdown}>
+        <div className={dropdownButtonClassName} onClick={toggleDropdown}>
           <Text className={styles.dropdownButtonText}>{selectedTypeObject.text}</Text>
-          <ArrowIcon className={dropdownArrowIconStyle} fill="black" />
+          <ArrowIcon className={dropdownArrowIconClassName} fill="black" />
         </div>
 
         {isFeedbackDropdownActive &&

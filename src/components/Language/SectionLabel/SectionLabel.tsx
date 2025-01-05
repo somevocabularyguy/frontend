@@ -1,6 +1,6 @@
 import styles from './SectionLabel.module.css';
 
-import { ArrowIcon } from '@/public/icons';
+import { ArrowIcon } from '#/public/icons';
 import { Text } from '@/components/atoms';
 
 interface SectionLabelProps {

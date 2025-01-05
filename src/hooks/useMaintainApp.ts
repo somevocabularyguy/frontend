@@ -27,7 +27,7 @@ const useMaintainApp = () => {
   const [handleNextFlag, setHandleNextFlag] = useState(false);
   
   useEffect(() => {
-    if (isAppLoaded) {
+    if (userData.wordsData.length !== 0 && isAppLoaded) {
       const groupedWords = groupWordsByLevel(words, userData.hiddenWordIds, userData.customWordIds);
       const levels = createLevels(groupedWords, userData.wordsData);
       dispatch(updateWords(groupedWords));

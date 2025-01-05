@@ -3,10 +3,11 @@
 import styles from './Feedback.module.css';
 import { useState } from 'react';
 import { useCustomTranslation } from '@/hooks';
+import { Text } from '@/components/atoms';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsFeedbackDropdownActive } from '@/store/feedbackUiSlice';
-import { updateSelectedTypeObject, updateFeedbackText, updateIsSended, updateImageUrls } from '@/store/feedbackSlice';
+import { updateSelectedTypeObject, updateFeedbackText, updateIsSended, updateImageUrls, updateIsError } from '@/store/feedbackSlice';
 
 import { FeedbackData } from '@/types'; 
 import { sendFeedbackData } from '@/lib/api';
@@ -23,6 +24,7 @@ const FeedbackPage: React.FC = () => {
 
   const imageUrls = useAppSelector(state => state.feedback.imageUrls);
   const isSended = useAppSelector(state => state.feedback.isSended);
+  const isError = useAppSelector(state => state.feedback.isError);
   const selectedTypeObject = useAppSelector(state => state.feedback.selectedTypeObject);
   const feedbackText = useAppSelector(state => state.feedback.feedbackText);
 
@@ -31,7 +33,12 @@ const FeedbackPage: React.FC = () => {
   const handleSubmit = async (event: React.MouseEvent) => {
     event.preventDefault();
     
-    if (!selectedTypeObject.key || !feedbackText) return;
+    if (!selectedTypeObject.key || !feedbackText) {
+      if (!isError) {
+        dispatch(updateIsError(true));
+      }
+      return;
+    }
 
     const feedbackObject: FeedbackData = {
       feedbackType: selectedTypeObject.key,
@@ -65,8 +72,11 @@ const FeedbackPage: React.FC = () => {
   return (  
     <div className={styles.container} onClick={closeDropdown}>
       <div className={styles.form}>
-
-        <h1 className={isSended ? styles.thanksDiv : styles.hidden}>{t("thankingText")}</h1>
+        {isError ? 
+          <Text className={isSended ? styles.thanksDiv : styles.hidden}>{t("errorText")}</Text>
+          : isSended &&
+          <Text className={isSended ? styles.thanksDiv : styles.hidden}>{t("thankingText")}</Text>
+        }
 
         <FeedbackDropdown />
         <FeedbackTextarea />

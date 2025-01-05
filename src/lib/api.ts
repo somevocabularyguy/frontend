@@ -1,8 +1,9 @@
+import pako from 'pako'; 
 import { UserData, FeedbackData, Word, WordResources } from '@/types';
 import { AuthConfig } from '@/apiTypes';
 import axios from 'axios';
 
-const FRONTEND_URL = 'http://164.90.157.50';
+import { FRONTEND_URL } from '@/constants';
 
 const getUserData = async (authToken: string): Promise<UserData | null> => {
   console.log("🚀 ~ file: api.ts:8 ~ authToken:", authToken);
@@ -103,25 +104,39 @@ const deleteAccount = async () => {
   return response;
 }
 
-const getLanguageResources = async (
+const deleteProgressData = async () => {
+  const response = await axios.delete(`${FRONTEND_URL}/api/web/proxy/data/delete-progress-data`, { withCredentials: true });
+  console.log("🚀 ~ file: api.ts:103 ~ response:", response);
+  return response;
+}
+
+const getWordResources = async (
   wordsLanguage: string, 
   languageArray: string[], 
   newWordsLanguage?: string | null
 ) => {
   console.time('Waiting Language: ')
-  const response = await axios.post(`${FRONTEND_URL}/api/web/get-language-resources`, { wordsLanguage, languageArray, newWordsLanguage });
-  console.timeEnd('Waiting Language: ')
 
-  console.log("🚀 ~ file: api.ts:113 ~ response:", response.status);
-  const { 
-    requestedWords, 
-    requestedWordResources 
-    } = response.data as { 
-    requestedWords: Word[] | null, 
-    requestedWordResources: WordResources | null 
-  };
+  const promises = languageArray.map(language => axios.get(`${FRONTEND_URL}/words/${wordsLanguage}/${language}.json.gz`,  { responseType: 'arraybuffer' }));
+
+  let requestedWords: Word[] | null = null;
+  if (newWordsLanguage) {
+    const response = await axios.get(`${FRONTEND_URL}/words/${newWordsLanguage}/${newWordsLanguage}-words.json.gz`,  { responseType: 'arraybuffer' });
+    const decompressedData = pako.ungzip(response.data, { to: 'string' });
+    requestedWords = JSON.parse(decompressedData);
+  }
+
+  const responses = await Promise.all(promises);
+  const requestedWordResources: WordResources = {};
+  responses.forEach((response, index) => {
+    const currentLanguage = languageArray[index];
+    const decompressedData = pako.ungzip(response.data, { to: 'string' });
+    requestedWordResources[currentLanguage] = JSON.parse(decompressedData)
+  });
+
+  console.timeEnd('Waiting Language: ')
 
   return { requestedWords, requestedWordResources };
 }
 
-export { getUserData, sendMagicLink, sendFeedbackData, logout, deleteAccount, verifySignIn, syncUserData, getLanguageResources };
+export { getUserData, sendMagicLink, sendFeedbackData, logout, deleteAccount, verifySignIn, syncUserData, getWordResources, deleteProgressData };

@@ -1,33 +1,35 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import loadingReducer from './loadingSlice';
-import userDataReducer from './userDataSlice';
 import uiReducer from './uiSlice';
 import wordReducer from './wordSlice';
+import loadingReducer from './loadingSlice';
+import userDataReducer from './userDataSlice';
+import feedbackReducer from './feedbackSlice';
+import languageReducer from './languageSlice';
 import appStateReducer from './appStateSlice';
-import userSettingsSlice from './userSettingsSlice';
-import settingsUiSlice from './settingsUiSlice';
-import accountUiSlice from './accountUiSlice';
-import feedbackSlice from './feedbackSlice';
-import feedbackUiSlice from './feedbackUiSlice';
-import languageUiSlice from './languageUiSlice';
-import languageSlice from './languageSlice';
+import accountUiReducer from './accountUiSlice';
+import settingsUiReducer from './settingsUiSlice';
+import feedbackUiReducer from './feedbackUiSlice';
+import languageUiReducer from './languageUiSlice';
+import progressUiReducer from './progressUiSlice';
+import userSettingsReducer from './userSettingsSlice';
 
 const store = configureStore({
   reducer: {
-    loading: loadingReducer,
-    userData: userDataReducer,
     ui: uiReducer,
     word: wordReducer,
+    loading: loadingReducer,
+    userData: userDataReducer,
+    feedback: feedbackReducer,
+    language: languageReducer,
     appState: appStateReducer,
-    userSettings: userSettingsSlice,
-    settingsUi: settingsUiSlice,
-    accountUi: accountUiSlice,
-    feedback: feedbackSlice,
-    feedbackUi: feedbackUiSlice,
-    languageUi: languageUiSlice,
-    language: languageSlice
+    accountUi: accountUiReducer,
+    settingsUi: settingsUiReducer,
+    feedbackUi: feedbackUiReducer,
+    languageUi: languageUiReducer,
+    progressUi: progressUiReducer,
+    userSettings: userSettingsReducer,
   }
 })
 

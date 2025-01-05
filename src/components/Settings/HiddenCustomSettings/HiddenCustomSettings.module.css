@@ -41,7 +41,8 @@
   position: relative;
   padding: 0.1rem 0.25rem;
   top: 0.2rem;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
+  font-family: poppins;
 }
 
 .hiddenCustomWordsContainer {

@@ -13,6 +13,7 @@ import ProgressIcon from './progress-icon.svg';
 import FeedbackIcon from './feedback-icon.svg';
 import PracticeIcon from './practice-icon.svg';
 import LanguageIcon from './language-icon.svg';
+import BackArrowIcon from './back-arrow-icon.svg';
 import LanguageIconBlack from './language-icon-black.svg';
 
 export { 
@@ -31,5 +32,6 @@ export {
   FeedbackIcon, 
   PracticeIcon,
   LanguageIcon,
+  BackArrowIcon, 
   LanguageIconBlack,
 };

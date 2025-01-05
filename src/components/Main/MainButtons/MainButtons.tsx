@@ -5,7 +5,6 @@ import { Button } from '@/components/atoms/index';
 import { useMainButtonsUtils, useCustomTranslation } from '@/hooks';
 import { useAppSelector } from '@/store/store';
 
-
 const MainButtons: React.FC = () => {
   const t = useCustomTranslation("Main.MainButtons");
 

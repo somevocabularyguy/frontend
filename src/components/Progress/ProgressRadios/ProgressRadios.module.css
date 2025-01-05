@@ -1,12 +1,12 @@
 .radioTextContainer {
-  height: 20rem;
+  height: 93.1%;
   width: 33rem;
   border: 0.175rem solid #d09c00;
   box-sizing: border-box;
   overflow-y: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(auto-fill, 3.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
   scroll-behavior: smooth;
 }
 
@@ -18,14 +18,16 @@
   border-bottom: none;
   outline: none;
   color: white;
-  height: 2.5rem;
-  font-size: 1.25rem;
+  height: 3rem;
+  font-size: 1.75rem;
   margin: 0;
+  display: flex;
+  text-align: center;
 }
 
 .radioText {
   display: flex;
-  width: 100%;
+  width: 33.33333334%;
   box-sizing: border-box;
   height: 3.5rem;
   justify-content: center;
@@ -44,4 +46,12 @@
 }
 .radioTextSelected:hover {
   background-color: #585858;
+}
+
+.notFound {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  font-size: 1.7rem;
 }

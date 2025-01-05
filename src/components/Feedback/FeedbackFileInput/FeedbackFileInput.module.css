@@ -46,5 +46,6 @@
   align-self: center;
   justify-self: center;
   grid-column: span 3;
+  font-size: 1.5rem;
 }
 

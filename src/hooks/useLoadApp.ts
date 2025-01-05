@@ -1,6 +1,6 @@
 import storage from '@/storage';
 import { useEffect } from 'react';
-import { UserData, Word, WordResources } from '@/types';
+import { UserData, Word } from '@/types';
 
 import { updateWords } from '@/store/wordSlice';
 import { updateUserData } from '@/store/userDataSlice';
@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '@/store/store';
 import { updateLevels, updateCheckedLevels, updateBatch } from '@/store/appStateSlice';
 
 import { returnUserData } from '@/utils/userDataUtils';
-import { verifySignIn, syncUserData } from '@/lib/api';
+import { verifySignIn, syncUserData, getWordResources } from '@/lib/api';
 
 import { createLevels } from '@/utils/levelUtils';
 import { groupWordsByLevel } from '@/utils/wordUtils';
@@ -20,8 +20,6 @@ import { groupWordsByLevel } from '@/utils/wordUtils';
 const useLoadApp = (
   serverUserData: UserData | null,
   signedInFlag: string | boolean,
-  initialWords: Word[],
-  wordResources: WordResources,
   languageArray: string[]
 ) => {
   const dispatch = useAppDispatch();
@@ -69,7 +67,11 @@ const useLoadApp = (
       syncUserData(updatedUserData);
     }
 
-    const groupedWords = groupWordsByLevel(initialWords, updatedUserData.hiddenWordIds, updatedUserData.customWordIds);
+    const { requestedWords, requestedWordResources } = await getWordResources(languageArray[0], languageArray, languageArray[0])
+
+    if (!requestedWords) throw new Error('No resource arrived.');
+
+    const groupedWords = groupWordsByLevel(requestedWords, updatedUserData.hiddenWordIds, updatedUserData.customWordIds);
     const levels = createLevels(groupedWords, updatedUserData.wordsData);
 
     const storedCheckedLevels = storage.getItem('checkedLevels');
@@ -80,8 +82,8 @@ const useLoadApp = (
     dispatch(updateBatch(newBatch));
     dispatch(updateWords(groupedWords));
     dispatch(updateUserData(updatedUserData));
-    dispatch(updateWordResources(wordResources));
     dispatch(updateCheckedLevels(storedCheckedLevels));
+    dispatch(updateWordResources(requestedWordResources));
     dispatch(updateIsSignedIn(isSignInVerified || signedInFlag === true));
   } 
 

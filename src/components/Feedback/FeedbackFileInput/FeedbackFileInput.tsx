@@ -1,6 +1,6 @@
 import styles from './FeedbackFileInput.module.css';
 import { useEffect } from 'react';
-import { DeleteIcon } from '@/public/icons';
+import { DeleteIcon } from '#/public/icons';
 import { useCustomTranslation } from '@/hooks';
 
 import { useAppSelector, useAppDispatch } from '@/store/store';
@@ -11,11 +11,12 @@ interface FeedbackFileInputProps {
   setFiles: (value: React.SetStateAction<File[]>) => void;
 }
 
-const FeedbackFileInput: React.FC<FeedbackFileInputProps> = ({ files, setFiles}) => {
+const FeedbackFileInput: React.FC<FeedbackFileInputProps> = ({ files, setFiles }) => {
   const dispatch = useAppDispatch();
   const t = useCustomTranslation("Feedback.FeedbackFileInput")
 
   const imageUrls = useAppSelector(state => state.feedback.imageUrls);
+  console.log("🚀 ~ file: FeedbackFileInput.tsx:19 ~ imageUrls:", imageUrls);
 
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +27,7 @@ const FeedbackFileInput: React.FC<FeedbackFileInputProps> = ({ files, setFiles})
         return file.type.startsWith('image/') ? URL.createObjectURL(file) : '';
       });
 
+      setFiles(updatedFiles);
       dispatch(updateIsSended(false));
       dispatch(updateImageUrls(newUrls));
     }
@@ -37,6 +39,10 @@ const FeedbackFileInput: React.FC<FeedbackFileInputProps> = ({ files, setFiles})
     updatedFiles.splice(index, 1);
     if (imageUrls[index]) {
       URL.revokeObjectURL(imageUrls[index]);
+
+      const newUrls = imageUrls.filter((_, i) => i !== index);
+
+      dispatch(updateImageUrls(newUrls));
     }
     setFiles(updatedFiles);
   };

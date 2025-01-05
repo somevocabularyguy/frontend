@@ -5,6 +5,7 @@ interface FeedbackState {
   feedbackText: string;
   imageUrls: string[];
   isSended: boolean;
+  isError: boolean;
   selectedTypeObject: OptionObject;
 }
 
@@ -12,6 +13,7 @@ const initialState: FeedbackState = {
   feedbackText: '',
   imageUrls: [],
   isSended: false,
+  isError: false,
   selectedTypeObject: { key: '', text: '-- Select Feedback Type --' } //* Will
 }
 
@@ -31,8 +33,11 @@ const feedbackSlice = createSlice({
     updateIsSended: (state, action: PayloadAction<boolean>) => {
       state.isSended = action.payload;
     },
+    updateIsError: (state, action: PayloadAction<boolean>) => {
+      state.isError = action.payload;
+    },
   }
 })
 
-export const { updateSelectedTypeObject, updateFeedbackText, updateImageUrls, updateIsSended } = feedbackSlice.actions; 
+export const { updateSelectedTypeObject, updateFeedbackText, updateImageUrls, updateIsSended, updateIsError } = feedbackSlice.actions; 
 export default feedbackSlice.reducer;

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import styles from './SignOutPopup.module.css';
 
+import { FRONTEND_URL } from '@/constants';
+
 import Link from 'next/link';
 
 import { logout } from '@/lib/api';
@@ -26,7 +28,7 @@ const SignOutPopup: React.FC = () => {
     try {
       const response = await logout();
       if (response.status === 200) {
-        window.location.href = 'http://localhost:3000';
+        window.location.href = FRONTEND_URL;
       }
     } catch (error) {
       console.log(error);

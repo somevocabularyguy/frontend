@@ -6,7 +6,7 @@ import { removeHiddenWordId, removeCustomWordId } from '@/store/userDataSlice';
 import { updateIsHiddenCustomSettingsVisible } from '@/store/settingsUiSlice';
 
 import { Text, TText } from '@/components/atoms';
-import { DeleteIcon } from '@/public/icons';
+import { DeleteIcon } from '#/public/icons';
 import { SectionLabel } from '../reuseable';
 import { useCustomTranslation } from '@/hooks';
 

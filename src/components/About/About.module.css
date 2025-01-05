@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcomeText {
+  margin-top: 2rem;
+  font-size: 1.75rem;
+}
+
+.link {
+  color: #f2b500;
+}
+.link:hover {
+  color: #d09c00;
+}
+
+.sourceLinksContainer {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+}

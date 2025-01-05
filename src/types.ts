@@ -13,12 +13,18 @@ interface WordObject {
   antonyms: string[]
 }
 
+type WordObjectKeys = 'word' | 'meaning' | 'example' | 'synonyms' | 'antonyms';
+
 interface WordsObject {
   [key: string]: WordObject;
 }
 
 interface WordResources {
   [key: string]: WordsObject;
+}
+
+interface WordResourcesArray {
+  [key: string]: (string | string[])[][];
 }
 
 interface AllWordResources {
@@ -71,4 +77,4 @@ interface OptionObject {
   text: string;
 }
 
-export type { Word, LevelObject, Position, WordData, UserData, RGB, FeedbackData, OptionObject, WordObject, WordsObject, WordResources, AllWordResources };
+export type { Word, LevelObject, Position, WordData, UserData, RGB, FeedbackData, OptionObject, WordObject, WordsObject, WordResources, AllWordResources, WordObjectKeys, WordResourcesArray };

@@ -101,8 +101,14 @@
   font-size: 1.3rem;
 }
 
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .refreshButton {
-  margin-top: 1rem;
   width: 15rem;
   height: 3.5rem;
   border: none;
@@ -115,3 +121,23 @@
   background-color: #d09c00;
 }
 
+.backIconContainer {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  background-color: #f2b500;
+  cursor: pointer;
+  left: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.backIconContainer:hover {
+  background-color: #d09c00;
+}
+
+.backIcon {
+  width: 2.25rem;
+  height: 2.25rem;
+}

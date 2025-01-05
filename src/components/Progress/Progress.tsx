@@ -31,16 +31,16 @@ const Progress: React.FC = () => {
   return (
     <section className={styles.container}>
       <div className={styles.innerContainer}>
+        <ProgressRadios  
+          selectedWordId={selectedWordId} 
+          setSelectedWordId={setSelectedWordId} 
+        />
         <section className={styles.leftSection}>
           <WordProgressDisplay 
             selectedWordData={selectedWordData} 
           />
-          <ProgressRadios  
-            selectedWordId={selectedWordId} 
-            setSelectedWordId={setSelectedWordId} 
-          />
+          <GeneralProgress />
         </section>
-        <GeneralProgress />
       </div>
     </section>
   )

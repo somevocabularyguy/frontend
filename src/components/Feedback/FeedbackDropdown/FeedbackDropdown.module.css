@@ -38,6 +38,9 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+.error {  
+  border: 0.3rem solid rgb(255, 0, 0);
+}
 
 .dropdownButtonText {
   font-size: 1.2rem;

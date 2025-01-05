@@ -72,18 +72,27 @@
       "waitingSmallText": "Be sure to check your spam folder...",
       "refreshText": "Refresh this page after clicking the link.",
       "refreshButton": "Refresh"
+    },
+    "ProgressDeletePopup": {
+      "text1": "Your local progress data will be deleted.",
+      "text1-signedIn": "Your local and server progress data will be deleted.",
+      "text2": "This process is irreversible!",
+      "backButton": "Go Back",
+      "deleteButton": "Delete Progress"
     }
   },
   "Progress": {
     "GeneralProgress": {
-
+      "timeSpentLabel": "Total Time Spent To Learn:",
+      "deleteButton": "Delete Progress Data"
     },
     "ProgressRadios": {
       "searchPlaceholder": "Search Word...",
-      "noProgress": "No Progress Data Found!"
+      "noProgress": "No Progress Data Found.",
+      "noResult": "No Words With Your Search."
     },
     "WordProgressDisplay": {
-      "noWordSelected": "No Word Is Selected."
+      "noProgress": "No Progress Data Found."
     }
   },
  "Settings": {
@@ -152,7 +161,7 @@
     "ja": "Japanese",
     "zh": "Chinese",
     "tr": "Turkish",
-    "loading": "Loading Language Data...",
+    "loading": "Loading Language Data",
     "WordsLanguageSelect": {
       "label": "Select Learning Language",
       "button": "Apply Changes"
@@ -167,5 +176,14 @@
     "LanguageStrip": {
       "label": "Language"
     }
+  },
+  "About": {
+    "text1": "somevocabulary.com is created with the vision of a simple vocabulary learning application.",
+    "text2": "It is still in development, so you may encounter bugs.",
+    "text3": "It is planned to have more languages in the future.",
+    "text4": "Everything in this app is machine translated, there might be inaccuracies.",
+    "text5": "You can find the source code on:",
+    "text6ch": "Thank you for trying this app.",
+    "resource1": "English words from:"
   }
 }

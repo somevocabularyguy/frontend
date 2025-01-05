@@ -9,7 +9,7 @@ import { wordResourceKeys } from '@/i18nConfig';
 import { Text, Button } from '@/components/atoms';
 
 import { areArraysEqual } from '@/utils/generalUtils';
-import { loadWordResourcesClient } from '@/utils/dataUtilsClient';
+import { getWordResources } from '@/lib/api';
 
 import { updateLanguageArray } from '@/store/userDataSlice';
 import { useAppSelector, useAppDispatch } from '@/store/store';
@@ -17,7 +17,7 @@ import { addSingleWordResource, removeSingleWordResource } from '@/store/languag
 import { updateIsLanguagesLoading, updateIsOtherLanguagesSelectVisible } from '@/store/languageUiSlice'; 
 
 import { useCustomTranslation } from '@/hooks';
-import { InfoIcon, ResetIcon } from '@/public/icons';
+import { InfoIcon, ResetIcon } from '#/public/icons';
 
 const OtherLanguagesSelect: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -88,7 +88,7 @@ const OtherLanguagesSelect: React.FC = () => {
     })
 
     if (newLanguageArray.some(language => !languageArray.includes(language))) {
-      const { requestedWordResources } = await loadWordResourcesClient(languageArray, newLanguageArray)
+      const { requestedWordResources } = await getWordResources(newLanguageArray[0], newLanguageArray)
       if (requestedWordResources) {
         Object.keys(requestedWordResources).forEach(language => {
           dispatch(addSingleWordResource({ language: language, wordResource: requestedWordResources[language] }))

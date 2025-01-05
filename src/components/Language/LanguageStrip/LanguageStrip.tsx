@@ -1,6 +1,6 @@
 import styles from './LanguageStrip.module.css';
 
-import { ArrowIcon } from '@/public/icons';
+import { ArrowIcon } from '#/public/icons';
 import { Text } from '@/components/atoms';
 
 import { useAppDispatch, useAppSelector } from '@/store/store';

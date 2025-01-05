@@ -3,7 +3,7 @@
 import styles from './LanguageDropdown.module.css';
 import { useState } from 'react';
 
-import { ArrowIcon, LanguageIconBlack, LanguageIcon } from '@/public/icons';
+import { ArrowIcon, LanguageIconBlack, LanguageIcon } from '#/public/icons';
 import { Text } from '@/components/atoms';
 import { OptionObject } from '@/types';
 

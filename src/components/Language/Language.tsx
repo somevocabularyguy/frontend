@@ -5,7 +5,7 @@ import { useAppSelector, useAppDispatch } from '@/store/store';
 import { updateIsWordsLanguageSelectVisible, updateIsOtherLanguagesSelectVisible } from '@/store/languageUiSlice';
 
 import { Line } from '@/components/atoms';
-import { useCustomTranslation } from '@/hooks';
+import { useCustomTranslation, useAnimationIndex } from '@/hooks';
 
 import LanguageStrip from './LanguageStrip';
 import WordsLanguageSelect from './WordsLanguageSelect';
@@ -43,6 +43,7 @@ const Language: React.FC = () => {
 
   const loadingClassName = `${styles.loading} ${isLanguageLoading ? styles.loadingVisible : ''}`
 
+  const animationIndex = useAnimationIndex(isLanguageLoading, 250, 3)
 
   return (
     <>
@@ -50,7 +51,7 @@ const Language: React.FC = () => {
         <WordsLanguageSelect />
         <OtherLanguagesSelect />
         <Line width="21rem" className={styles.line} />
-        <div className={loadingClassName}>{t('loading')}</div>
+        <div className={loadingClassName}>{t('loading') + '.'.repeat(animationIndex)}</div>
       </section>
       <LanguageStrip />
     </>

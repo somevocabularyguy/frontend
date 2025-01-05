@@ -1,11 +1,9 @@
 level stays checked when becomes empty.
-back and retry button to sign-in waiting
 
-Error handling and feedback for Feedback Page.
 signIn button enter to send mail.
 
-change returnUserData to useTime to be more efficient
 put use time in cookie return server data if necessary
+Error handling and feedback for Feedback Page.:  Meh...
 
 signout popup settings link
 a level loses background color sometimes. Why is that?

@@ -2,7 +2,7 @@
 import styles from './CurrentWords.module.css';
 import React, { useState, useRef } from 'react';
 
-import { Text, Line, Button, TText } from '@/components/atoms';
+import { Text, Line, Button } from '@/components/atoms';
 import { ScrollRail } from '@/components/ui';
 
 import { useAppSelector } from '@/store/store';
