@@ -115,7 +115,7 @@ const getWordResources = async (
   languageArray: string[], 
   newWordsLanguage?: string | null
 ) => {
-  console.time('Waiting Language: ')
+  console.time(`Waiting Language ${wordsLanguage}: `)
 
   const promises = languageArray.map(language => axios.get(`${FRONTEND_URL}/words/${wordsLanguage}/${language}.json.gz`,  { responseType: 'arraybuffer' }));
 
@@ -134,7 +134,7 @@ const getWordResources = async (
     requestedWordResources[currentLanguage] = JSON.parse(decompressedData)
   });
 
-  console.timeEnd('Waiting Language: ')
+  console.timeEnd(`Waiting Language ${wordsLanguage}: `)
 
   return { requestedWords, requestedWordResources };
 }

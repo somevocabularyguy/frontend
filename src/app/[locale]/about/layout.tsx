@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Settings',
-  description: 'Settings Page',
+  title: 'About',
+  description: 'About Page',
 }
 
 export default function RootLayout({
