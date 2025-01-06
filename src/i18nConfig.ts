@@ -1,5 +1,5 @@
 const i18nConfig = {
-  locales: ['en', 'tr'],
+  locales: ['en', 'ru', 'ja', 'zh', 'tr', 'de', 'es', 'fr', 'hi', 'ko', 'pt', 'vi'],
   defaultLocale: 'en'
 };
 
@@ -8,7 +8,7 @@ interface WordResourceKeysType {
 }
 
 export const wordResourceKeys: WordResourceKeysType = {
-  en: ['en', 'ja', 'ru', 'tr', 'zh']
+  en: ['en', 'ru', 'ja', 'zh', 'tr', 'de', 'es', 'fr', 'hi', 'ko', 'pt', 'vi']
 }
 
 interface LocaleKey {
@@ -17,7 +17,17 @@ interface LocaleKey {
 
 export const languageNames: LocaleKey = {
   en: 'English',
-  tr: 'Türkçe'
+  ru: 'Русский',
+  ja: '日本語',
+  zh: '中国人',
+  tr: 'Türkçe',
+  de: 'Deutsch',
+  es: 'Español',
+  fr: 'Français',
+  hi: 'हिन्दी',
+  ko: '한국어',
+  pt: 'Português',
+  vi: 'Tiếng Việt',
 }
 
 export default i18nConfig;

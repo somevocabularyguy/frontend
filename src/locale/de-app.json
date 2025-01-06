@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "Ausgewählte Ebenen",
+    "BottomStrip": {
+      "practiceButtonText": "Üben",
+      "randomButtonText": "Zufällig",
+      "selectLevelsText": "Ebenen auswählen"
+    },
+    "CurrentWords": {
+      "label": "Ausgewählte Wörter",
+      "copyButtonText": "Kopie",
+      "copiedAlert": "In die Zwischenablage kopiert"
+    },
+    "LevelBox": {
+      "easy": "einfach",
+      "medium": "Medium",
+      "hard": "hart",
+      "expert": "Experte",
+      "custom": "Brauch"
+    },
+    "LevelWords": {
+      "easy": "einfach",
+      "medium": "Medium",
+      "hard": "hart",
+      "expert": "Experte",
+      "custom": "Brauch"
+    }
+  },
+  "Loading": {
+    "loadingText": "Laden"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "Nächstes Wort",
+      "showButton": "Details anzeigen",
+      "removeButton": "Word entfernen",
+      "addCustom": "Wort zu benutzerdefiniert hinzufügen",
+      "removeCustom": "Entfernen Sie Word aus dem benutzerdefinierten"
+    },
+    "MainLabels": {
+      "finishText": "Beendet „The Random“",
+      "selectLevelText": "Bitte wählen Sie die Ebene",
+      "practiceText": "Üben",
+      "randomText": "Zufällig",
+      "definitionText": "Definition:",
+      "exampleText": "Beispiel:",
+      "synonymsText": "Synonyme:",
+      "antonymsText": "Antonyme:"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "Fehler beim Löschen des Kontos!",
+      "text1": "Ihre Daten auf unseren Servern werden nach 15 Tagen endgültig gelöscht.",
+      "text2": "Sie können die Löschung abbrechen, indem Sie sich bis dahin anmelden.",
+      "backButton": "Geh zurück",
+      "deleteButton": "Konto löschen"
+    },
+    "SignOutPopup": {
+      "text": "Sie können Ihre lokalen Fortschrittsdaten später im",
+      "link": "Fortschrittseinstellungen",
+      "backButton": "Geh zurück",
+      "signOutButton": "Abmelden"
+    },
+    "SignInPopup": {
+      "sendText": "Magic Link senden",
+      "sendingText": "Versendung",
+      "warningText": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "emailLabel": "E-Mail",
+      "placeholderStart": "hörnichtaufzulernen",
+      "waitingText": "Suchen Sie in Ihren E-Mails nach einem speziellen Anmeldelink",
+      "waitingSmallText": "Überprüfen Sie unbedingt Ihren Spam-Ordner ...",
+      "refreshText": "Aktualisieren Sie diese Seite, nachdem Sie auf den Link geklickt haben.",
+      "refreshButton": "Aktualisieren"
+    },
+    "ProgressDeletePopup": {
+      "text1": "Ihre lokalen Fortschrittsdaten werden gelöscht.",
+      "text1-signedIn": "Ihre lokalen und Server-Fortschrittsdaten werden gelöscht.",
+      "text2": "Dieser Vorgang ist irreversibel!",
+      "backButton": "Geh zurück",
+      "deleteButton": "Fortschritt löschen"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "Gesamte Lernzeit:",
+      "deleteButton": "Fortschrittsdaten löschen"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "Suchbegriff...",
+      "noProgress": "Keine Fortschrittsdaten gefunden.",
+      "noResult": "Keine Wörter zu Ihrer Suche."
+    },
+    "WordProgressDisplay": {
+      "noProgress": "Keine Fortschrittsdaten gefunden."
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "Konto",
+      "signInButton": "Anmelden",
+      "signOutButton": "Abmelden",
+      "deleteButton": "Konto löschen"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "Versteckte und benutzerdefinierte Wörter",
+      "CustomSettings": {
+        "labelText": "Benutzerdefinierte Wörter",
+        "removeCustomLabel": "Aus benutzerdefiniert entfernen",
+        "placeholder": "Suchbegriff...",
+        "noResultText": "Bei Ihrer Suche wurden keine Wörter gefunden",
+        "noCustomWordsText": "Keine benutzerdefinierten Wörter"
+      },
+      "HiddenSettings": {
+        "labelText": "Versteckte Wörter",
+        "removeHiddenLabel": "Aus „Versteckt“ entfernen",
+        "placeholder": "Suchbegriff...",
+        "noResultText": "Bei Ihrer Suche wurden keine Wörter gefunden",
+        "noHiddenWordsText": "Keine versteckten Worte"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "Vielen Dank für Ihr Feedback!",
+    "submitButton": "Feedback senden",
+    "FeedbackDropdown": {
+      "label": "Feedback-Typ auswählen:",
+      "Options": {
+        "select": "-- Feedback-Typ auswählen --",
+        "bug": "Fehlerbericht",
+        "feature": "Funktionsanforderung",
+        "usability": "Benutzerfreundlichkeits-Feedback",
+        "performance": "Leistungsproblem",
+        "general": "Allgemeines Feedback",
+        "accessibility": "Feedback zur Barrierefreiheit",
+        "complaint": "Beschwerde",
+        "compliment": "Kompliment / Anerkennung"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "Beschreiben Sie Ihr Feedback:",
+      "placeholder": "Geben Sie Ihr Feedback ein..."
+    },
+    "FeedbackFileInput": {
+      "label": "Screenshots anhängen (optional)"
+    }
+  },
+  "Sidebar": {
+    "practice": "Üben",
+    "settings": "Einstellungen",
+    "progress": "Fortschritt",
+    "guide": "Anwendung",
+    "feedback": "Rückmeldung",
+    "about": "Um",
+    "signIn": "Anmelden",
+    "signOut": "Abmelden"
+  },
+  "Language": {
+    "en": "Englisch",
+    "ru": "Russisch",
+    "ja": "japanisch",
+    "zh": "chinesisch",
+    "tr": "Türkisch",
+    "de": "Deutsch",
+    "es": "Spanisch",
+    "fr": "Französisch",
+    "hi": "Hindi",
+    "ko": "Koreanisch",
+    "pt": "Portugiesisch",
+    "vi": "Vietnamesisch",
+    "loading": "Sprachdaten werden geladen",
+    "WordsLanguageSelect": {
+      "label": "Lernsprache auswählen",
+      "button": "Änderungen übernehmen"
+    },
+    "OtherLanguagesSelect": {
+      "label": "Weitere Sprachen auswählen",
+      "button": "Änderungen übernehmen"
+    },
+    "AppLanguageSelect": {
+      "label": "Sprache"
+    },
+    "LanguageStrip": {
+      "label": "Sprache"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com wurde mit der Vision einer einfachen Anwendung zum Vokabellernen erstellt.",
+    "text2": "Es befindet sich noch in der Entwicklung, daher können Fehler auftreten.",
+    "text3": "Es ist geplant, in Zukunft weitere Sprachen anzubieten.",
+    "text4": "Alles in dieser App wurde maschinell übersetzt, es können Ungenauigkeiten auftreten.",
+    "text5": "Den Quellcode finden Sie unter:",
+    "text6": "Vielen Dank, dass Sie diese App ausprobieren.",
+    "resource1": "Englische Wörter aus:"
+  }
+}

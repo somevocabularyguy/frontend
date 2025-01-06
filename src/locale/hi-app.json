@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "चयनित स्तर",
+    "BottomStrip": {
+      "practiceButtonText": "अभ्यास",
+      "randomButtonText": "यादृच्छिक",
+      "selectLevelsText": "स्तर चुनें"
+    },
+    "CurrentWords": {
+      "label": "चयनित शब्द",
+      "copyButtonText": "प्रतिलिपि",
+      "copiedAlert": "क्लिपबोर्ड पर कॉपी किया गया"
+    },
+    "LevelBox": {
+      "easy": "आसान",
+      "medium": "मध्यम",
+      "hard": "मुश्किल",
+      "expert": "विशेषज्ञ",
+      "custom": "रिवाज़"
+    },
+    "LevelWords": {
+      "easy": "आसान",
+      "medium": "मध्यम",
+      "hard": "मुश्किल",
+      "expert": "विशेषज्ञ",
+      "custom": "रिवाज़"
+    }
+  },
+  "Loading": {
+    "loadingText": "लोड हो रहा है"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "अगला शब्द",
+      "showButton": "प्रदर्शन का विवरण",
+      "removeButton": "शब्द हटाएँ",
+      "addCustom": "कस्टम में शब्द जोड़ें",
+      "removeCustom": "कस्टम से वर्ड हटाएँ"
+    },
+    "MainLabels": {
+      "finishText": "रैंडम समाप्त",
+      "selectLevelText": "कृपया स्तर का चयन करें",
+      "practiceText": "अभ्यास",
+      "randomText": "यादृच्छिक",
+      "definitionText": "परिभाषा:",
+      "exampleText": "उदाहरण:",
+      "synonymsText": "समानार्थी शब्द:",
+      "antonymsText": "विलोम शब्द:"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "खाता हटाते समय त्रुटि!",
+      "text1": "हमारे सर्वर पर आपका डेटा 15 दिनों के बाद स्थायी रूप से हटा दिया जाएगा।",
+      "text2": "आप उस समय तक साइन इन करके विलोपन रद्द कर सकते हैं।",
+      "backButton": "वापस जाएं",
+      "deleteButton": "खाता हटा दो"
+    },
+    "SignOutPopup": {
+      "text": "आप बाद में अपना स्थानीय प्रगति डेटा हटा सकते हैं",
+      "link": "प्रगति सेटिंग्स",
+      "backButton": "वापस जाएं",
+      "signOutButton": "साइन आउट"
+    },
+    "SignInPopup": {
+      "sendText": "जादुई लिंक भेजें",
+      "sendingText": "भेजना",
+      "warningText": "कृपया मान्य ईमेल दर्ज करें",
+      "emailLabel": "ईमेल",
+      "placeholderStart": "डोंटस्टॉपलर्निंग",
+      "waitingText": "विशेष लॉगिन लिंक के लिए अपना ईमेल जांचें",
+      "waitingSmallText": "अपने स्पैम फ़ोल्डर की जांच अवश्य करें...",
+      "refreshText": "लिंक पर क्लिक करने के बाद इस पेज को रिफ्रेश करें।",
+      "refreshButton": "ताज़ा करना"
+    },
+    "ProgressDeletePopup": {
+      "text1": "आपका स्थानीय प्रगति डेटा हटा दिया जाएगा.",
+      "text1-signedIn": "आपका स्थानीय और सर्वर प्रगति डेटा हटा दिया जाएगा.",
+      "text2": "यह प्रक्रिया अपरिवर्तनीय है!",
+      "backButton": "वापस जाएं",
+      "deleteButton": "प्रगति हटाएं"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "सीखने में लगा कुल समय:",
+      "deleteButton": "प्रगति डेटा हटाएं"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "शब्द खोजें...",
+      "noProgress": "कोई प्रगति डेटा नहीं मिला.",
+      "noResult": "आपकी खोज में कोई शब्द नहीं."
+    },
+    "WordProgressDisplay": {
+      "noProgress": "कोई प्रगति डेटा नहीं मिला."
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "खाता",
+      "signInButton": "दाखिल करना",
+      "signOutButton": "साइन आउट",
+      "deleteButton": "खाता हटा दो"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "छिपे हुए और कस्टम शब्द",
+      "CustomSettings": {
+        "labelText": "कस्टम शब्द",
+        "removeCustomLabel": "कस्टम से निकालें",
+        "placeholder": "शब्द खोजें...",
+        "noResultText": "आपकी खोज में कोई शब्द नहीं मिला",
+        "noCustomWordsText": "कोई कस्टम शब्द नहीं"
+      },
+      "HiddenSettings": {
+        "labelText": "छिपे हुए शब्द",
+        "removeHiddenLabel": "छुपा हुआ से हटाएँ",
+        "placeholder": "शब्द खोजें...",
+        "noResultText": "आपकी खोज में कोई शब्द नहीं मिला",
+        "noHiddenWordsText": "कोई छुपा हुआ शब्द नहीं"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "आपकी प्रतिक्रिया के लिए आपका धन्यवाद!",
+    "submitButton": "प्रतिक्रिया सबमिट करें",
+    "FeedbackDropdown": {
+      "label": "फीडबैक प्रकार चुनें:",
+      "Options": {
+        "select": "-- फीडबैक प्रकार चुनें --",
+        "bug": "बग रिपोर्ट",
+        "feature": "सुविधा का अनुरोध",
+        "usability": "प्रयोज्यता फीडबैक",
+        "performance": "प्रदर्शन समस्या",
+        "general": "सामान्य प्रतिक्रिया",
+        "accessibility": "पहुँच-योग्यता फीडबैक",
+        "complaint": "शिकायत",
+        "compliment": "प्रशंसा / सराहना"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "अपनी प्रतिक्रिया बताएं:",
+      "placeholder": "अपना फीडबैक दर्ज करें..."
+    },
+    "FeedbackFileInput": {
+      "label": "स्क्रीनशॉट संलग्न करें (वैकल्पिक)"
+    }
+  },
+  "Sidebar": {
+    "practice": "अभ्यास",
+    "settings": "सेटिंग्स",
+    "progress": "प्रगति",
+    "guide": "का उपयोग कैसे करें",
+    "feedback": "प्रतिक्रिया",
+    "about": "के बारे में",
+    "signIn": "दाखिल करना",
+    "signOut": "साइन आउट"
+  },
+  "Language": {
+    "en": "अंग्रेज़ी",
+    "ru": "रूसी",
+    "ja": "जापानी",
+    "zh": "चीनी",
+    "tr": "तुर्की",
+    "de": "जर्मन",
+    "es": "स्पैनिश",
+    "fr": "फ्रेंच",
+    "hi": "हिन्दी",
+    "ko": "कोरियाई",
+    "pt": "पुर्तगाली",
+    "vi": "वियतनामी",
+    "loading": "भाषा डेटा लोड हो रहा है",
+    "WordsLanguageSelect": {
+      "label": "सीखने की भाषा चुनें",
+      "button": "परिवर्तनों को लागू करें"
+    },
+    "OtherLanguagesSelect": {
+      "label": "अतिरिक्त भाषाएँ चुनें",
+      "button": "परिवर्तनों को लागू करें"
+    },
+    "AppLanguageSelect": {
+      "label": "भाषा"
+    },
+    "LanguageStrip": {
+      "label": "भाषा"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com एक सरल शब्दावली सीखने के अनुप्रयोग के दृष्टिकोण के साथ बनाया गया है।",
+    "text2": "यह अभी भी विकास के चरण में है, इसलिए आपको इसमें कुछ बग का सामना करना पड़ सकता है।",
+    "text3": "भविष्य में इसमें और अधिक भाषाओं को शामिल करने की योजना है।",
+    "text4": "इस ऐप में सब कुछ मशीन द्वारा अनुवादित है, इसमें अशुद्धियाँ हो सकती हैं।",
+    "text5": "आप स्रोत कोड यहां पा सकते हैं:",
+    "text6": "इस ऐप को आज़माने के लिए धन्यवाद.",
+    "resource1": "अंग्रेजी शब्द:"
+  }
+}

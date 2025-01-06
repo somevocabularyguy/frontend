@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "Seçilen Seviyeler",
+    "BottomStrip": {
+      "practiceButtonText": "Pratik",
+      "randomButtonText": "Rastgele",
+      "selectLevelsText": "Seviyeleri Seçin"
+    },
+    "CurrentWords": {
+      "label": "Seçilmiş Kelimeler",
+      "copyButtonText": "Kopyala",
+      "copiedAlert": "Panoya Kopyalandı"
+    },
+    "LevelBox": {
+      "easy": "kolay",
+      "medium": "orta",
+      "hard": "zor",
+      "expert": "uzman",
+      "custom": "gelenek"
+    },
+    "LevelWords": {
+      "easy": "kolay",
+      "medium": "orta",
+      "hard": "zor",
+      "expert": "uzman",
+      "custom": "gelenek"
+    }
+  },
+  "Loading": {
+    "loadingText": "Yükleniyor"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "Sonraki Kelime",
+      "showButton": "Ayrıntıları Göster",
+      "removeButton": "Kelimeyi Kaldır",
+      "addCustom": "Özel'e Kelime Ekle",
+      "removeCustom": "Özelden Kelimeyi Kaldır"
+    },
+    "MainLabels": {
+      "finishText": "Rastgele'yi bitirdim",
+      "selectLevelText": "Lütfen Seviyeyi Seçin",
+      "practiceText": "Pratik",
+      "randomText": "Rastgele",
+      "definitionText": "Tanım:",
+      "exampleText": "Örnek:",
+      "synonymsText": "Eş anlamlılar:",
+      "antonymsText": "Zıt anlamlılar:"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "Hesap Silinirken Hata Oluştu!",
+      "text1": "Sunucularımızda bulunan verileriniz 15 gün sonra kalıcı olarak silinecektir.",
+      "text2": "O zamana kadar giriş yaparak silme işlemini iptal edebilirsiniz.",
+      "backButton": "Geri gitmek",
+      "deleteButton": "Hesabı Sil"
+    },
+    "SignOutPopup": {
+      "text": "Yerel ilerleme verilerinizi daha sonra silebilirsiniz.",
+      "link": "İlerleme Ayarları",
+      "backButton": "Geri gitmek",
+      "signOutButton": "Oturumu Kapat"
+    },
+    "SignInPopup": {
+      "sendText": "Sihirli Bağlantıyı Gönder",
+      "sendingText": "Gönderiliyor",
+      "warningText": "Lütfen geçerli bir e-posta girin",
+      "emailLabel": "E-posta",
+      "placeholderStart": "öğrenmeyi bırakma",
+      "waitingText": "Özel Giriş Bağlantısı İçin E-postanızı Kontrol Edin",
+      "waitingSmallText": "Spam klasörünüzü kontrol ettiğinizden emin olun...",
+      "refreshText": "Bağlantıya tıkladıktan sonra sayfayı yenileyin.",
+      "refreshButton": "Yenile"
+    },
+    "ProgressDeletePopup": {
+      "text1": "Yerel ilerleme verileriniz silinecektir.",
+      "text1-signedIn": "Yerel ve sunucu ilerleme verileriniz silinecektir.",
+      "text2": "Bu sürecin geri dönüşü yoktur!",
+      "backButton": "Geri gitmek",
+      "deleteButton": "İlerlemeyi Sil"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "Öğrenmek İçin Harcanan Toplam Süre:",
+      "deleteButton": "İlerleme Verilerini Sil"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "Aranan Kelime...",
+      "noProgress": "İlerleme Verisi Bulunamadı.",
+      "noResult": "Aradığınız kelime bulunamadı."
+    },
+    "WordProgressDisplay": {
+      "noProgress": "İlerleme Verisi Bulunamadı."
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "Hesap",
+      "signInButton": "Kayıt olmak",
+      "signOutButton": "Oturumu Kapat",
+      "deleteButton": "Hesabı Sil"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "Gizli ve Özel Kelimeler",
+      "CustomSettings": {
+        "labelText": "Özel Kelimeler",
+        "removeCustomLabel": "Özelden Kaldır",
+        "placeholder": "Aranan Kelime...",
+        "noResultText": "Aradığınız Kelime Bulunamadı",
+        "noCustomWordsText": "Özel Kelime Yok"
+      },
+      "HiddenSettings": {
+        "labelText": "Gizli Kelimeler",
+        "removeHiddenLabel": "Gizliden Kaldır",
+        "placeholder": "Aranan Kelime...",
+        "noResultText": "Aradığınız Kelime Bulunamadı",
+        "noHiddenWordsText": "Gizli Kelime Yok"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "Geri bildiriminiz için teşekkür ederiz!",
+    "submitButton": "Geri bildirim gönder",
+    "FeedbackDropdown": {
+      "label": "Geribildirim Türünü Seçin:",
+      "Options": {
+        "select": "-- Geribildirim Türünü Seçin --",
+        "bug": "Hata Raporu",
+        "feature": "Özellik Talebi",
+        "usability": "Kullanılabilirlik Geri Bildirimi",
+        "performance": "Performans Sorunu",
+        "general": "Genel Geribildirim",
+        "accessibility": "Erişilebilirlik Geri Bildirimi",
+        "complaint": "Şikayet",
+        "compliment": "Övgü / Takdir"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "Geri bildiriminizi açıklayın:",
+      "placeholder": "Geri bildiriminizi girin..."
+    },
+    "FeedbackFileInput": {
+      "label": "Ekran Görüntülerini Ekleyin (İsteğe bağlı)"
+    }
+  },
+  "Sidebar": {
+    "practice": "Pratik",
+    "settings": "Ayarlar",
+    "progress": "İlerlemek",
+    "guide": "Nasıl Kullanılır",
+    "feedback": "Geri bildirim",
+    "about": "Hakkında",
+    "signIn": "Kayıt olmak",
+    "signOut": "Oturumu Kapat"
+  },
+  "Language": {
+    "en": "İngilizce",
+    "ru": "Rusça",
+    "ja": "Japonca",
+    "zh": "Çince",
+    "tr": "Türkçe",
+    "de": "Almanca",
+    "es": "İspanyol",
+    "fr": "Fransızca",
+    "hi": "Hintçe",
+    "ko": "Korece",
+    "pt": "Portekizce",
+    "vi": "Vietnam",
+    "loading": "Dil Verileri Yükleniyor",
+    "WordsLanguageSelect": {
+      "label": "Öğrenme Dilini Seçin",
+      "button": "Değişiklikleri Uygula"
+    },
+    "OtherLanguagesSelect": {
+      "label": "Ek Dilleri Seçin",
+      "button": "Değişiklikleri Uygula"
+    },
+    "AppLanguageSelect": {
+      "label": "Dil"
+    },
+    "LanguageStrip": {
+      "label": "Dil"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com basit bir kelime öğrenme uygulaması vizyonuyla oluşturulmuştur.",
+    "text2": "Hala geliştirme aşamasında olduğundan hatalarla karşılaşabilirsiniz.",
+    "text3": "Gelecekte daha fazla dil eklenmesi planlanıyor.",
+    "text4": "Bu uygulamada her şey makine çevirisidir, yanlışlıklar olabilir.",
+    "text5": "Kaynak kodu şu adreste bulabilirsiniz:",
+    "text6": "Bu uygulamayı denediğiniz için teşekkür ederiz.",
+    "resource1": "İngilizce kelimeler:"
+  }
+}

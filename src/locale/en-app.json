@@ -161,6 +161,13 @@
     "ja": "Japanese",
     "zh": "Chinese",
     "tr": "Turkish",
+    "de": "German",
+    "es": "Spanish",
+    "fr": "French",
+    "hi": "Hindi",
+    "ko": "Korean",
+    "pt": "Portuguese",
+    "vi": "Vietnamese",
     "loading": "Loading Language Data",
     "WordsLanguageSelect": {
       "label": "Select Learning Language",
@@ -183,7 +190,7 @@
     "text3": "It is planned to have more languages in the future.",
     "text4": "Everything in this app is machine translated, there might be inaccuracies.",
     "text5": "You can find the source code on:",
-    "text6ch": "Thank you for trying this app.",
+    "text6": "Thank you for trying this app.",
     "resource1": "English words from:"
   }
 }

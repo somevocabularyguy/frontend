@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "Niveaux sélectionnés",
+    "BottomStrip": {
+      "practiceButtonText": "Pratique",
+      "randomButtonText": "Aléatoire",
+      "selectLevelsText": "Sélectionnez les niveaux"
+    },
+    "CurrentWords": {
+      "label": "Mots sélectionnés",
+      "copyButtonText": "Copie",
+      "copiedAlert": "Copié dans le presse-papiers"
+    },
+    "LevelBox": {
+      "easy": "facile",
+      "medium": "moyen",
+      "hard": "dur",
+      "expert": "expert",
+      "custom": "coutume"
+    },
+    "LevelWords": {
+      "easy": "facile",
+      "medium": "moyen",
+      "hard": "dur",
+      "expert": "expert",
+      "custom": "coutume"
+    }
+  },
+  "Loading": {
+    "loadingText": "Chargement"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "Mot suivant",
+      "showButton": "Afficher les détails",
+      "removeButton": "Supprimer le mot",
+      "addCustom": "Ajouter un mot à la personnalisation",
+      "removeCustom": "Supprimer le mot de la personnalisation"
+    },
+    "MainLabels": {
+      "finishText": "Terminé le aléatoire",
+      "selectLevelText": "Veuillez sélectionner le niveau",
+      "practiceText": "Pratique",
+      "randomText": "Aléatoire",
+      "definitionText": "Définition:",
+      "exampleText": "Exemple:",
+      "synonymsText": "Synonymes:",
+      "antonymsText": "Antonymes :"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "Erreur lors de la suppression du compte !",
+      "text1": "Vos données sur nos serveurs seront définitivement supprimées après 15 jours.",
+      "text2": "Vous pouvez annuler la suppression en vous connectant jusqu'à ce moment.",
+      "backButton": "Retourner",
+      "deleteButton": "Supprimer le compte"
+    },
+    "SignOutPopup": {
+      "text": "Vous pouvez supprimer vos données de progression locales plus tard dans le",
+      "link": "Paramètres de progression",
+      "backButton": "Retourner",
+      "signOutButton": "Se déconnecter"
+    },
+    "SignInPopup": {
+      "sendText": "Envoyer un lien magique",
+      "sendingText": "Envoi",
+      "warningText": "Veuillez saisir une adresse e-mail valide",
+      "emailLabel": "E-mail",
+      "placeholderStart": "n'arrêtez pas d'apprendre",
+      "waitingText": "Vérifiez votre courrier électronique pour obtenir un lien de connexion spécial",
+      "waitingSmallText": "Assurez-vous de vérifier votre dossier spam...",
+      "refreshText": "Actualisez cette page après avoir cliqué sur le lien.",
+      "refreshButton": "Rafraîchir"
+    },
+    "ProgressDeletePopup": {
+      "text1": "Vos données de progression locales seront supprimées.",
+      "text1-signedIn": "Vos données de progression locales et du serveur seront supprimées.",
+      "text2": "Ce processus est irréversible !",
+      "backButton": "Retourner",
+      "deleteButton": "Supprimer la progression"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "Temps total consacré à l'apprentissage :",
+      "deleteButton": "Supprimer les données de progression"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "Rechercher un mot...",
+      "noProgress": "Aucune donnée de progression trouvée.",
+      "noResult": "Pas de mots avec votre recherche."
+    },
+    "WordProgressDisplay": {
+      "noProgress": "Aucune donnée de progression trouvée."
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "Compte",
+      "signInButton": "Se connecter",
+      "signOutButton": "Se déconnecter",
+      "deleteButton": "Supprimer le compte"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "Mots cachés et personnalisés",
+      "CustomSettings": {
+        "labelText": "Mots personnalisés",
+        "removeCustomLabel": "Supprimer de la personnalisation",
+        "placeholder": "Rechercher un mot...",
+        "noResultText": "Aucun mot trouvé avec votre recherche",
+        "noCustomWordsText": "Pas de mots personnalisés"
+      },
+      "HiddenSettings": {
+        "labelText": "Mots cachés",
+        "removeHiddenLabel": "Supprimer du mode caché",
+        "placeholder": "Rechercher un mot...",
+        "noResultText": "Aucun mot trouvé avec votre recherche",
+        "noHiddenWordsText": "Pas de mots cachés"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "Merci pour votre retour !",
+    "submitButton": "Envoyer des commentaires",
+    "FeedbackDropdown": {
+      "label": "Sélectionnez le type de commentaire :",
+      "Options": {
+        "select": "-- Sélectionnez le type de commentaires --",
+        "bug": "Rapport de bogue",
+        "feature": "Demande de fonctionnalité",
+        "usability": "Commentaires sur la convivialité",
+        "performance": "Problème de performance",
+        "general": "Commentaires généraux",
+        "accessibility": "Commentaires sur l'accessibilité",
+        "complaint": "Plainte",
+        "compliment": "Compliment / Appréciation"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "Décrivez votre avis :",
+      "placeholder": "Entrez vos commentaires..."
+    },
+    "FeedbackFileInput": {
+      "label": "Joindre des captures d'écran (facultatif)"
+    }
+  },
+  "Sidebar": {
+    "practice": "Pratique",
+    "settings": "Paramètres",
+    "progress": "Progrès",
+    "guide": "Comment utiliser",
+    "feedback": "Retour",
+    "about": "À propos",
+    "signIn": "Se connecter",
+    "signOut": "Se déconnecter"
+  },
+  "Language": {
+    "en": "Anglais",
+    "ru": "russe",
+    "ja": "japonais",
+    "zh": "Chinois",
+    "tr": "turc",
+    "de": "Allemand",
+    "es": "Espagnol",
+    "fr": "Français",
+    "hi": "hindi",
+    "ko": "coréen",
+    "pt": "portugais",
+    "vi": "vietnamien",
+    "loading": "Chargement des données linguistiques",
+    "WordsLanguageSelect": {
+      "label": "Sélectionnez la langue d'apprentissage",
+      "button": "Appliquer les modifications"
+    },
+    "OtherLanguagesSelect": {
+      "label": "Sélectionner des langues supplémentaires",
+      "button": "Appliquer les modifications"
+    },
+    "AppLanguageSelect": {
+      "label": "Langue"
+    },
+    "LanguageStrip": {
+      "label": "Langue"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com a été créé avec la vision d'une application simple d'apprentissage du vocabulaire.",
+    "text2": "Il est encore en développement, vous pouvez donc rencontrer des bugs.",
+    "text3": "Il est prévu d'avoir plus de langues à l'avenir.",
+    "text4": "Tout dans cette application est traduit automatiquement, il peut y avoir des inexactitudes.",
+    "text5": "Vous pouvez trouver le code source sur :",
+    "text6": "Merci d'avoir essayé cette application.",
+    "resource1": "Mots anglais de :"
+  }
+}

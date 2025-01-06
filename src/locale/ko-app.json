@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "선택된 레벨",
+    "BottomStrip": {
+      "practiceButtonText": "관행",
+      "randomButtonText": "무작위의",
+      "selectLevelsText": "레벨 선택"
+    },
+    "CurrentWords": {
+      "label": "선택된 단어",
+      "copyButtonText": "복사",
+      "copiedAlert": "클립보드에 복사됨"
+    },
+    "LevelBox": {
+      "easy": "쉬운",
+      "medium": "중간",
+      "hard": "딱딱한",
+      "expert": "전문가",
+      "custom": "관습"
+    },
+    "LevelWords": {
+      "easy": "쉬운",
+      "medium": "중간",
+      "hard": "딱딱한",
+      "expert": "전문가",
+      "custom": "관습"
+    }
+  },
+  "Loading": {
+    "loadingText": "로딩중"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "다음 단어",
+      "showButton": "세부 정보 표시",
+      "removeButton": "단어 제거",
+      "addCustom": "사용자 정의에 단어 추가",
+      "removeCustom": "사용자 정의에서 단어 제거"
+    },
+    "MainLabels": {
+      "finishText": "랜덤 완료",
+      "selectLevelText": "레벨을 선택해주세요",
+      "practiceText": "관행",
+      "randomText": "무작위의",
+      "definitionText": "정의:",
+      "exampleText": "예:",
+      "synonymsText": "동의어:",
+      "antonymsText": "반의어:"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "계정 삭제 중 오류가 발생했습니다!",
+      "text1": "당사 서버에 저장된 귀하의 데이터는 15일 후에 영구적으로 삭제됩니다.",
+      "text2": "해당 기간까지 로그인하시면 삭제를 취소하실 수 있습니다.",
+      "backButton": "뒤로가기",
+      "deleteButton": "계정 삭제"
+    },
+    "SignOutPopup": {
+      "text": "나중에 로컬 진행률 데이터를 삭제할 수 있습니다.",
+      "link": "진행 설정",
+      "backButton": "뒤로가기",
+      "signOutButton": "로그아웃"
+    },
+    "SignInPopup": {
+      "sendText": "매직 링크 보내기",
+      "sendingText": "배상",
+      "warningText": "유효한 이메일을 입력하세요",
+      "emailLabel": "이메일",
+      "placeholderStart": "멈추지 말고 배우세요",
+      "waitingText": "특별 로그인 링크에 대한 이메일을 확인하세요",
+      "waitingSmallText": "스팸 폴더를 꼭 확인하세요.",
+      "refreshText": "링크를 클릭한 후 이 페이지를 새로 고침하세요.",
+      "refreshButton": "새로 고치다"
+    },
+    "ProgressDeletePopup": {
+      "text1": "로컬 진행 상황 데이터가 삭제됩니다.",
+      "text1-signedIn": "로컬 및 서버 진행 상황 데이터가 삭제됩니다.",
+      "text2": "이 과정은 되돌릴 수 없습니다!",
+      "backButton": "뒤로가기",
+      "deleteButton": "진행 상황 삭제"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "학습에 소요된 총 시간:",
+      "deleteButton": "진행 데이터 삭제"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "검색어...",
+      "noProgress": "진행상황 데이터를 찾을 수 없습니다.",
+      "noResult": "검색어에 맞는 단어가 없습니다."
+    },
+    "WordProgressDisplay": {
+      "noProgress": "진행상황 데이터를 찾을 수 없습니다."
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "계정",
+      "signInButton": "로그인",
+      "signOutButton": "로그아웃",
+      "deleteButton": "계정 삭제"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "숨겨진 단어와 사용자 정의 단어",
+      "CustomSettings": {
+        "labelText": "사용자 정의 단어",
+        "removeCustomLabel": "사용자 정의에서 제거",
+        "placeholder": "검색어...",
+        "noResultText": "검색 결과에서 단어를 찾을 수 없습니다",
+        "noCustomWordsText": "사용자 정의 단어 없음"
+      },
+      "HiddenSettings": {
+        "labelText": "숨겨진 단어",
+        "removeHiddenLabel": "숨겨진 항목에서 제거",
+        "placeholder": "검색어...",
+        "noResultText": "검색 결과에서 단어를 찾을 수 없습니다",
+        "noHiddenWordsText": "숨겨진 단어 없음"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "귀하의 피드백 감사합니다!",
+    "submitButton": "피드백 제출",
+    "FeedbackDropdown": {
+      "label": "피드백 유형 선택:",
+      "Options": {
+        "select": "-- 피드백 유형 선택 --",
+        "bug": "버그 리포트",
+        "feature": "기능 요청",
+        "usability": "사용성 피드백",
+        "performance": "성능 문제",
+        "general": "일반적인 피드백",
+        "accessibility": "접근성 피드백",
+        "complaint": "불평",
+        "compliment": "칭찬 / 감사"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "귀하의 피드백을 설명하세요:",
+      "placeholder": "피드백을 입력하세요..."
+    },
+    "FeedbackFileInput": {
+      "label": "스크린샷 첨부(선택 사항)"
+    }
+  },
+  "Sidebar": {
+    "practice": "관행",
+    "settings": "설정",
+    "progress": "진전",
+    "guide": "사용 방법",
+    "feedback": "피드백",
+    "about": "에 대한",
+    "signIn": "로그인",
+    "signOut": "로그아웃"
+  },
+  "Language": {
+    "en": "영어",
+    "ru": "러시아인",
+    "ja": "일본어",
+    "zh": "중국인",
+    "tr": "터키어",
+    "de": "독일 사람",
+    "es": "스페인 사람",
+    "fr": "프랑스 국민",
+    "hi": "힌디 어",
+    "ko": "한국인",
+    "pt": "포르투갈 인",
+    "vi": "베트남 사람",
+    "loading": "언어 데이터 로딩 중",
+    "WordsLanguageSelect": {
+      "label": "학습 언어 선택",
+      "button": "변경 사항 적용"
+    },
+    "OtherLanguagesSelect": {
+      "label": "추가 언어 선택",
+      "button": "변경 사항 적용"
+    },
+    "AppLanguageSelect": {
+      "label": "언어"
+    },
+    "LanguageStrip": {
+      "label": "언어"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com은 간단한 어휘 학습 애플리케이션을 만들겠다는 비전으로 만들어졌습니다.",
+    "text2": "아직 개발 중이므로 버그가 발생할 수 있습니다.",
+    "text3": "앞으로 더 많은 언어를 지원할 계획입니다.",
+    "text4": "이 앱의 모든 내용은 기계 번역되었으므로 부정확한 내용이 있을 수 있습니다.",
+    "text5": "소스 코드는 다음에서 찾을 수 있습니다.",
+    "text6": "이 앱을 사용해 주셔서 감사합니다.",
+    "resource1": "영어 단어 출처:"
+  }
+}

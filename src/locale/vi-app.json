@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "Các cấp độ đã chọn",
+    "BottomStrip": {
+      "practiceButtonText": "Luyện tập",
+      "randomButtonText": "Ngẫu nhiên",
+      "selectLevelsText": "Chọn cấp độ"
+    },
+    "CurrentWords": {
+      "label": "Từ đã chọn",
+      "copyButtonText": "Sao chép",
+      "copiedAlert": "Đã sao chép vào bảng tạm"
+    },
+    "LevelBox": {
+      "easy": "dễ",
+      "medium": "trung bình",
+      "hard": "cứng",
+      "expert": "chuyên gia",
+      "custom": "phong tục"
+    },
+    "LevelWords": {
+      "easy": "dễ",
+      "medium": "trung bình",
+      "hard": "cứng",
+      "expert": "chuyên gia",
+      "custom": "phong tục"
+    }
+  },
+  "Loading": {
+    "loadingText": "Đang tải"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "Từ tiếp theo",
+      "showButton": "Hiển thị chi tiết",
+      "removeButton": "Xóa từ",
+      "addCustom": "Thêm từ vào tùy chỉnh",
+      "removeCustom": "Xóa từ khỏi tùy chỉnh"
+    },
+    "MainLabels": {
+      "finishText": "Hoàn thành ngẫu nhiên",
+      "selectLevelText": "Vui lòng chọn cấp độ",
+      "practiceText": "Luyện tập",
+      "randomText": "Ngẫu nhiên",
+      "definitionText": "Sự định nghĩa:",
+      "exampleText": "Ví dụ:",
+      "synonymsText": "Từ đồng nghĩa:",
+      "antonymsText": "Từ trái nghĩa:"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "Lỗi khi xóa tài khoản!",
+      "text1": "Dữ liệu của bạn trên máy chủ của chúng tôi sẽ bị xóa vĩnh viễn sau 15 ngày.",
+      "text2": "Bạn có thể hủy thao tác xóa bằng cách đăng nhập cho đến thời điểm đó.",
+      "backButton": "Quay lại",
+      "deleteButton": "Xóa tài khoản"
+    },
+    "SignOutPopup": {
+      "text": "Bạn có thể xóa dữ liệu tiến trình cục bộ của mình sau đó trong",
+      "link": "Cài đặt tiến trình",
+      "backButton": "Quay lại",
+      "signOutButton": "Đăng xuất"
+    },
+    "SignInPopup": {
+      "sendText": "Gửi liên kết ma thuật",
+      "sendingText": "Gửi",
+      "warningText": "Vui lòng nhập Email hợp lệ",
+      "emailLabel": "E-mail",
+      "placeholderStart": "đừng ngừng học",
+      "waitingText": "Kiểm tra Email của bạn để biết Liên kết Đăng nhập Đặc biệt",
+      "waitingSmallText": "Hãy nhớ kiểm tra thư mục thư rác nhé...",
+      "refreshText": "Làm mới trang này sau khi nhấp vào liên kết.",
+      "refreshButton": "Làm cho khỏe lại"
+    },
+    "ProgressDeletePopup": {
+      "text1": "Dữ liệu tiến trình cục bộ của bạn sẽ bị xóa.",
+      "text1-signedIn": "Dữ liệu tiến trình cục bộ và máy chủ của bạn sẽ bị xóa.",
+      "text2": "Quá trình này là không thể đảo ngược!",
+      "backButton": "Quay lại",
+      "deleteButton": "Xóa Tiến trình"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "Tổng thời gian dành cho việc học:",
+      "deleteButton": "Xóa dữ liệu tiến trình"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "Tìm kiếm từ...",
+      "noProgress": "Không tìm thấy dữ liệu tiến trình.",
+      "noResult": "Không có từ nào với tìm kiếm của bạn."
+    },
+    "WordProgressDisplay": {
+      "noProgress": "Không tìm thấy dữ liệu tiến trình."
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "Tài khoản",
+      "signInButton": "Đăng nhập",
+      "signOutButton": "Đăng xuất",
+      "deleteButton": "Xóa tài khoản"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "Từ Ẩn Và Từ Tùy Chỉnh",
+      "CustomSettings": {
+        "labelText": "Từ tùy chỉnh",
+        "removeCustomLabel": "Xóa khỏi tùy chỉnh",
+        "placeholder": "Tìm kiếm từ...",
+        "noResultText": "Không tìm thấy từ nào với tìm kiếm của bạn",
+        "noCustomWordsText": "Không có từ tùy chỉnh"
+      },
+      "HiddenSettings": {
+        "labelText": "Từ ẩn",
+        "removeHiddenLabel": "Xóa khỏi mục ẩn",
+        "placeholder": "Tìm kiếm từ...",
+        "noResultText": "Không tìm thấy từ nào với tìm kiếm của bạn",
+        "noHiddenWordsText": "Không có từ ẩn"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "Cảm ơn phản hồi của bạn!",
+    "submitButton": "Gửi phản hồi",
+    "FeedbackDropdown": {
+      "label": "Chọn loại phản hồi:",
+      "Options": {
+        "select": "-- Chọn Loại phản hồi --",
+        "bug": "Báo cáo lỗi",
+        "feature": "Yêu cầu tính năng",
+        "usability": "Phản hồi về khả năng sử dụng",
+        "performance": "Vấn đề hiệu suất",
+        "general": "Phản hồi chung",
+        "accessibility": "Phản hồi về khả năng truy cập",
+        "complaint": "Lời phàn nàn",
+        "compliment": "Khen ngợi / Đánh giá cao"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "Mô tả phản hồi của bạn:",
+      "placeholder": "Nhập phản hồi của bạn..."
+    },
+    "FeedbackFileInput": {
+      "label": "Đính kèm ảnh chụp màn hình (Tùy chọn)"
+    }
+  },
+  "Sidebar": {
+    "practice": "Luyện tập",
+    "settings": "Cài đặt",
+    "progress": "Tiến triển",
+    "guide": "Cách sử dụng",
+    "feedback": "Nhận xét",
+    "about": "Về",
+    "signIn": "Đăng nhập",
+    "signOut": "Đăng xuất"
+  },
+  "Language": {
+    "en": "Tiếng Anh",
+    "ru": "Tiếng Nga",
+    "ja": "Tiếng Nhật",
+    "zh": "Tiếng Trung Quốc",
+    "tr": "Thổ Nhĩ Kỳ",
+    "de": "Tiếng Đức",
+    "es": "Tiếng Tây Ban Nha",
+    "fr": "Tiếng Pháp",
+    "hi": "Tiếng Hin-ddi",
+    "ko": "Hàn Quốc",
+    "pt": "Tiếng Bồ Đào Nha",
+    "vi": "Tiếng Việt",
+    "loading": "Đang tải dữ liệu ngôn ngữ",
+    "WordsLanguageSelect": {
+      "label": "Chọn ngôn ngữ học tập",
+      "button": "Áp dụng thay đổi"
+    },
+    "OtherLanguagesSelect": {
+      "label": "Chọn ngôn ngữ bổ sung",
+      "button": "Áp dụng thay đổi"
+    },
+    "AppLanguageSelect": {
+      "label": "Ngôn ngữ"
+    },
+    "LanguageStrip": {
+      "label": "Ngôn ngữ"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com được tạo ra với tầm nhìn về một ứng dụng học từ vựng đơn giản.",
+    "text2": "Ứng dụng này vẫn đang trong quá trình phát triển nên có thể sẽ gặp lỗi.",
+    "text3": "Dự kiến sẽ có thêm nhiều ngôn ngữ khác trong tương lai.",
+    "text4": "Mọi thứ trong ứng dụng này đều được dịch bằng máy nên có thể có sai sót.",
+    "text5": "Bạn có thể tìm thấy mã nguồn trên:",
+    "text6": "Cảm ơn bạn đã dùng thử ứng dụng này.",
+    "resource1": "Từ tiếng Anh từ:"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "已选择级别",
+    "BottomStrip": {
+      "practiceButtonText": "实践",
+      "randomButtonText": "随机的",
+      "selectLevelsText": "选择级别"
+    },
+    "CurrentWords": {
+      "label": "精选词",
+      "copyButtonText": "复制",
+      "copiedAlert": "复制到剪贴板"
+    },
+    "LevelBox": {
+      "easy": "简单的",
+      "medium": "中等的",
+      "hard": "难的",
+      "expert": "专家",
+      "custom": "风俗"
+    },
+    "LevelWords": {
+      "easy": "简单的",
+      "medium": "中等的",
+      "hard": "难的",
+      "expert": "专家",
+      "custom": "风俗"
+    }
+  },
+  "Loading": {
+    "loadingText": "加载中"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "下一个单词",
+      "showButton": "显示详细信息",
+      "removeButton": "删除单词",
+      "addCustom": "将单词添加到自定义",
+      "removeCustom": "从自定义中删除单词"
+    },
+    "MainLabels": {
+      "finishText": "完成随机",
+      "selectLevelText": "请选择级别",
+      "practiceText": "实践",
+      "randomText": "随机的",
+      "definitionText": "定义：",
+      "exampleText": "例子：",
+      "synonymsText": "同义词：",
+      "antonymsText": "反义词："
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "删除帐户错误！",
+      "text1": "我们的服务器上的您的数据将在 15 天后被永久删除。",
+      "text2": "您可以在此之前登录以取消删除。",
+      "backButton": "回去",
+      "deleteButton": "删除帐户"
+    },
+    "SignOutPopup": {
+      "text": "您可以稍后删除本地进度数据",
+      "link": "进度设置",
+      "backButton": "回去",
+      "signOutButton": "登出"
+    },
+    "SignInPopup": {
+      "sendText": "发送魔法链接",
+      "sendingText": "正在发送",
+      "warningText": "请输入有效的电子邮件",
+      "emailLabel": "电子邮件",
+      "placeholderStart": "不要停止学习",
+      "waitingText": "检查您的电子邮件以获取特殊登录链接",
+      "waitingSmallText": "请务必检查您的垃圾邮件文件夹...",
+      "refreshText": "点击链接后刷新此页面。",
+      "refreshButton": "刷新"
+    },
+    "ProgressDeletePopup": {
+      "text1": "您的本地进度数据将被删除。",
+      "text1-signedIn": "您的本地和服务器进度数据将被删除。",
+      "text2": "此过程不可逆！",
+      "backButton": "回去",
+      "deleteButton": "删除进度"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "学习总时长：",
+      "deleteButton": "删除进度数据"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "搜索词...",
+      "noProgress": "未找到进度数据。",
+      "noResult": "您的搜索内容中没有单词。"
+    },
+    "WordProgressDisplay": {
+      "noProgress": "未找到进度数据。"
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "帐户",
+      "signInButton": "登入",
+      "signOutButton": "登出",
+      "deleteButton": "删除帐户"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "隐藏和自定义单词",
+      "CustomSettings": {
+        "labelText": "自定义词语",
+        "removeCustomLabel": "从自定义中删除",
+        "placeholder": "搜索词...",
+        "noResultText": "未找到符合您搜索的词语",
+        "noCustomWordsText": "无自定义词语"
+      },
+      "HiddenSettings": {
+        "labelText": "隱藏詞",
+        "removeHiddenLabel": "移除隐藏内容",
+        "placeholder": "搜索词...",
+        "noResultText": "未找到符合您搜索的词语",
+        "noHiddenWordsText": "无隐藏词语"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "感谢您的反馈！",
+    "submitButton": "提交反馈",
+    "FeedbackDropdown": {
+      "label": "选择反馈类型：",
+      "Options": {
+        "select": "-- 选择反馈类型 --",
+        "bug": "错误报告",
+        "feature": "功能请求",
+        "usability": "可用性反馈",
+        "performance": "性能问题",
+        "general": "一般反馈",
+        "accessibility": "无障碍反馈",
+        "complaint": "抱怨",
+        "compliment": "赞美/赞赏"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "描述您的反馈：",
+      "placeholder": "输入您的反馈..."
+    },
+    "FeedbackFileInput": {
+      "label": "附加截图（可选）"
+    }
+  },
+  "Sidebar": {
+    "practice": "实践",
+    "settings": "设置",
+    "progress": "进步",
+    "guide": "如何使用",
+    "feedback": "反馈",
+    "about": "关于",
+    "signIn": "登入",
+    "signOut": "登出"
+  },
+  "Language": {
+    "en": "英语",
+    "ru": "俄语",
+    "ja": "日本人",
+    "zh": "中国人",
+    "tr": "土耳其",
+    "de": "德语",
+    "es": "西班牙语",
+    "fr": "法语",
+    "hi": "印地语",
+    "ko": "韩国人",
+    "pt": "葡萄牙语",
+    "vi": "越南语",
+    "loading": "正在加载语言数据",
+    "WordsLanguageSelect": {
+      "label": "选择学习语言",
+      "button": "应用更改"
+    },
+    "OtherLanguagesSelect": {
+      "label": "选择其他语言",
+      "button": "应用更改"
+    },
+    "AppLanguageSelect": {
+      "label": "语言"
+    },
+    "LanguageStrip": {
+      "label": "语言"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com 的创建愿景是成为一个简单的词汇学习应用程序。",
+    "text2": "它仍在开发中，因此您可能会遇到错误。",
+    "text3": "未来计划将支持更多语言。",
+    "text4": "此应用程序中的所有内容都是机器翻译的，可能存在不准确之处。",
+    "text5": "您可以在以下位置找到源代码：",
+    "text6": "感谢您尝试此应用程序。",
+    "resource1": "英文詞彙來自："
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "Níveis Selecionados",
+    "BottomStrip": {
+      "practiceButtonText": "Prática",
+      "randomButtonText": "Aleatório",
+      "selectLevelsText": "Selecione Níveis"
+    },
+    "CurrentWords": {
+      "label": "Palavras Selecionadas",
+      "copyButtonText": "Cópia",
+      "copiedAlert": "Copiado para a área de transferência"
+    },
+    "LevelBox": {
+      "easy": "fácil",
+      "medium": "médio",
+      "hard": "duro",
+      "expert": "especialista",
+      "custom": "personalizado"
+    },
+    "LevelWords": {
+      "easy": "fácil",
+      "medium": "médio",
+      "hard": "duro",
+      "expert": "especialista",
+      "custom": "personalizado"
+    }
+  },
+  "Loading": {
+    "loadingText": "Carregando"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "Próxima palavra",
+      "showButton": "Mostrar detalhes",
+      "removeButton": "Remover palavra",
+      "addCustom": "Adicionar palavra ao personalizado",
+      "removeCustom": "Remover Word do Personalizado"
+    },
+    "MainLabels": {
+      "finishText": "Terminei o aleatório",
+      "selectLevelText": "Selecione o nível",
+      "practiceText": "Prática",
+      "randomText": "Aleatório",
+      "definitionText": "Definição:",
+      "exampleText": "Exemplo:",
+      "synonymsText": "Sinônimos:",
+      "antonymsText": "Antônimos:"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "Erro ao excluir conta!",
+      "text1": "Seus dados em nossos servidores serão excluídos permanentemente após 15 dias.",
+      "text2": "Você pode cancelar a exclusão efetuando login até esse momento.",
+      "backButton": "Volte",
+      "deleteButton": "Excluir conta"
+    },
+    "SignOutPopup": {
+      "text": "Você pode excluir seus dados de progresso local mais tarde no",
+      "link": "Configurações de progresso",
+      "backButton": "Volte",
+      "signOutButton": "Sair"
+    },
+    "SignInPopup": {
+      "sendText": "Enviar Link Mágico",
+      "sendingText": "Enviando",
+      "warningText": "Por favor, insira um e-mail válido",
+      "emailLabel": "E-mail",
+      "placeholderStart": "não pare de aprender",
+      "waitingText": "Verifique seu e-mail para obter um link de login especial",
+      "waitingSmallText": "Não se esqueça de verificar sua caixa de spam...",
+      "refreshText": "Atualize esta página após clicar no link.",
+      "refreshButton": "Atualizar"
+    },
+    "ProgressDeletePopup": {
+      "text1": "Seus dados de progresso local serão excluídos.",
+      "text1-signedIn": "Seus dados de progresso local e do servidor serão excluídos.",
+      "text2": "Este processo é irreversível!",
+      "backButton": "Volte",
+      "deleteButton": "Excluir progresso"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "Tempo total gasto para aprender:",
+      "deleteButton": "Excluir dados de progresso"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "Pesquisar palavra...",
+      "noProgress": "Nenhum dado de progresso encontrado.",
+      "noResult": "Sem palavras com sua pesquisa."
+    },
+    "WordProgressDisplay": {
+      "noProgress": "Nenhum dado de progresso encontrado."
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "Conta",
+      "signInButton": "Entrar",
+      "signOutButton": "Sair",
+      "deleteButton": "Excluir conta"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "Palavras Ocultas e Personalizadas",
+      "CustomSettings": {
+        "labelText": "Palavras Personalizadas",
+        "removeCustomLabel": "Remover do personalizado",
+        "placeholder": "Pesquisar palavra...",
+        "noResultText": "Nenhuma palavra encontrada com sua pesquisa",
+        "noCustomWordsText": "Sem palavras personalizadas"
+      },
+      "HiddenSettings": {
+        "labelText": "Palavras Ocultas",
+        "removeHiddenLabel": "Remover de Oculto",
+        "placeholder": "Pesquisar palavra...",
+        "noResultText": "Nenhuma palavra encontrada com sua pesquisa",
+        "noHiddenWordsText": "Sem palavras ocultas"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "Obrigado pelo seu feedback!",
+    "submitButton": "Enviar feedback",
+    "FeedbackDropdown": {
+      "label": "Selecione o tipo de feedback:",
+      "Options": {
+        "select": "-- Selecione o tipo de feedback --",
+        "bug": "Relatório de erro",
+        "feature": "Solicitação de recurso",
+        "usability": "Feedback de usabilidade",
+        "performance": "Problema de desempenho",
+        "general": "Comentários gerais",
+        "accessibility": "Comentários sobre acessibilidade",
+        "complaint": "Reclamação",
+        "compliment": "Elogio / Apreciação"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "Descreva seu feedback:",
+      "placeholder": "Insira seu feedback..."
+    },
+    "FeedbackFileInput": {
+      "label": "Anexar capturas de tela (opcional)"
+    }
+  },
+  "Sidebar": {
+    "practice": "Prática",
+    "settings": "Configurações",
+    "progress": "Progresso",
+    "guide": "Como usar",
+    "feedback": "Opinião",
+    "about": "Sobre",
+    "signIn": "Entrar",
+    "signOut": "Sair"
+  },
+  "Language": {
+    "en": "Inglês",
+    "ru": "russo",
+    "ja": "japonês",
+    "zh": "chinês",
+    "tr": "turco",
+    "de": "Alemão",
+    "es": "Espanhol",
+    "fr": "Francês",
+    "hi": "hindi",
+    "ko": "coreano",
+    "pt": "Português",
+    "vi": "vietnamita",
+    "loading": "Carregando dados de idioma",
+    "WordsLanguageSelect": {
+      "label": "Selecione o idioma de aprendizagem",
+      "button": "Aplicar alterações"
+    },
+    "OtherLanguagesSelect": {
+      "label": "Selecione idiomas adicionais",
+      "button": "Aplicar alterações"
+    },
+    "AppLanguageSelect": {
+      "label": "Linguagem"
+    },
+    "LanguageStrip": {
+      "label": "Linguagem"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com foi criado com a visão de um aplicativo simples de aprendizado de vocabulário.",
+    "text2": "Ele ainda está em desenvolvimento, então você pode encontrar bugs.",
+    "text3": "Está planejado ter mais idiomas no futuro.",
+    "text4": "Tudo neste aplicativo é traduzido automaticamente, pode haver imprecisões.",
+    "text5": "Você pode encontrar o código fonte em:",
+    "text6": "Obrigado por experimentar este aplicativo.",
+    "resource1": "Palavras em inglês de:"
+  }
+}

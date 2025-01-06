@@ -1,0 +1,196 @@
+{
+  "Levels": {
+    "levelsSelectedText": "選択されたレベル",
+    "BottomStrip": {
+      "practiceButtonText": "練習する",
+      "randomButtonText": "ランダム",
+      "selectLevelsText": "レベルを選択"
+    },
+    "CurrentWords": {
+      "label": "選択された単語",
+      "copyButtonText": "コピー",
+      "copiedAlert": "クリップボードにコピーされました"
+    },
+    "LevelBox": {
+      "easy": "簡単",
+      "medium": "中くらい",
+      "hard": "難しい",
+      "expert": "専門家",
+      "custom": "カスタム"
+    },
+    "LevelWords": {
+      "easy": "簡単",
+      "medium": "中くらい",
+      "hard": "難しい",
+      "expert": "専門家",
+      "custom": "カスタム"
+    }
+  },
+  "Loading": {
+    "loadingText": "読み込み中"
+  },
+  "Main": {
+    "MainButtons": {
+      "nextButton": "次の単語",
+      "showButton": "詳細を表示",
+      "removeButton": "単語を削除",
+      "addCustom": "カスタムに単語を追加",
+      "removeCustom": "カスタムから単語を削除"
+    },
+    "MainLabels": {
+      "finishText": "ランダム終了",
+      "selectLevelText": "レベルを選択してください",
+      "practiceText": "練習する",
+      "randomText": "ランダム",
+      "definitionText": "意味：",
+      "exampleText": "例：",
+      "synonymsText": "同義語:",
+      "antonymsText": "反意語:"
+    }
+  },
+  "Popups": {
+    "DeletePopup": {
+      "deleteAlert": "アカウントの削除中にエラーが発生しました!",
+      "text1": "弊社のサーバー上のデータは 15 日後に完全に削除されます。",
+      "text2": "その時間までにサインインすることで削除をキャンセルできます。",
+      "backButton": "戻る",
+      "deleteButton": "アカウントを削除"
+    },
+    "SignOutPopup": {
+      "text": "ローカルの進捗データは後で削除できます。",
+      "link": "進行状況設定",
+      "backButton": "戻る",
+      "signOutButton": "サインアウト"
+    },
+    "SignInPopup": {
+      "sendText": "マジックリンクを送信",
+      "sendingText": "送信",
+      "warningText": "有効なメールアドレスを入力してください",
+      "emailLabel": "メール",
+      "placeholderStart": "学習をやめる",
+      "waitingText": "特別なログインリンクが記載されたメールを確認してください",
+      "waitingSmallText": "必ずスパムフォルダを確認してください...",
+      "refreshText": "リンクをクリックした後、このページを更新してください。",
+      "refreshButton": "リフレッシュ"
+    },
+    "ProgressDeletePopup": {
+      "text1": "ローカルの進捗データは削除されます。",
+      "text1-signedIn": "ローカルおよびサーバーの進行状況データは削除されます。",
+      "text2": "このプロセスは元に戻せません。",
+      "backButton": "戻る",
+      "deleteButton": "削除の進行状況"
+    }
+  },
+  "Progress": {
+    "GeneralProgress": {
+      "timeSpentLabel": "学習に費やした合計時間:",
+      "deleteButton": "進捗データを削除する"
+    },
+    "ProgressRadios": {
+      "searchPlaceholder": "検索ワード...",
+      "noProgress": "進捗データが見つかりません。",
+      "noResult": "検索に言葉は不要です。"
+    },
+    "WordProgressDisplay": {
+      "noProgress": "進捗データが見つかりません。"
+    }
+  },
+  "Settings": {
+    "AccountSettings": {
+      "labelText": "アカウント",
+      "signInButton": "サインイン",
+      "signOutButton": "サインアウト",
+      "deleteButton": "アカウントを削除"
+    },
+    "HiddenCustomSettings": {
+      "labelText": "隠し単語とカスタム単語",
+      "CustomSettings": {
+        "labelText": "カスタムワード",
+        "removeCustomLabel": "カスタムから削除",
+        "placeholder": "検索ワード...",
+        "noResultText": "検索に一致する単語が見つかりません",
+        "noCustomWordsText": "カスタムワードなし"
+      },
+      "HiddenSettings": {
+        "labelText": "隠された言葉",
+        "removeHiddenLabel": "非表示から削除",
+        "placeholder": "検索ワード...",
+        "noResultText": "検索に一致する単語が見つかりません",
+        "noHiddenWordsText": "隠し文字なし"
+      }
+    }
+  },
+  "Feedback": {
+    "thankingText": "フィードバックありがとうございます！",
+    "submitButton": "フィードバックを送信",
+    "FeedbackDropdown": {
+      "label": "フィードバックの種類を選択:",
+      "Options": {
+        "select": "-- フィードバックの種類を選択 --",
+        "bug": "バグレポート",
+        "feature": "機能リクエスト",
+        "usability": "ユーザビリティフィードバック",
+        "performance": "パフォーマンスの問題",
+        "general": "一般的なフィードバック",
+        "accessibility": "アクセシビリティフィードバック",
+        "complaint": "苦情",
+        "compliment": "褒め言葉/感謝"
+      }
+    },
+    "FeedbackTextarea": {
+      "label": "フィードバックを記入してください:",
+      "placeholder": "フィードバックを入力してください..."
+    },
+    "FeedbackFileInput": {
+      "label": "スクリーンショットを添付する（オプション）"
+    }
+  },
+  "Sidebar": {
+    "practice": "練習する",
+    "settings": "設定",
+    "progress": "進捗",
+    "guide": "使い方",
+    "feedback": "フィードバック",
+    "about": "について",
+    "signIn": "サインイン",
+    "signOut": "サインアウト"
+  },
+  "Language": {
+    "en": "英語",
+    "ru": "ロシア",
+    "ja": "日本語",
+    "zh": "中国語",
+    "tr": "トルコ語",
+    "de": "ドイツ語",
+    "es": "スペイン語",
+    "fr": "フランス語",
+    "hi": "ヒンディー語",
+    "ko": "韓国語",
+    "pt": "ポルトガル語",
+    "vi": "ベトナム語",
+    "loading": "言語データの読み込み",
+    "WordsLanguageSelect": {
+      "label": "学習言語を選択",
+      "button": "変更を適用"
+    },
+    "OtherLanguagesSelect": {
+      "label": "追加言語を選択",
+      "button": "変更を適用"
+    },
+    "AppLanguageSelect": {
+      "label": "言語"
+    },
+    "LanguageStrip": {
+      "label": "言語"
+    }
+  },
+  "About": {
+    "text1": "somevocabulary.com は、シンプルな語彙学習アプリケーションというビジョンを持って作成されました。",
+    "text2": "まだ開発中なので、バグが発生する可能性があります。",
+    "text3": "将来的にはさらに多くの言語に対応する予定です。",
+    "text4": "このアプリ内のすべては機械翻訳されているため、不正確な部分がある可能性があります。",
+    "text5": "ソースコードは次の場所にあります:",
+    "text6": "このアプリをお試しいただきありがとうございます。",
+    "resource1": "英語の単語の出典:"
+  }
+}
